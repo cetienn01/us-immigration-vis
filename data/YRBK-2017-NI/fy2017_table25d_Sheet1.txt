@@ -1,0 +1,97 @@
+Table 25.	
+NONIMMIGRANT ADMISSIONS BY CLASS OF ADMISSION: FISCAL YEARS 2008 TO 2017	
+
+Class of admission	2008	2009	2010	2011	2012	2013	2014	2015	2016 1	2017	
+Total all admissions 2	175400000	162600000	159700000	158500000	165500000	173100000	180500000	181300000	178700000	181100000	
+Total I-94 admissions 3	39381928	36231554	46471569	53082286	53887286	61052260	74930606	76638236	77112073	77643267	
+Temporary workers and families	1949695	1703697	2816485	3385775	3049419	2996743	3398961	3722543	3937765	3969276	
+Temporary workers and trainees	1101938	936272	1682111	2092028	1900582	1853915	2095175	2306962	2445854	2447014	
+CNMI-only transitional workers (CW1)	X	X	-	-	D	1642	4045	5096	7830	8154	
+Spouses and children of CW1 (CW2)	X	X	-	-	-	404	777	883	1025	903	
+Temporary workers in specialty occupations (H1B)	409619	339243	454757	494565	473015	474355	511773	537450	542621	531280	
+Chile and Singapore Free Trade Agreement aliens (H1B1)	153	213	163	30	D	8	29	93	275	452	
+Registered nurses participating in the Nursing Relief for Disadvantaged Areas (H1C)	170	231	295	124	29	7	D	-	8	97	
+Agricultural workers (H2A) 4	173103	149763	139403	188411	183860	204577	240620	283580	352462	412820	
+Nonagricultural workers (H2B)	104618	56381	69395	79794	82906	104984	105413	120207	120843	124319	
+Returning H2B workers (H2R) 5	5003	162	104	68	15	9	D	12	11	11	
+Trainees (H3)	6156	4168	3078	3279	4081	4117	4306	3514	2802	2637	
+Spouses and children of H1, H2, or H3 (H4)	122423	105429	141571	155936	156668	163786	184045	205521	212783	219716	
+Workers with extraordinary ability or achievement (O1)	41238	45600	49995	51775	53941	66604	83001	93086	102347	111516	
+Workers accompanying and assisting in performance of O1 workers (O2)	12497	12966	13989	15949	16670	20762	24190	26593	28685	30659	
+Spouses and children of O1 and O2 (O3)	6386	6533	6764	6985	6853	8238	9940	11733	13890	15343	
+Internationally recognized athletes or entertainers (P1)	57030	54432	72915	84545	84209	85583	95470	99351	99262	103097	
+Artists or entertainers in reciprocal exchange programs (P2)	4358	4028	11213	13359	12826	12306	13808	14292	13351	14684	
+Artists or entertainers in culturally unique programs (P3)	12767	11441	9669	9301	9290	9512	11191	11729	13178	13439	
+Spouses and children of P1, P2, or P3 (P4)	2229	2359	2836	2944	3155	3565	3390	3754	3799	3917	
+Workers in international cultural exchange programs (Q1)	3231	2555	2430	2331	2494	2685	2976	2988	3086	3406	
+Workers in religious occupations (R1)	25106	17362	21043	19683	15906	14191	13839	14109	14282	14359	
+Spouses and children of R1 (R2)	6421	4481	7966	5682	4738	4337	3781	3526	3758	4461	
+North American Free Trade Agreement (NAFTA) professional workers (TN)	88382	99018	634116	899455	733692	612535	712737	787180	817517	741899	
+Spouses and children of TN (TD)	21048	19907	40409	57812	56223	59708	69840	82265	92039	89845	
+Intracompany transferees	558485	493992	702447	788187	717893	723641	835707	917613	965228	976508	
+Intracompany transferees (L1)	382776	333386	502723	562776	498899	503206	591728	648611	680621	687096	
+Spouses and children of L1 (L2)	175709	160606	199724	225411	218994	220435	243979	269002	284607	289412	
+Treaty traders and investors	243386	229301	383694	454101	386472	373360	422025	449732	478278	496936	
+Treaty traders and their spouses and children (E1)	50377	49111	87988	110169	81337	71652	78100	78511	79720	77657	
+Treaty investors and their spouses and children (E2)	180270	166983	281868	329230	288217	279288	314464	335820	356990	374201	
+Treaty investors and their spouses and children (CNMI only) (E2C)	X	X	-	-	D	5	D	-	D	-	
+Australian Free Trade Agreement principals, spouses and children (E3)	12739	13207	13838	14702	D	22415	D	35401	D	45078	
+Representatives of foreign information media	45886	44132	48233	51459	44472	45827	46054	48236	48405	48818	
+Representatives of foreign information media and spouses and children (I1)	45886	44132	48233	51459	44472	45827	46054	48236	48405	48818	
+Students	917373	951964	1595072	1788962	1653576	1669225	1837664	1990661	1991940	1940171	
+Academic students (F1)	859169	895392	1514777	1702730	1566815	1577509	1737927	1886948	1892644	1845739	
+Spouses and children of F1 (F2)	42039	40956	61036	66449	67563	71167	78215	83004	79436	74461	
+Vocational students (M1)	15496	14632	17641	18824	17600	19106	20534	19878	19006	19129	
+Spouses and children of M1 (M2)	669	984	1618	959	1598	1443	988	831	854	842	
+Exchange visitors	506138	459408	543335	526931	475232	492937	557760	576347	585504	594185	
+Exchange visitors (J1)	459126	413150	484740	469993	421425	433534	486827	502372	513905	523864	
+Spouses and children of J1 (J2)	47012	46258	58595	56938	53807	59403	70933	73975	71599	70321	
+Diplomats and other representatives	314920	323183	380241	377830	365779	373330	421144	438477	442418	450457	
+Ambassadors, public ministers, career diplomatic or consular officers and their families (A1)	30882	31038	38948	37692	33700	34548	39239	40410	41932	42459	
+Other foreign government officials or employees and their families (A2)	136699	142315	173293	175651	172096	164896	179956	183104	181761	180796	
+Attendants, servants, or personal employees of A1 and A2 and their families (A3)	1686	1766	1870	1843	1553	1381	1642	1449	1307	1406	
+Principals of recognized foreign governments (G1)	15348	14876	16452	15649	15669	15254	15274	15947	16575	16824	
+Other representatives of recognized foreign governments (G2)	18367	17529	17711	20395	17118	16011	19346	21481	20215	21578	
+Representatives of nonrecognized or nonmember foreign governments (G3)	844	912	904	967	886	864	804	943	1017	1048	
+International organization officers or employees (G4)	89711	92878	105040	100858	100760	108478	116363	121890	125565	130056	
+Attendants, servants, or personal employees of representatives (G5)	1399	1389	1385	1509	1190	1137	1116	1093	1060	1006	
+North Atlantic Treaty Organization (NATO) officials, spouses, and children (N1 to N7)	19984	20480	24638	23266	22807	30761	47404	52160	52986	55284	
+Temporary visitors for pleasure	29442168	27800027	35135270	40591607	42041426	48346018	59784922	61017237	61029117	61600219	
+Temporary visitors for pleasure (B2)	13371671	12680504	19144019	23806138	24476086	29915467	40457847	41671997	41045833	41117760	
+Visa Waiver Program – temporary visitors for pleasure (WT)	15099059	14272553	14825553	15718710	16380307	17168958	18161646	18138442	18698451	19161211	
+Guam Visa Waiver Program – temporary visitors for pleasure to Guam (GT)	971438	846970	120544	X	X	X	X	X	X	X	
+Guam - Commonwealth of Northern Mariana Islands (CNMI) Visa Waiver Program - temporary visitors for pleasure to Guam or Northern Mariana Islands (GMT)	X	X	1045154	1066759	1185033	1261593	1165429	1206798	1284833	1321248	
+Temporary visitors for business	5603668	4390888	5206234	5696503	5707218	6299533	7734191	8008659	8290712	8456038	
+Temporary visitors for business (B1)	3052581	2408092	2944372	3055932	2972355	3498688	4755509	4933958	5156708	5301451	
+Visa Waiver Program – temporary visitors for business (WB)	2546322	1977361	2256890	2637166	2731887	2798130	2976445	3070226	3129890	3152656	
+Guam Visa Waiver Program – temporary visitors for business to Guam (GB)	4765	5435	904	X	X	X	X	X	X	X	
+Guam - Commonwealth of Northern Mariana Islands (CNMI) Visa Waiver Program - temporary visitors for business to Guam or Northern Mariana Islands (GMB)	X	X	4068	3405	2976	2715	2237	4475	4114	1931	
+Transit aliens	387237	346695	327572	322499	313514	628711	1004916	689990	635087	498272	
+Aliens in continuous and immediate transit through the United States (C1)	365958	326704	304012	296636	289105	608396	987546	672420	618997	483076	
+Aliens in transit to the United Nations (C2)	2646	2613	2986	4397	4158	2269	638	524	483	357	
+Foreign government officials, their spouses, children, and attendants in transit (C3)	18633	17378	20574	21466	20251	18046	16732	17046	15607	14839	
+Commuter students	1102	6488	53711	108894	115561	105263	109833	100495	67527	35297	
+Canadian or Mexican national academic commuter students (F3)	1102	6488	53711	D	115561	105263	109833	100495	67527	35297	
+Canadian or Mexican national vocational commuter students (M3)	-	-	-	D	-	-	-	-	-	-	
+Alien fiancé(e)s of U.S. citizens and children	34863	32009	34891	27700	32102	29773	41778	35266	44390	40878	
+Fiancé(e)s of U.S. citizens (K1)	29916	27754	30444	24112	27977	26046	36680	30942	38672	35546	
+Children of K1 (K2)	4947	4255	4447	3588	4125	3727	5098	4324	5718	5332	
+Legal Immigration Family Equity (LIFE) Act	24172	20960	38810	30099	8227	3014	2275	1627	1212	704	
+Spouses of U.S. citizens, visa pending (K3)	12849	12937	25615	17874	4534	1262	1004	644	437	98	
+Children of U.S. citizens, visa pending (K4)	2845	2578	4557	3103	618	417	336	99	94	52	
+Spouses of permanent residents, visa pending (V1)	3609	2482	3620	3659	1928	867	647	563	237	200	
+Children of permanent residents, visa pending (V2)	2270	1424	2206	2546	449	271	252	307	431	348	
+Dependents of V1 or V2, visa pending (V3)	2599	1539	2812	2917	698	197	36	14	13	6	
+Other	103	74	92	93	91	87	72	74	90	63	
+Unknown	200489	196161	339856	225393	125141	107626	37090	56860	86311	57707	
+X Not applicable.	
+D Data withheld to limit disclosure.	
+- Represents zero.	
+1 Beginning in 2017, the preceding year’s figures (i.e. 2016) will be updated to correct any undercounting due to lag in reporting within the data system between the publication of last year’s data and the current year.	
+2 Estimated admission totals rounded to the nearest hundred thousand. Excludes sea and air crew admissions (D1 and D2 visas).	
+3 Beginning in 2010, the number of I-94 admissions greatly exceeds totals reported in previous years due to a more complete count of land admissions. 	
+4 Beginning in 2006, annual increases in H2A admissions may be due to more complete recording of pedestrian admissions along the Southwest border.	
+5 Issuances of H2R (returning H2B workers not subject to annual numerical limits) ceased at the end of 2007.	
+Notes: Admissions represent counts of events (i.e., arrivals) not unique individuals. Multiple entries of an individual on the same day are counted as one admission.	
+The majority of short-term admissions from Canada and Mexico are excluded.	
+Source: U.S. Department of Homeland Security.	

@@ -1,0 +1,50 @@
+Table 24.	
+PERSONS NATURALIZED BY SEX, AGE, MARITAL STATUS, AND OCCUPATION: FISCAL YEAR 2017	
+
+Sex	
+Characteristic	Total	Female	Male	Unknown	
+AGE	
+Total	707265	396234	310987	44	
+18 to 19 years	7743	3820	3923	-	
+20 to 24 years	47540	25007	22533	-	
+25 to 29 years	74855	42810	32042	3	
+30 to 34 years	87276	51297	35978	1	
+35 to 39 years	96208	54960	41245	3	
+40 to 44 years	92868	49542	43322	4	
+45 to 49 years	74202	40193	34006	3	
+50 to 54 years	63486	35166	28312	8	
+55 to 59 years	53265	30593	22666	6	
+60 to 64 years	41172	23247	17919	6	
+65 to 74 years	50688	28882	21799	7	
+75 years and over	17961	10716	7242	3	
+Unknown	1	1	-	-	
+BROAD AGE GROUPS	
+Total	707265	396234	310987	44	
+18 to 20 years	15930	7864	8066	-	
+21 years and over	691334	388369	302921	44	
+Unknown	1	1	-	-	
+MARITAL STATUS	
+Total	707265	396234	310987	44	
+Married	457506	254614	202887	5	
+Single	149666	75047	74618	1	
+Widowed	22027	18709	3317	1	
+Divorced/separated	72971	45179	27791	1	
+Unknown	5095	2685	2374	36	
+OCCUPATION	
+Total	707265	396234	310987	44	
+Management, professional, and related occupations	154715	81082	73632	1	
+Service occupations	79306	50543	28762	1	
+Sales and office occupations	51743	34501	17242	-	
+Farming, fishing, and forestry occupations	3107	1170	1937	-	
+Construction, extraction, maintenance and repair occupations	18125	2521	15604	-	
+Production, transportation, and material moving occupations	61433	18537	42896	-	
+Military	3351	714	2637	-	
+No occupation/not working outside home	122922	87375	35547	-	
+Homemakers	29592	28594	998	-	
+Students or children	17150	9729	7421	-	
+Retirees	17059	8722	8337	-	
+Unemployed	59121	40330	18791	-	
+Unknown	212563	119791	92730	42	
+- Represents zero.	
+Note: Based on N-400 data for persons aged 18 and over.	
+Source: U.S. Department of Homeland Security.	

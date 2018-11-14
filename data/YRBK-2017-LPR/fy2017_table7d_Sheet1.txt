@@ -1,0 +1,299 @@
+Table 7.	
+PERSONS OBTAINING LAWFUL PERMANENT RESIDENT STATUS BY TYPE AND DETAILED CLASS OF ADMISSION: FISCAL YEAR 2017	
+
+Type and class of admission	Total	Adjustments of status	New arrivals	
+Total, all immigrants	1127167	549086	578081	
+Immediate relatives of U.S. citizens	516508	252231	264277	
+Spouses, new arrivals (IR1)	74429	           -	74429	
+Spouses, adjustments (IR6)	42816	42816	           -	
+Spouses, new arrivals, conditional (CR1)	40425	           -	40425	
+Spouses, adjustments, conditional (CR6)	104715	104715	           -	
+Spouses, new arrivals, self petitioning (IB1)	194	           -	194	
+Spouses, adjustments, self petitioning (IB6)	3247	3247	           -	
+Spouses, widows or widowers, new arrivals (IW1)	388	           -	388	
+Spouses, widows or widowers, adjustments (IW6)	384	384	           -	
+Spouses, entered as fiance(e), adjustments, conditional (CF1)	25535	25535	           -	
+Spouses, entered as fiance(e), adjustments (IF1)	776	776	           -	
+Children, new arrivals (IR2)	46462	           -	46462	
+Children, adjustments (IR7)	7231	7231	           -	
+Children, new arrivals, conditional (CR2)	6632	           -	6632	
+Children, adjustments, conditional (CR7)	5336	5336	           -	
+Children, Amerasian, adjustments (AR6)	D	D	           -	
+Children, new arrivals, self petitioning (IB2)	67	           -	67	
+Children, adjustments, self petitioning (IB7)	221	221	           -	
+Children of IB1 or IB6, new arrivals (IB3)	262	           -	262	
+Children of IB1 or IB6, adjustments (IB8)	234	234	           -	
+Children of IW1 or IW6, new arrivals (IW2)	132	           -	132	
+Children of IW1 or IW6, adjustments (IW7)	29	29	           -	
+Children of CF1, adjustments, conditional (CF2)	3370	3370	           -	
+Children of IF1, adjustments (IF2)	309	309	           -	
+Children adopted abroad under the Hague Convention, new arrivals (IH3)	2897	           -	2897	
+Children adopted abroad under the Hague Convention, adjustments (IH8)	3	3	           -	
+Children to be adopted under the Hague Convention, new arrivals (IH4)	170	           -	170	
+Children to be adopted under the Hague Convention, adjustments (IH9)	3	3	           -	
+Orphans adopted abroad, new arrivals (IR3)	1340	           -	1340	
+Orphans adopted abroad, adjustments (IR8)	8	8	           -	
+Orphans to be adopted, new arrivals (IR4)	278	           -	278	
+Orphans to be adopted, adjustments (IR9)	D	D	           -	
+Parents of adult U.S. citizens, new arrivals (IR5)	90597	           -	90597	
+Parents of adult U.S. citizens, adjustments (IR0)	57966	57966	           -	
+Parents battered or abused, of U.S. citizens, new arrivals, self petitioning (IB5)	4	           -	4	
+Parents battered or abused, of U.S. citizens, adjustments, self petitioning (IB0)	43	43	           -	
+Family-sponsored preferences	232238	13478	218760	
+First: Unmarried sons/daughters of U.S. citizens and their children	26219	1929	24290	
+Unmarried Amerasian sons/daughters of U.S. citizens, new arrivals (A11)	D	           -	D	
+Unmarried sons/daughters of U.S. citizens, new arrivals (F11)	14459	           -	14459	
+Unmarried sons/daughters of U.S. citizens, adjustments (F16)	1819	1819	           -	
+Unmarried sons/daughters of U.S. citizens, new arrivals, self petitioning (B11)	5	           -	5	
+Unmarried sons/daughters of U.S. citizens, adjustments, self petitioning (B16)	3	3	           -	
+Children of A11 or A16, new arrivals (A12)	D	           -	D	
+Children of F11 or F16, new arrivals (F12)	9824	           -	9824	
+Children of F11 or F16, adjustments (F17)	107	107	           -	
+Second: Spouses, children, and unmarried sons/daughters of alien residents	113500	5846	107654	
+Spouses of alien residents, subject to country limits, new arrivals (F21)	10220	           -	10220	
+Spouses of alien residents, subject to country limits, adjustments (F26)	1484	1484	           -	
+Spouses of alien residents, subject to country limits, new arrivals, self petitioning (B21)	29	           -	29	
+Spouses of alien residents, subject to country limits, adjustments, self petitioning (B26)	304	304	           -	
+Spouses of alien residents, subject to country limits, new arrivals, conditional (C21)	16	           -	16	
+Spouses of alien residents, subject to country limits, adjustments, conditional (C26)	17	17	           -	
+Spouses of alien residents, exempt from country limits, new arrivals (FX1)	25801	           -	25801	
+Spouses of alien residents, exempt from country limits, adjustments (FX6)	615	615	           -	
+Spouses of alien residents, exempt from country limits, new arrivals, self petitioning (BX1)	4	           -	4	
+Spouses of alien residents, exempt from country limits, adjustments, self petitioning (BX6)	142	142	           -	
+Spouses of alien residents, exempt from country limits, new arrivals, conditional (CX1)	22	           -	22	
+Spouses of alien residents, exempt from country limits, adjustments, conditional (CX6)	10	10	           -	
+Children of alien residents, subject to country limits, new arrivals (F22)	6581	           -	6581	
+Children of alien residents, subject to country limits, adjustments (F27)	578	578	           -	
+Children of alien residents, subject to country limits, new arrivals, self petitioning (B22)	19	           -	19	
+Children of alien residents, subject to country limits, adjustments, self petitioning (B27)	45	45	           -	
+Children of C21, C22, C26, or C27, subject to country limits, new arrivals, conditional (C23)	D	           -	D	
+Children of B21, B22, B26, or B27, subject to country limits, new arrivals (B23)	8	           -	8	
+Children of B21, B22, B26, or B27, subject to country limits, adjustments (B28)	32	32	           -	
+Children of F21, F22, F26, or F27, subject to country limits, new arrivals (F23)	3906	           -	3906	
+Children of F21, F22, F26, or F27, subject to country limits, adjustments (F28)	18	18	           -	
+Children of C24 or C29, subject to country limits, adjustments, conditional (C20)	D	D	           -	
+Children of B24 or B29, subject to country limits, adjustments (B20)	14	14	           -	
+Children of F24 or F29, subject to country limits, new arrivals (F25)	10858	           -	10858	
+Children of F24 or F29, subject to country limits, adjustments (F20)	115	115	           -	
+Children of alien residents, subject to country limits, adjustments, conditional (C27)	D	D	           -	
+Children of alien residents, exempt from country limits, new arrivals (FX2)	26470	           -	26470	
+Children of alien residents, exempt from country limits, adjustments (FX7)	225	225	           -	
+Children of alien residents, exempt from country limits, adjustments, self petitioning (BX7)	14	14	           -	
+Children of CX2 or CX7, exempt from country limits, new arrivals, conditional (CX3)	D	           -	D	
+Children of BX1, BX2, BX6, or BX7, exempt from country limits, adjustments (BX8)	18	18	           -	
+Children of FX1, FX2, FX7, or FX8, exempt from country limits, new arrivals (FX3)	9930	           -	9930	
+Children of FX1, FX2, FX7, or FX8, exempt from country limits, adjustments (FX8)	20	20	           -	
+Children of alien residents, exempt from country limits, new arrivals, conditional (CX2)	8	           -	8	
+Unmarried sons/daughters of alien residents, subject to country limits, new arrivals (F24)	13778	           -	13778	
+Unmarried sons/daughters of alien residents, subject to country limits, adjustments (F29)	2181	2181	           -	
+Unmarried sons/daughters of alien residents, subject to country limits, adjustments, self petitioning (B29)	9	9	           -	
+Unmarried children of alien residents, subject to country limits, adjustments, conditional (C29)	D	D	           -	
+Third: Married sons/daughters of U.S. citizens and their spouses and children	23260	2093	21167	
+Married sons/daughters of U.S. citizens, new arrivals (F31)	6086	           -	6086	
+Married Amerasian sons/daughters of U.S. citizens, adjustments (A36)	D	D	           -	
+Married sons/daughters of U.S. citizens, adjustments (F36)	1018	1018	           -	
+Married sons/daughters of U.S. citizens, adjustments, conditional (C36)	D	D	           -	
+Spouses of married sons/daughters of U.S. citizens, new arrivals (F32)	5493	           -	5493	
+Spouses of married sons/daughters of U.S. citizens, adjustments (F37)	777	777	           -	
+Children of married sons/daughters of U.S. citizens, new arrivals (F33)	9588	           -	9588	
+Children of married sons/daughters of U.S. citizens, adjustments (F38)	295	295	           -	
+Children of C31 or C36, subject to country limits, adjustments, conditional (C38)	D	D	           -	
+Fourth: Brothers/sisters of U.S. citizens (at least 21 years of age) and their spouses and children	69259	3610	65649	
+Brothers/sisters of U.S. citizens, new arrivals (F41)	22611	           -	22611	
+Brothers/sisters of U.S. citizens, adjustments (F46)	2242	2242	           -	
+Spouses of brothers/sisters of U.S. citizens, new arrivals (F42)	15648	           -	15648	
+Spouses of brothers/sisters of U.S. citizens, adjustments (F47)	1018	1018	           -	
+Children of brothers/sisters of U.S. citizens, new arrivals (F43)	27390	           -	27390	
+Children of brothers/sisters of U.S. citizens, adjustments (F48)	350	350	           -	
+Employment-based preferences	137855	113330	24525	
+First: Priority workers	41060	38496	2564	
+Aliens with extraordinary ability, new arrivals (E11)	903	           -	903	
+Aliens with extraordinary ability, adjustments (E16)	4915	4915	           -	
+Outstanding professors or researchers, new arrivals (E12)	14	           -	14	
+Outstanding professors or researchers, adjustments (E17)	2557	2557	           -	
+Multinational executives or managers, new arrivals (E13)	60	           -	60	
+Multinational executives or managers, adjustments (E18)	8494	8494	           -	
+Spouses of E11, E12, E13, E16, E17, or E18, new arrivals (E14)	706	           -	706	
+Spouses of E11, E12, E13, E16, E17, or E18, adjustments (E19)	12258	12258	           -	
+Children of E11, E12, E13, E16, E17, or E18, new arrivals (E15)	881	           -	881	
+Children of E11, E12, E13, E16, E17, or E18, adjustments (E10)	10272	10272	           -	
+Second: Professionals with advanced degrees or aliens of exceptional ability	39331	36217	3114	
+Professionals holding advanced degrees, new arrivals (E21)	1093	           -	1093	
+Professionals holding advanced degrees, adjustments (E26)	18339	18339	           -	
+Spouses of E21 or E26, new arrivals (E22)	893	           -	893	
+Spouses of E21 or E26, adjustments (E27)	11797	11797	           -	
+Children of E21 or E26, new arrivals (E23)	1128	           -	1128	
+Children of E21 or E26, adjustments (E28)	6081	6081	           -	
+Third: Skilled workers, professionals, and needed unskilled workers	38083	29377	8706	
+Skilled workers, new arrivals (E31)	1811	           -	1811	
+Skilled workers, adjustments (E36)	4229	4229	           -	
+Professionals with baccalaureate degrees, new arrivals (E32)	926	           -	926	
+Professionals with baccalaureate degrees, adjustments (E37)	9780	9780	           -	
+Needed unskilled workers, new arrivals (EW3)	367	           -	367	
+Needed unskilled workers, adjustments (EW8)	1002	1002	           -	
+Chinese Student Protection Act (CSPA) principals, adjustments (EC6)	D	D	           -	
+Spouses of E31, E32, E36, or E37, new arrivals (E34)	1933	           -	1933	
+Spouses of E31, E32, E36, or E37, adjustments (E39)	8648	8648	           -	
+Spouses of EW3 or EW8, new arrivals (EW4)	278	           -	278	
+Spouses of EW3 or EW8, adjustments (EW9)	448	448	           -	
+Children of EX1 or EX6, adjustments (EX8)	D	D	           -	
+Children of E31, E32, E36, or E37, new arrivals (E35)	2908	           -	2908	
+Children of E31, E32, E36, or E37, adjustments (E30)	4821	4821	           -	
+Children of EW3 or EW8, new arrivals (EW5)	483	           -	483	
+Children of EW3 or EW8, adjustments (EW0)	446	446	           -	
+Fourth: Certain special immigrants	9504	7610	1894	
+Broadcast (IBCB of BBG) employees, new arrivals (BC1)	4	           -	4	
+Broadcast (IBCG of BBG) employees, adjustments (BC6)	44	44	           -	
+Ministers, new arrivals (SD1)	49	           -	49	
+Ministers, adjustments (SD6)	805	805	           -	
+Employees of U.S. government abroad, new arrivals (SE1)	449	           -	449	
+Employees of U.S. government abroad, adjustments (SE6)	18	18	           -	
+Former employees of the Panama Canal Company or Canal Zone Government, new arrivals (SF1)	D	           -	D	
+Foreign medical school graduate who was licensed to practice in the United States on Jan. 9, 1978, adjustments (SJ6)	D	D	           -	
+Retired employees of international organizations, new arrivals (SK1)	5	           -	5	
+Retired employees of international organizations, adjustments (SK6)	157	157	           -	
+Certain surviving spouses of deceased international organization employees, adjustments (SK9)	D	D	           -	
+Juvenile court dependents, new arrivals (SL1)	45	           -	45	
+Juvenile court dependents, adjustments (SL6)	4681	4681	           -	
+Retired NATO-6 civilian employees, adjustments (SN6)	D	D	           -	
+Religious workers, new arrivals (SR1)	21	           -	21	
+Religious workers, adjustments (SR6)	557	557	           -	
+Spouses of BC1 or BC6, new arrivals (BC2)	3	           -	3	
+Spouses of BC1 or BC6, adjustments (BC7)	16	16	           -	
+Spouses of SD1 or SD6, new arrivals (SD2)	51	           -	51	
+Spouses of SD1 or SD6, adjustments (SD7)	327	327	           -	
+Spouses of SE1 or SE6, new arrivals (SE2)	362	           -	362	
+Spouses of SE1 or SE6, adjustments (SE7)	11	11	           -	
+Spouses of SK1 or SK6, new arrivals (SK2)	3	           -	3	
+Spouses of SK1 or SK6, adjustments (SK7)	48	48	           -	
+Spouses of SR1 or SR6, new arrivals (SR2)	21	           -	21	
+Spouses of SR1 or SR6, adjustments (SR7)	124	124	           -	
+Children of BC1 or BC6, new arrivals (BC3)	4	           -	4	
+Children of BC1 or BC6, adjustments (BC8)	24	24	           -	
+Children of SD1 or SD6, new arrivals (SD3)	109	           -	109	
+Children of SD1 or SD6, adjustments (SD8)	396	396	           -	
+Children of SE1 or SE6, new arrivals (SE3)	735	           -	735	
+Children of SE1 or SE6, adjustments (SE8)	13	13	           -	
+Certain unmarried children of SK1 or SK6, new arrivals (SK3)	D	           -	D	
+Certain unmarried children of SK1 or SK6, adjustments (SK8)	239	239	           -	
+Children of SR1 or SR6, new arrivals (SR3)	30	           -	30	
+Children of SR1 or SR6, adjustments (SR8)	143	143	           -	
+Certain unmarried sons/daughters of SN1 or SN6, adjustments (SN8)	3	3	           -	
+Fifth: Employment creation (investors)	9877	1630	8247	
+Employment creation, not in targeted area, new arrivals, conditional (C51)	50	           -	50	
+Employment creation, not in targeted area, adjustments, conditional (C56)	43	43	           -	
+Employment creation, targeted area, pilot program, new arrivals, conditional (I51)	2628	           -	2628	
+Employment creation, targeted area, pilot program, adjustments, conditional (I56)	619	619	           -	
+Employment creation, targeted area, new arrivals, conditional (T51)	108	           -	108	
+Employment creation, targeted area, adjustments, conditional (T56)	57	57	           -	
+Investor pilot program, not targeted, new arrivals, conditional (R51)	3	           -	3	
+Spouses of C51 or C56, new arrivals, conditional (C52)	40	           -	40	
+Spouses of C51 or C56, adjustments, conditional (C57)	34	34	           -	
+Spouses of E51 or E56, new arrivals (E52)	D	           -	D	
+Spouses of I51 or I56, new arrivals, conditional (I52)	1799	           -	1799	
+Spouses of I51 or I56, adjustments, conditional (I57)	286	286	           -	
+Spouses of T51 or T56, new arrivals, conditional (T52)	77	           -	77	
+Spouses of T51 or T56, adjustments, conditional (T57)	42	42	           -	
+Spouses of R51 or R56, new arrivals, conditional (R52)	D	           -	D	
+Children of C51 or C56, new arrivals, conditional (C53)	64	           -	64	
+Children of C51 or C56, adjustments, conditional (C58)	52	52	           -	
+Children of I51 or I56, new arrivals, conditional (I53)	3331	           -	3331	
+Children of I51 or I56, adjustments, conditional (I58)	461	461	           -	
+Children of T51 or T56, new arrivals, conditional (T53)	138	           -	138	
+Children of T51 or T56, adjustments, conditional (T58)	36	36	           -	
+Children of R51 or R56, new arrivals, conditional (R53)	6	           -	6	
+Diversity	51592	918	50674	
+Principals, new arrivals (DV1)	26145	           -	26145	
+Principals, adjustments (DV6)	539	539	           -	
+Spouses of DV1 or DV6, new arrivals (DV2)	11514	           -	11514	
+Spouses of DV1 or DV6, adjustments (DV7)	219	219	           -	
+Children of DV1 or DV6, new arrivals (DV3)	13015	           -	13015	
+Children of DV1 or DV6, adjustments (DV8)	160	160	           -	
+Refugees and asylees	146003	146003	           -	
+Refugees	120356	120356	           -	
+Cuban refugees (P.L. 89-732 of 1966) (CU6)	53998	53998	           -	
+Non-Cuban spouses or children of Cuban refugees (CU7)	3156	3156	           -	
+Refugee parolees (P.L. 95-412 of 1978) (R86)	D	D	           -	
+Other refugees (P.L. 96-212 Refugee Act of 1980) (RE6)	24546	24546	           -	
+Spouses of RE6 (RE7)	10308	10308	           -	
+Children of RE6 (RE8)	28344	28344	           -	
+Other relatives (RE9)	D	D	           -	
+Asylees	25647	25647	           -	
+Asylees (AS6)	13879	13879	           -	
+Spouses of AS6 (AS7)	4830	4830	           -	
+Children of AS6 (AS8)	6938	6938	           -	
+Parolees	26	26	           -	
+Parolees, Soviet/Indochinese (LA6)	13	13	           -	
+Parolees, Indochinese (ID6)	13	13	           -	
+Children born abroad to alien residents (NA3)	75	           -	75	
+Certain Iraqis and Afghans employed by U.S. Government	19191	46	19145	
+Principal, new arrivals (SQ1)	5106	           -	5106	
+Principal, adjustments (SQ6)	15	15	           -	
+Spouses of SQ1 or SQ6, new arrivals (SQ2)	4221	           -	4221	
+Spouses of SQ1 or SQ6, adjustments (SQ7)	11	11	           -	
+Children of SQ1 or SQ6, new arrivals (SQ3)	9818	           -	9818	
+Children of SQ1 or SQ6, adjustments (SQ8)	20	20	           -	
+Cancellation of removal	3539	3539	           -	
+Sec. 244, P.L. 89-236, subject to 4,000 annual limit (Z13)	2798	2798	           -	
+Battered spouses or children (Violence Against Women Act), P.L. 103-322 of 1994, subject to 4,000 annual limit (Z14)	51	51	           -	
+Salvadoran, Guatemalan and former Soviet bloc country nationals (NACARA Section 203, P.L. 105-100 of 1997) (Z15)	690	690	           -	
+Victims of human trafficking	1317	1317	           -	
+Adjustment of T1 nonimmigrant (ST6)	603	603	           -	
+Adjustment of T2 nonimmigrant (ST7)	210	210	           -	
+Adjustment of T3 nonimmigrant (ST8)	464	464	           -	
+Adjustment of T4 nonimmigrant (ST0)	21	21	           -	
+Adjustment of T5 nonimmigrant (ST9)	14	14	           -	
+Adjustment of T6 nonimmigrant (ST1)	5	5	           -	
+Victims of crimes, and their spouses and children	18065	17993	72	
+Adjustment of U1 nonimmigrant (SU6)	10608	10608	           -	
+Spouses of SU6, new arrivals (SU2)	D	           -	D	
+Children of SU6, new arrivals (SU3)	70	           -	70	
+Parents of SU6, new arrivals (SU5)	D	           -	D	
+Adjustment of U2 nonimmigrant (SU7)	2218	2218	           -	
+Adjustment of U3 nonimmigrant (SU8)	3558	3558	           -	
+Adjustment of U4 nonimmigrant (SU0)	1204	1204	           -	
+Adjustment of U5 nonimmigrant (SU9)	405	405	           -	
+IRCA legalization	25	25	           -	
+Entered without inspection before 1/1/82 (W16)	20	20	           -	
+Entered as nonimmigrant and overstayed visa before 1/1/82 (W26)	5	5	           -	
+IRCA legalization dependents	16	11	5	
+Spouses of legalized aliens, adjustments, conditional (CB6)	10	10	           -	
+Children of LB1 or LB6, new arrivals (LB2)	3	           -	3	
+Children of CB1 or CB6, new arrivals, conditional (CB2)	D	           -	D	
+Children of CB1 or CB6, adjustments, conditional (CB7)	D	D	           -	
+Other	717	169	548	
+Children of AA1 or AA6, adjustments (AA8)	D	D	           -	
+Amerasians, born in Vietnam between 1/1/62-1/1/76, new arrivals (AM1)	7	           -	7	
+Spouses or children of AM1 or AM6, new arrivals (AM2)	17	           -	17	
+Mothers, guardians, or next of kin of AM1 or AM6, new arrivals (AM3)	D	           -	D	
+Individuals born under diplomatic status, adjustments, (DS1)	33	33	           -	
+Haitian asylum applicants (HRIFA)(HA6)	4	4	           -	
+Haitian parolees (HRIFA)(HB6)	D	D	           -	
+Haitian children orphaned in the United States (HRIFA)(HD6)	D	D	           -	
+Spouses of HA6 (HA7)	D	D	           -	
+Spouses of HB6 (HB7)	D	D	           -	
+Children of HA6 (HA8)	D	D	           -	
+Children of HB6 (HB8)	D	D	           -	
+Unmarried sons/daughters of HB6 (HB9)	D	D	           -	
+Cuban Haitian entrants, adjustments (P.L. 99-603) (CH6)	8	8	           -	
+American Indians born in Canada, new arrivals (S13)	211	           -	211	
+Spouses of DT1 or DT6, adjustments (DT7)	D	D	           -	
+Children of DT1 or DT6, adjustments (DT8)	D	D	           -	
+Principals Nicaraguan and Central American Relief Act (NACARA)(NC6)	26	26	           -	
+Spouses of NC6 (NC7)	4	4	           -	
+Children of NC6 (NC8)	4	4	           -	
+Unmarried sons/daughters of NC6 (NC9)	D	D	           -	
+Special immigrant interpreters who are nationals of Iraq or Afghanistan, new arrivals (SI1)	71	           -	71	
+Special immigrant interpreters who are nationals of Iraq or Afghanistan, adjustments (SI6)	3	3	           -	
+Spouses of SI1 or SI6, new arrivals (SI2)	63	           -	63	
+Children of SI1 or SI6, new arrivals (SI3)	159	           -	159	
+Late amnesty applicants (Immigration Reform and Control Act) (W46)	D	D	           -	
+Presumed lawfully admitted for permanent residence (XB3)	D	D	           -	
+Children born subsequent to issuance of parent's employment-based preference visa, new arrivals (XE3)	D	           -	D	
+Children born subsequent to issuance of parent's family-sponsored preference visa, new arrivals (XF3)	4	           -	4	
+Children born subsequent to issuance of parent's immediate relative of U.S. citizen visa, new arrivals (XR3)	6	           -	6	
+Children born subsequent to issuance of parent's visa other, new arrivals (XN3)	6	           -	6	
+Entered 6/29/40-1/1/72, Section 249, P.L. 89-236, adjustments (Z66)	73	73	           -	
+D Data withheld to limit disclosure.	
+- Represents zero.	
+Source: U.S. Department of Homeland Security.	

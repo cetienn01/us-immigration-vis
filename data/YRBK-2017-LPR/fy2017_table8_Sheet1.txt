@@ -1,0 +1,52 @@
+Table 8.	
+PERSONS OBTAINING LAWFUL PERMANENT RESIDENT STATUS BY SEX, AGE, MARITAL STATUS, AND OCCUPATION: FISCAL YEAR 2017	
+
+Sex	
+Characteristic	Total	Female	Male	Unknown	
+AGE	
+Total	1127167	605911	521242	14	
+Under 1 year	3432	1643	1789	-	
+1 to 4 years	37855	18485	19368	2	
+5 to 9 years	60278	29590	30688	-	
+10 to 14 years	63974	31196	32776	2	
+15 to 19 years	82879	40487	42389	3	
+20 to 24 years	97441	55118	42321	2	
+25 to 29 years	134393	74474	59918	1	
+30 to 34 years	144428	73431	70997	-	
+35 to 39 years	115861	59457	56404	-	
+40 to 44 years	93482	50696	42786	-	
+45 to 49 years	78802	44612	34189	1	
+50 to 54 years	63326	36965	26361	-	
+55 to 59 years	49444	29728	19714	2	
+60 to 64 years	40012	23834	16177	1	
+65 to 74 years	45226	26376	18850	-	
+75 years and over	16334	9819	6515	-	
+BROAD AGE GROUPS	
+Total	1127167	605911	521242	14	
+Under 16 years	179919	87950	91965	4	
+16 to 20 years	88944	44246	44693	5	
+21 years and over	858304	473715	384584	5	
+MARITAL STATUS	
+Total	1127167	605911	521242	14	
+Married	656878	363340	293534	4	
+Single	405916	194442	211469	5	
+Widowed	27429	24200	3229	-	
+Divorced/separated	30758	20971	9786	1	
+Unknown	6186	2958	3224	4	
+OCCUPATION	
+Total	1127167	605911	521242	14	
+Management, professional, and related occupations	114218	44892	69325	1	
+Service occupations	28021	13248	14773	-	
+Sales and office occupations	41284	20269	21015	-	
+Farming, fishing, and forestry occupations	12594	2612	9982	-	
+Construction, extraction, maintenance, and repair occupations	12867	562	12305	-	
+Production, transportation, and material moving occupations	42745	7989	34756	-	
+Military	44	18	26	-	
+No occupation/not working outside home	525564	334343	191209	12	
+Homemakers	143149	135232	7913	4	
+Students or children	266526	131304	135214	8	
+Retirees	9735	5555	4180	-	
+Unemployed	106154	62252	43902	-	
+Unknown	349830	181978	167851	1	
+- Represents zero.	
+Source: U.S. Department of Homeland Security.	

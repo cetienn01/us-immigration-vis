@@ -1,0 +1,26 @@
+Table 31.	
+NONIMMIGRANT ADMISSIONS (I-94 ONLY) BY SELECTED CATEGORY OF ADMISSION AND MONTH OF ARRIVAL: FISCAL YEAR 2017	
+
+Month of arrival	Total	Tourists and business travelers	Students and exchange visitors3	Temporary workers and families4	Diplomats and other representatives5	All other classes	Unknown	
+Visa waiver1	Other2	
+Total	77643267	23637046	46419211	2534356	3969276	450457	575214	57707	
+October 2016	6257629	2222440	3549714	105513	283520	40088	53392	2962	
+November 2016	5627927	1734750	3378151	111334	315785	32944	51306	3657	
+December 2016	7093652	1940796	4586132	143589	336489	29779	51946	4921	
+January 2017	6029169	1498040	3501520	498490	429084	37100	59552	5383	
+February 2017	5280126	1575825	3200697	103245	316924	28730	50320	4385	
+March 2017	6001880	1747891	3640190	162003	355539	36484	54783	4990	
+April 2017	6772619	2103454	4132792	110433	330633	40375	49899	5033	
+May 2017	6360083	1913783	3905183	151544	302443	37753	44453	4924	
+June 2017	6424413	1964464	3888899	198418	292303	38461	37241	4627	
+July 2017	7634566	2363046	4646398	187669	349020	41626	41789	5018	
+August 2017	7667567	2441156	4232089	553983	352080	41571	41143	5545	
+September 2017	6493636	2131401	3757446	208135	305456	45546	39390	6262	
+1 Includes GB, GMB, GT, GMT, WB, and WT admissions.	
+2 Includes B1, B2, and a limited number of Border Crossing Card (BCC) admissions.	
+3 Includes principals, spouses, and children (F1, F2, J1, J2, M1, and M2 admissions).	
+4 Includes principals, spouses, and children (CW1, CW2, E1 to E3, H1B, H1B1, H1C, H2A, H2B, H2R, H3, H4, I1, L1, L2, O1 to O3, P1 to P4, Q1, R1, R2, TD, and TN admissions).	
+5 Includes principals, spouses, and children (A1 to A3, G1 to G5, and N1 to N7 admissions).	
+Notes: Admissions represent counts of events (i.e., arrivals) not unique individuals. Multiple entries of an individual on the same day are counted as one admission.	
+The majority of short-term admissions from Canada and Mexico are excluded.	
+Source: U.S. Department of Homeland Security.	

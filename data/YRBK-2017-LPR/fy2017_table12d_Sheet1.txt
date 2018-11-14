@@ -1,0 +1,60 @@
+Table 12.	
+IMMIGRANT ORPHANS ADOPTED BY U.S. CITIZENS BY SEX, AGE, AND REGION AND COUNTRY OF BIRTH: FISCAL YEAR 2017	
+
+Sex	Age	
+Region and country of birth	Total	Female	Male	Under 1 year	1 to 4 years	5 years and over	
+REGION	
+Total	4701	2343	2358	135	2538	2028	
+Africa	764	368	396	35	380	349	
+Asia	2783	1383	1400	70	1873	840	
+Europe	530	276	254	4	133	393	
+North America	371	199	172	5	100	266	
+Oceania	21	10	11	9	8	4	
+South America	232	107	125	12	44	176	
+COUNTRY	
+Total	4701	2343	2358	135	2538	2028	
+Armenia	13	8	5	D	D	6	
+Brazil	19	8	11	-	3	16	
+Bulgaria	140	73	67	D	D	84	
+Burundi	21	9	12	-	12	9	
+Cameroon	22	12	10	-	3	19	
+China, People's Republic	1934	970	964	19	1287	628	
+Colombia	180	82	98	11	36	133	
+Congo, Democratic Republic	31	15	16	-	10	21	
+Costa Rica	16	12	4	-	3	13	
+Dominican Republic	11	7	4	-	D	D	
+El Salvador	12	5	7	-	-	12	
+Ethiopia	295	130	165	D	187	D	
+Ghana	22	14	8	-	4	18	
+Guyana	21	11	10	D	D	17	
+Haiti	212	111	101	-	76	136	
+Honduras	15	6	9	D	D	12	
+Hungary	21	11	10	-	15	6	
+India	222	176	46	8	170	44	
+Jamaica	49	25	24	-	3	46	
+Japan	22	12	10	19	D	D	
+Korea, South	278	64	214	-	278	-	
+Kyrgyzstan	15	6	9	-	3	12	
+Latvia	67	36	31	-	3	64	
+Liberia	20	12	8	D	D	13	
+Marshall Islands	10	5	5	D	D	D	
+Mexico	22	13	9	-	D	D	
+Morocco	30	5	25	19	D	D	
+Nicaragua	12	8	4	3	6	3	
+Nigeria	169	88	81	9	91	69	
+Pakistan	26	17	9	18	D	D	
+Philippines	119	48	71	-	36	83	
+Poland	64	32	32	D	D	46	
+Sierra Leone	45	29	16	-	4	41	
+South Africa	20	9	11	-	11	9	
+Taiwan	46	19	27	-	28	18	
+Thailand	36	17	19	-	24	12	
+Uganda	51	21	30	D	26	D	
+Ukraine	204	104	100	D	D	177	
+United Kingdom	17	10	7	-	10	7	
+Vietnam	29	19	10	-	18	11	
+All other countries 1	143	84	59	10	56	77	
+D Data withheld to limit disclosure.	
+- Represents zero.	
+1 Includes countries with fewer than 10 lawful permanent residents.	
+Source: U.S. Department of Homeland Security.	
