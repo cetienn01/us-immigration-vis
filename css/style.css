@@ -1,3 +1,19 @@
 .family-label {
   font-size: small;
 }
+
+#main_header{
+  text-align: center;
+     font-size:60px;
+     padding:40px;
+     background-color: #4C4C4C;
+     color: white;
+     margin-bottom: 0px;
+ }
+
+h2{
+      text-align: center;
+      font-size:40px;
+      padding:20px;
+      color: #4C4C4C;
+  }
