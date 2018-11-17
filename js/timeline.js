@@ -30,8 +30,8 @@ timelineChart.prototype.initVis = function(){
     //margins and sizing
     vis.margin = { top: 0, right: 35, bottom: 30, left: 100 };
 
-    vis.width = 500 - vis.margin.left - vis.margin.right,
-        vis.height = 1000 - vis.margin.top - vis.margin.bottom;
+    vis.width = 300 - vis.margin.left - vis.margin.right,
+        vis.height = 700 - vis.margin.top - vis.margin.bottom;
 
     //create the svg area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -89,7 +89,7 @@ timelineChart.prototype.wrangleData = function(data){
       vis.nest.sort(function(a, b) { return a.value - b.value; }); */
 
     // Update the visualization
-    vis.updateVis(vis.nest);
+    vis.updateVis(vis.data);
 }
 
 
@@ -107,35 +107,29 @@ timelineChart.prototype.updateVis = function(data){
 //vis.x.domain([0, d3.max(data, function(d) {
 //    return d.value; })]);
 
-    /*
 
-//draw the bar chart
-    vis.timelineChart = vis.svg.selectAll("rect")
+
+//draw event circles
+    vis.timelineChart = vis.svg.selectAll(".event_circle")
         .data(data);
 
-	vis.timelineChart.enter().append("rect")
-        .attr("class", "bar")
+	vis.timelineChart.enter().append("circle")
+        .attr("class", "event_circle")
 
 	.merge(vis.timelineChart)
         .transition()
         .duration(1000)
+
     .attr("fill", "#673AB7")
+        .attr("r", 5)
     .attr("x", 0)
-    .attr("y", function(d){
-        return vis.y(d.key);
-    })
-    .attr("height", vis.y.bandwidth())
-    .attr("width", function(d){
-        return vis.x(d.value);
-    });
+        .attr("y", function(d){
+            return vis.y(d.Date) +vis.y.bandwidth() /2;
+        });
 
 vis.timelineChart.exit().remove();
 
-// Update the y-axis
-vis.svg.select(".y-axis")
-    .transition()
-    .duration(1000)
-    .call(vis.yAxis);
+
 
 //append labels to the bars
 
@@ -149,18 +143,22 @@ vis.svg.select(".y-axis")
         .transition()
         .duration(1000)
         .attr("fill", "#757575")
-        .attr("x", function(d){
-            return vis.x(d.value)+1;
-        })
-        .attr("font-size", "11")
+        .attr("x", 0)
+        .attr("font-size", "13")
         .attr("y", function(d){
-            return vis.y(d.key) +vis.y.bandwidth() /2;
+            return vis.y(d.Date) +vis.y.bandwidth() /2;
             })
         .text(function(d) {
-            return d.value; });
+            return d.Name; });
 
 
     vis.labels.exit().remove();
-*/
+
+
+    // Update the y-axis
+    vis.svg.select(".y-axis")
+        .transition()
+        .duration(1000)
+        .call(vis.yAxis);
 
 }
