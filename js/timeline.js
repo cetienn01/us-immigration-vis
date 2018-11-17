@@ -9,10 +9,10 @@ CODE FROM OLD BARCHART FILE
  * @param _config					-- variable from the dataset (e.g. 'electricity') and title for each bar chart
  */
 
-timelineChart = function(_parentElement, _data, _config){
+timelineChart = function(_parentElement, _data){
     this.parentElement = _parentElement;
     this.data = _data;
-    this.config = _config;
+    //this.config = _config;
     this.displayData = _data;
 
     this.initVis();
