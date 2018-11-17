@@ -100,6 +100,14 @@ timelineChart.prototype.wrangleData = function(data){
 
 timelineChart.prototype.updateVis = function(data){
     var vis = this;
+    var currentSelection= d3.select("#timeline_selection").property("value");
+
+    if (currentSelection!="default") {
+        data= data.filter(function (d) {
+            return d.Type==currentSelection;
+            })
+            console.log(data);
+    }
 
 
 //update the domains

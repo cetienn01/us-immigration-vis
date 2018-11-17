@@ -42,7 +42,14 @@
 				<div class= ="row row2 align-items-center">
 						<h2>What is the History?</h2>
 					<div class="col-md-6">
-						<div id="timeline_area"></div>
+						<div class="form-group" id="timeline_selection_area">
+							<select class="form-control" id="timeline_selection" onchange="updateTimeline()">
+								<option value="default">All Legislation</option>
+								<option value="Supreme Court">Supreme Court</option>
+								<option value="Executive Order">Executive Order </option>
+							</select>
+							<div id="timeline_area"></div>
+						</div>
 					</div>
 
 					<div class="col-md-6">

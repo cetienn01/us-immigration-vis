@@ -30,3 +30,9 @@ function createVis(){
 
 
 }
+
+
+function updateTimeline() {
+    timeline.updateVis(timelineData)
+
+}
