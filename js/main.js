@@ -7,7 +7,7 @@ loadData();
 
 function loadData() {
 
-    d3.csv("data/immigration_policy.csv", function (data) {
+    d3.csv("data/immigration-policy.csv", function (data) {
 
         data.forEach(function (d) {
             d.Date = +d.Date;
