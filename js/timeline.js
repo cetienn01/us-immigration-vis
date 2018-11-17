@@ -76,17 +76,7 @@ timelineChart.prototype.initVis = function(){
 timelineChart.prototype.wrangleData = function(data){
     var vis = this;
 
-    // (1) Group data by key variable (e.g. 'electricity') and count leaves
-    // (2) Sort columns descending
-
-    /*  vis.nest = d3.nest()
-          .key(function (d) {
-              return d[vis.config];
-          })
-          .rollup(function (leaves) { return leaves.length; })
-          .entries(data);
-
-      vis.nest.sort(function(a, b) { return a.value - b.value; }); */
+    data.sort(function(a, b) { return b.Date - a.Date; });
 
     // Update the visualization
     vis.updateVis(vis.data);
