@@ -1,11 +1,32 @@
 
-// SVG drawing area
+var timelineData;
 
-var margin = {top: 40, right: 10, bottom: 60, left: 60};
 
-var width = 700 - margin.left - margin.right,
-    height = 700 - margin.top - margin.bottom;
+//this will become a queue when we all merge together
+loadData();
 
-var svg = d3.select("#chart-area").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+function loadData() {
+
+    d3.csv("data/immigration_policy.csv", function (data) {
+
+        data.forEach(function (d) {
+            d.Date = +d.Date;
+        });
+
+        timelineData = data;
+        //console.log(householdData);
+        createVis();
+
+    });
+
+}
+
+function createVis(){
+
+    console.log(timelineData)
+
+    //create timeline chart
+    timeline=new timelineChart("timeline_area", timelineData);
+
+
+}
