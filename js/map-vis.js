@@ -42,12 +42,12 @@ Map.prototype.initVis = function() {
         vis.projection = d3.geoMercator()
             .scale(120)
             .center([-50, 50])
-            .translate([vis.width/5, vis.height / 2]);
+            .translate([vis.width/4, vis.height/2]);
     } else {
         vis.projection = d3.geoAlbersUsa()
-            .scale(700)
+            .scale(800)
             // .center([-50, 50])
-            .translate([vis.width/5, vis.height / 2]);
+            .translate([vis.width/2.5, vis.height/1.5]);
     }
 
     // Set path
