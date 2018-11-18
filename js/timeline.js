@@ -30,7 +30,7 @@ timelineChart.prototype.initVis = function(){
     //margins and sizing
     vis.margin = { top: 0, right: 35, bottom: 30, left: 100 };
 
-    vis.width = 300 - vis.margin.left - vis.margin.right,
+    vis.width = 500 - vis.margin.left - vis.margin.right,
         vis.height = 700 - vis.margin.top - vis.margin.bottom;
 
     //create the svg area
@@ -120,8 +120,8 @@ timelineChart.prototype.updateVis = function(data){
 
     .attr("fill", "#673AB7")
         .attr("r", 5)
-    .attr("x", 0)
-        .attr("y", function(d){
+    .attr("cx", 0)
+        .attr("cy", function(d){
             return vis.y(d.Date) +vis.y.bandwidth() /2;
         });
 
@@ -130,6 +130,7 @@ vis.timelineChart.exit().remove();
 
 
 //append labels to the bars
+    //TO DO: Handle years with more than one event.
 
     vis.labels= vis.svg.selectAll(".text")
         .data(data);
@@ -141,7 +142,7 @@ vis.timelineChart.exit().remove();
         .transition()
         .duration(1000)
         .attr("fill", "#757575")
-        .attr("x", 0)
+        .attr("x", 5)
         .attr("font-size", "13")
         .attr("y", function(d){
             return vis.y(d.Date) +vis.y.bandwidth() /2;

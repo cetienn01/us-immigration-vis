@@ -17,3 +17,8 @@ h2{
       padding:20px;
       color: #4C4C4C;
   }
+
+#timeline_selection_area {
+    margin-bottom: 20px;
+    width: 50%;
+}
