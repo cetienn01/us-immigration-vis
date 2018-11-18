@@ -123,6 +123,9 @@ timelineChart.prototype.updateVis = function(data){
     .attr("cx", 0)
         .attr("cy", function(d){
             return vis.y(d.Date) +vis.y.bandwidth() /2;
+        })
+        .on("click", function(d, i) {
+            vis.timelineClick(i);
         });
 
 vis.timelineChart.exit().remove();
@@ -159,5 +162,22 @@ vis.timelineChart.exit().remove();
         .transition()
         .duration(1000)
         .call(vis.yAxis);
+
+}
+
+timelineChart.prototype.timelineClick = function(i) {
+
+    //add the details table
+
+    var vis = this;
+
+    $('#timeline_details_area li').remove();
+
+    $("#timeline_details_area")
+        .append ("<li id='list_header'>" + vis.data[i].Name + "</li>")
+        .append("<li>" + "Year: " + vis.data[i].Date + "</li>")
+        .attr("x", 10)
+        .attr("y", 10);
+
 
 }
