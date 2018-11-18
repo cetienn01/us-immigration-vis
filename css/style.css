@@ -19,6 +19,24 @@ h2{
   }
 
 #timeline_selection_area {
-    margin-bottom: 20px;
+    margin: auto;
     width: 50%;
+    text-align: center;
 }
+
+#timeline_details_area {
+    list-style: none;
+    color: #4C4C4C;
+    font-size: 15px;
+    line-height: 3;
+    padding-right: 30;
+    text-align: center;
+}
+
+#timeline_list_header {
+    color: #673AB7;
+    font-size: 20px;
+}
+
+
+

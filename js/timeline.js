@@ -28,7 +28,7 @@ timelineChart.prototype.initVis = function(){
     var vis = this;
 
     //margins and sizing
-    vis.margin = { top: 0, right: 35, bottom: 30, left: 100 };
+    vis.margin = { top: 30, right: 35, bottom: 30, left: 150 };
 
     vis.width = 500 - vis.margin.left - vis.margin.right,
         vis.height = 700 - vis.margin.top - vis.margin.bottom;
@@ -113,6 +113,9 @@ timelineChart.prototype.updateVis = function(data){
 
 	vis.timelineChart.enter().append("circle")
         .attr("class", "event_circle")
+        .on("click", function(d, i) {
+            vis.timelineClick(i);
+        })
 
 	.merge(vis.timelineChart)
         .transition()
@@ -123,9 +126,6 @@ timelineChart.prototype.updateVis = function(data){
     .attr("cx", 0)
         .attr("cy", function(d){
             return vis.y(d.Date) +vis.y.bandwidth() /2;
-        })
-        .on("click", function(d, i) {
-            vis.timelineClick(i);
         });
 
 vis.timelineChart.exit().remove();
@@ -140,6 +140,10 @@ vis.timelineChart.exit().remove();
 
     vis.labels.enter().append("text")
         .attr("class","text")
+        .on("click", function(d, i) {
+            vis.timelineClick(i);
+        })
+
 
         .merge(vis.labels)
         .transition()
@@ -168,13 +172,16 @@ vis.timelineChart.exit().remove();
 timelineChart.prototype.timelineClick = function(i) {
 
     //add the details table
+    //eventually this will pull the intro paragaph from wikipedia to display
 
     var vis = this;
+
+    console.log("hello from timelineclick")
 
     $('#timeline_details_area li').remove();
 
     $("#timeline_details_area")
-        .append ("<li id='list_header'>" + vis.data[i].Name + "</li>")
+        .append ("<li id='timeline_list_header'>" + vis.data[i].Name + "</li>")
         .append("<li>" + "Year: " + vis.data[i].Date + "</li>")
         .attr("x", 10)
         .attr("y", 10);
