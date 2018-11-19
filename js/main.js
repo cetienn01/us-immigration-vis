@@ -9,3 +9,41 @@ var width = 700 - margin.left - margin.right,
 var svg = d3.select("#chart-area").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+
+// Date parser to convert strings to date objects
+var parseYear = d3.timeParse("%Y");
+
+// read work visa
+d3.csv("data/work_visa_trends_2007_2017/work_visa_total.csv", function(error, csv){
+
+    var data = csv;
+
+    // transpose
+    var data_t=[];
+
+    data.forEach(function(d,index){
+        counter = 0;
+        for (var key in d){
+            var obj = {};
+            if(key !== "Category") {
+                if(index==0) {
+                    obj.year = key;
+                    obj.receipts = Number(d[key].replace(/,/g, ""));
+                    data_t.push(obj);
+                }else{
+                    data_t[counter]=Object.assign({"approvals":+d[key].replace(/,/g, "")}, data_t[counter]);
+                    counter++;
+                }
+            }
+        }
+    });
+
+    // data_t.forEach(function(d){
+    //     d.year=parseYear(d.year);
+    // });
+
+    //console.log(data_t);
+
+    //make an area chart for total number of work visas
+    areachart = new AreaChart("work_details_area", data_t);
+});
