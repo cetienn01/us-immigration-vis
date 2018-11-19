@@ -18,17 +18,29 @@
 
 <!-- Area for the Intro text + photo -->
 	<div class="container-fluid">
-		<div class= ="row row1 align-items-center">
+
+		<div class= "row row1 align-items-center">
 			<div class="col-md-6">
+				<p class="standard_paragraph">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget porttitor lorem. Morbi at ornare libero. Donec placerat lorem sit amet ullamcorper hendrerit. Donec rutrum lacus eu nibh porttitor mollis. Mauris ut diam sed metus luctus suscipit. Nam eleifend gravida mi, eu convallis odio congue non. Etiam maximus vel lectus et tempor. Nulla condimentum ipsum vitae ultricies placerat. Sed interdum tempus turpis, et condimentum massa faucibus sed. Nunc consequat volutpat felis, non sodales ipsum iaculis ac. Vivamus nisl quam, placerat nec tellus vel, dictum ultrices est. Morbi posuere massa ultricies ligula commodo, at malesuada felis sodales. Vivamus ac lobortis urna, vel hendrerit mi.
+				</p>
 			</div>
 
+		<!-- image from http://time.com/5108772/immigration-history-crisis/ -->
 			<div class="col-md-6">
+				<img src="https://timedotcom.files.wordpress.com/2018/01/ellis.jpeg" alt="a group of people at ellis island" class="image">
+				<div class="overlay overlay_white">
+					<div class="overlay_text"> A group of people waiting for the ferry from Ellis Island to NY circa 1990. Image courtesy of http://time.com/5108772/immigration-history-crisis/
+					</div>
+				</div>
 			</div>
 		</div>
 
+
+
 		<!-- Area for the first visualization, the worl map of where people come from -->
-			<div class= ="row row2 align-items-center">
-				<h2>Where Are People From?</h2>
+		<h2>Where Are People From?</h2>
+		<div class="row row2 align-items-center">
 				<div class="col-md-6">
 					<div id="world_map_area"></div>
 				</div>
@@ -39,8 +51,8 @@
 			</div>
 
 			<!-- Area for the second visualization, the timeline -->
-				<h2>What is the History?</h2>
-				<div class= "row row2 align-items-center">
+		<h2>What is the History?</h2>
+		<div class="row row2 align-items-center">
 
 					<div class="col-md-6">
 						<div class="form-group" id="timeline_selection_area">
@@ -60,79 +72,102 @@
 					</div>
 				</div>
 
-				<!-- Area for the work visas details -->
-					<div class= ="row row2 align-items-center">
-							<h2>Why Are People Coming? Work Visas</h2>
-						<div class="col-md-6">
-							<div id="work_map_area"></div>
-						</div>
+		<!-- Area for the work visas details -->
+		<h2>Why Are People Coming? Work Visas</h2>
+		<div class="row row2 align-items-center">
 
-						<div class="col-md-6">
-							<div id="work_details_area"></div>
-						</div>
-					</div>
+			<div class="col-md-6">
+				<div id="work_map_area"></div>
+			</div>
 
-					<!-- Area for DACA details -->
-						<div class= ="row row2 align-items-center">
-								<h2>Why Are People Coming? DACA</h2>
-							<div class="col-md-6">
+			<div class="col-md-6">
+				<div id="work_details_area"></div>
+			</div>
+		</div>
+
+		<!-- Area for DACA details -->
+		<h2>Why Are People Coming? DACA</h2>
+		<div class="row row2 align-items-center">
+			<div class="col-md-6">
 								<div id="daca_map_area"></div>
 							</div>
 
-							<div class="col-md-6">
+			<div class="col-md-6">
 								<div id="daca_details_area"></div>
 							</div>
-						</div>
+		</div>
 
-						<!-- Area for Asylum details -->
-							<div class= ="row row2 align-items-center">
-									<h2>Why Are People Coming? Asylum</h2>
-								<div class="col-md-6">
+
+		<!-- Area for Asylum details -->
+		<h2>Why Are People Coming? Asylum</h2>
+		<div class="row row2 align-items-center">
+
+			<div class="col-md-6">
 									<div id="asylum_map_area"></div>
 								</div>
 
-								<div class="col-md-6">
+			<div class="col-md-6">
 									<div id="asylum_details_area"></div>
 								</div>
-							</div>
+		</div>
 
-							<!-- Area for Citizenship details -->
-								<div class= ="row row2 align-items-center">
-										<h2>Why Are People Coming? Citizenship</h2>
-									<div class="col-md-6">
+		<!-- Area for Citizenship details -->
+		<h2>Why Are People Coming? Citizenship</h2>
+		<div class="row row2 align-items-center">
+
+			<div class="col-md-6">
 										<div id="citizen_map_area"></div>
 									</div>
 
-									<div class="col-md-6">
+			<div class="col-md-6">
 										<div id="citizen_details_area"></div>
 									</div>
-								</div>
+		</div>
 
-								<!-- Area for States people migrate to details -->
-									<div class= ="row row2 align-items-center">
-											<h2>Where do People Go? </h2>
-										<div class="col-md-6">
+		<!-- Area for States people migrate to details -->
+		<h2>Where do People Go? </h2>
+		<div class="row row2 align-items-center">
+
+			<div class="col-md-6">
 											<div id="states_map_area"></div>
 										</div>
 
-										<div class="col-md-6">
+			<div class="col-md-6">
 											<div id="states_details_area"></div>
 										</div>
-									</div>
+		</div>
 
-									<!-- Area for 2016 Election details  -->
-										<div class= ="row row2 align-items-center">
-												<h2>How Has Everything Changed Since 2016? </h2>
-											<div class="col-md-6">
+			<!-- Area for 2016 Election details  -->
+		<h2>How Has Everything Changed Since 2016? </h2>
+		<div class="row row2 align-items-center">
+
+			<div class="col-md-6">
 												<div id="trump_trendlines_area"></div>
 											</div>
 
-											<div class="col-md-6">
+			<div class="col-md-6">
 												<div id="trump_details_area"></div>
 											</div>
-										</div>
+		</div>
 
+		<h2>Authors </h2>
+		<div class="row row2 align-items-center">
+
+			<div class="col-md-4">
+				Placeholder for Celena
+			</div>
+
+			<div class="col-md-4">
+				Placeholder for Pratt
+			</div>
+
+			<div class="col-md-4">
+				Placeholder for Elyse
+
+			</div>
+		</div>
 	</div>
+
 
 
 	<!-- Load JS libraries: jQuery, bootstrap, D3 -->
