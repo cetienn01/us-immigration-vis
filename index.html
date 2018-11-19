@@ -18,8 +18,7 @@
 
 <!-- Area for the Intro text + photo -->
 	<div class="container-fluid">
-
-		<div class= "row row1 align-items-center">
+		<div class="row row1 align-items-center">
 			<div class="col-md-6">
 				<p class="standard_paragraph">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget porttitor lorem. Morbi at ornare libero. Donec placerat lorem sit amet ullamcorper hendrerit. Donec rutrum lacus eu nibh porttitor mollis. Mauris ut diam sed metus luctus suscipit. Nam eleifend gravida mi, eu convallis odio congue non. Etiam maximus vel lectus et tempor. Nulla condimentum ipsum vitae ultricies placerat. Sed interdum tempus turpis, et condimentum massa faucibus sed. Nunc consequat volutpat felis, non sodales ipsum iaculis ac. Vivamus nisl quam, placerat nec tellus vel, dictum ultrices est. Morbi posuere massa ultricies ligula commodo, at malesuada felis sodales. Vivamus ac lobortis urna, vel hendrerit mi.
@@ -36,41 +35,38 @@
 			</div>
 		</div>
 
-
-
-		<!-- Area for the first visualization, the worl map of where people come from -->
-		<h2>Where Are People From?</h2>
-		<div class="row row2 align-items-center">
+		<!-- Area for the first visualization, the world map of where people come from -->
+			<h2>Where Are People From?</h2>
+			<div class="row row2 align-items-center">
 				<div class="col-md-6">
 					<div id="world_map_area"></div>
 				</div>
 
 				<div class="col-md-6">
-						<div id="world_map_details_area"></div>
+					<div id="world_map_details_area"></div>
 				</div>
 			</div>
 
 			<!-- Area for the second visualization, the timeline -->
-		<h2>What is the History?</h2>
-		<div class="row row2 align-items-center">
-
-					<div class="col-md-6">
-						<div class="form-group" id="timeline_selection_area">
-							<select class="form-control" id="timeline_selection" onchange="updateTimeline()">
-								<option value="default">All Legislation</option>
-								<option value="Congressional Legislation">Congressional Legislation</option>
-								<option value="Supreme Court">Supreme Court</option>
-								<option value="Executive Order">Executive Order </option>
-							</select>
-							<div id="timeline_area"></div>
-						</div>
-					</div>
-
-					<div class="col-md-6">
-
-						<div id="timeline_details_area"></div>
+			<h2>What is the History?</h2>
+			<div class="row row2 align-items-center">
+				<div class="col-md-6">
+					<div class="form-group" id="timeline_selection_area">
+						<select class="form-control" id="timeline_selection" onchange="updateTimeline()">
+							<option value="default">All Legislation</option>
+							<option value="Congressional Legislation">Congressional Legislation</option>
+							<option value="Supreme Court">Supreme Court</option>
+							<option value="Executive Order">Executive Order </option>
+						</select>
+						<div id="timeline_area"></div>
 					</div>
 				</div>
+
+				<div class="col-md-6">
+
+					<div id="timeline_details_area"></div>
+				</div>
+			</div>
 
 		<!-- Area for the work visas details -->
 		<h2>Why Are People Coming? Work Visas</h2>
@@ -184,6 +180,7 @@
 	<script src="js/d3-legend.min.js"></script>
 
 	<!-- Main.js  -->
+	<script src="js/map-vis.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/timeline.js"></script>
 	<script src="js/workVis.js"></script>

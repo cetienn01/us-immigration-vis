@@ -84,3 +84,6 @@ function updateTimeline() {
     timeline.updateVis(timelineData)
 
 }
+
+var worldMap = new Map('world_map_area', [], 'world');
+var usMap = new Map('states_map_area', [], 'us');
