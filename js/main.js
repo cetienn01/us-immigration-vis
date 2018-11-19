@@ -47,3 +47,43 @@ d3.csv("data/work_visa_trends_2007_2017/work_visa_total.csv", function(error, cs
     //make an area chart for total number of work visas
     areachart = new AreaChart("work_details_area", data_t);
 });
+
+
+
+var timelineData;
+
+
+//this will become a queue when we all merge together
+loadData();
+
+function loadData() {
+
+    d3.csv("data/immigration-policy.csv", function (data) {
+
+        data.forEach(function (d) {
+            d.Date = +d.Date;
+        });
+
+        timelineData = data;
+        //console.log(householdData);
+        createVis();
+
+    });
+
+}
+
+function createVis(){
+
+    console.log(timelineData)
+
+    //create timeline chart
+    timeline=new timelineChart("timeline_area", timelineData);
+
+
+}
+
+
+function updateTimeline() {
+    timeline.updateVis(timelineData)
+
+}
