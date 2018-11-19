@@ -40,12 +40,12 @@ Map.prototype.initVis = function() {
     // Define map projection
     if (vis.mapType === 'world') {
         vis.projection = d3.geoMercator()
-            .scale(120)
+            .scale(100)
             .center([-50, 50])
             .translate([vis.width/4, vis.height/2]);
     } else {
         vis.projection = d3.geoAlbersUsa()
-            .scale(800)
+            .scale(700)
             // .center([-50, 50])
             .translate([vis.width/2.5, vis.height/1.5]);
     }
