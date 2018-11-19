@@ -65,7 +65,6 @@ function loadData() {
         });
 
         timelineData = data;
-        //console.log(householdData);
         createVis();
 
     });
@@ -78,8 +77,6 @@ function createVis(){
 
     //create timeline chart
     timeline=new timelineChart("timeline_area", timelineData);
-
-
 }
 
 
