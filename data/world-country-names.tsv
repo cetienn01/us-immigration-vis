@@ -22,7 +22,7 @@ id	name
 56	Belgium
 60	Bermuda
 64	Bhutan
-68	Bolivia, Plurinational State of
+68	Bolivia
 70	Bosnia and Herzegovina
 72	Botswana
 74	Bouvet Island
@@ -46,13 +46,13 @@ id	name
 148	Chad
 152	Chile
 156	China
-158	Taiwan, Province of China
+158	Taiwan
 162	Christmas Island
 166	Cocos (Keeling) Islands
 170	Colombia
 174	Comoros
 175	Mayotte
-178	Congo
+178	Congo, Republic
 180	Congo, the Democratic Republic of the
 184	Cook Islands
 188	Costa Rica
@@ -117,8 +117,8 @@ id	name
 398	Kazakhstan
 400	Jordan
 404	Kenya
-408	Korea, Democratic People's Republic of
-410	Korea, Republic of
+408	Korea, North
+410	Korea, South
 414	Kuwait
 417	Kyrgyzstan
 418	Lao People's Democratic Republic
@@ -168,7 +168,7 @@ id	name
 578	Norway
 580	Northern Mariana Islands
 581	United States Minor Outlying Islands
-583	Micronesia, Federated States of
+583	Micronesia, Federated States
 584	Marshall Islands
 585	Palau
 586	Pakistan

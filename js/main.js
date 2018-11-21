@@ -13,6 +13,10 @@ var svg = d3.select("#chart-area").append("svg")
 // Date parser to convert strings to date objects
 var parseYear = d3.timeParse("%Y");
 
+// Maps
+var immigrationWorldMap;
+var immigrationUsMap;
+
 // read work visa
 d3.csv("data/work_visa_trends_2007_2017/work_visa_total.csv", function(error, csv){
 
@@ -65,7 +69,6 @@ function loadData() {
         });
 
         timelineData = data;
-        // createVis();
 
     });
 
@@ -74,24 +77,39 @@ function loadData() {
         .defer(d3.json, 'data/world-110m.json')
         .defer(d3.tsv, 'data/world-country-names.tsv')
         .defer(d3.json, 'data/us-states.json')
+        .defer(d3.csv, 'cleaned-data/yrbk-2017-immigration-by-country.csv')
         .await(createVis)
 
 }
 
-function createVis(error, worldMapData, countryNames, usMapData) {
+function createVis(error, worldMapData, countryNames, usMapData, immigrationByCountryData) {
 
     console.log(timelineData);
 
     //create timeline chart
     timeline=new timelineChart("timeline_area", timelineData);
-    var worldMap = new Map('world_map_area', [], { map: worldMapData, names: countryNames, mapType: 'world' });
-    var usMap = new Map('states_map_area', [], { map: usMapData, mapType: 'us' });
-}
 
+    var processedImmigrationByCountryData = wrangleImmigrationByCountryData(immigrationByCountryData);
+    immigrationWorldMap = new Map('world_map_area', processedImmigrationByCountryData, { map: worldMapData, names: countryNames, mapType: 'world' });
+    immigrationUsMap = new Map('states_map_area', [], { map: usMapData, mapType: 'us' });
+}
 
 function updateTimeline() {
     timeline.updateVis(timelineData)
 
 }
 
+function wrangleImmigrationByCountryData(data) {
+    data.forEach(function(item) {
+        item.number = parseInt(item.number);
+    });
+    var immigrationByCountry = d3.nest()
+        .key(function(d) { return d.country; })
+        .key(function(d) { return d.year; })
+        .entries(data);
+    return immigrationByCountry;
+}
 
+function filterMapData() {
+    immigrationWorldMap.filterData();
+}

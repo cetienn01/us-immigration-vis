@@ -3,6 +3,7 @@
  * Map - Object constructor function
  * @param _parentElement 	-- the HTML element in which to draw the visualization
  * @param _data				-- the actual data
+ * @param _mapData			-- An objection containing TopoJSON data for drawing the maps, and country names
  */
 
 Map = function(_parentElement, _data, _mapData){
@@ -51,10 +52,10 @@ Map.prototype.initVis = function() {
     vis.path = d3.geoPath()
         .projection(vis.projection);
 
-    vis.wrangleMapData();
+    vis.drawMap();
 }
 
-Map.prototype.wrangleMapData = function() {
+Map.prototype.drawMap = function() {
     var vis = this;
     var map;
 
@@ -69,6 +70,20 @@ Map.prototype.wrangleMapData = function() {
                 }
             }
         }
+
+        // Map data
+        for (var i = 0; i < map.length; i++) {
+            for (var j = 0; j < vis.data.length; j++) {
+                if (map[i].country === vis.data[j].key) {
+                    vis.data[j].values.forEach(function(year) {
+                        var permanentRes = (typeof year.values[0] === 'undefined') ? 0 : year.values[0].number;
+                        var naturalized = (typeof year.values[1] === 'undefined') ? 0 : year.values[1].number;
+                        year.totalImmigration = permanentRes + naturalized;
+                    })
+                    map[i].properties = vis.data[j].values;
+                }
+            }
+        }
     } else {
         // US State names are already included in this data set
         map = vis.mapData.map.features;
@@ -76,17 +91,12 @@ Map.prototype.wrangleMapData = function() {
 
     vis.mapData = map;
 
-    vis.wrangleData();
-}
-
-Map.prototype.wrangleData = function() {
-    var vis = this;
-
     vis.updateVis();
 }
 
 Map.prototype.updateVis = function() {
     var vis = this;
+    // console.log(vis.data);
 
     var map = vis.svg.selectAll('path')
         .data(vis.mapData);
@@ -95,5 +105,12 @@ Map.prototype.updateVis = function() {
         .merge(map)
         .attr('d', vis.path)
         .attr('stroke', 'white')
-        .attr('stroke-width', 1);
+        .attr('stroke-width', 1)
+        .style('fill', function(d) {
+            // console.log(d.properties);
+        });
+}
+
+Map.prototype.filterData = function() {
+    console.log('filter');
 }
