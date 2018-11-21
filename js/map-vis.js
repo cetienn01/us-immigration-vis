@@ -60,18 +60,21 @@ Map.prototype.wrangleMapData = function() {
 
     if(vis.mapData.mapType === 'world') {
         map = topojson.feature(vis.mapData.map, vis.mapData.map.objects.countries).features;
-        var arr = [];
-        vis.mapData.names.forEach(function(i){
-            arr[i.id]=i.name;
-        });
+        
+        // Map country names to geoJSON country data
+        for (var i = 0; i < map.length; i++) {
+            for (var j = 0; j < vis.mapData.names.length; j++) {
+                if (map[i].id === +vis.mapData.names[j].id) {
+                    map[i].country = vis.mapData.names[j].name;
+                }
+            }
+        }
     } else {
+        // US State names are already included in this data set
         map = vis.mapData.map.features;
     }
 
     vis.mapData = map;
-    
-    console.log(map);
-    console.log(this.mapData.names);    
 
     vis.wrangleData();
 }
@@ -85,7 +88,6 @@ Map.prototype.wrangleData = function() {
 Map.prototype.updateVis = function() {
     var vis = this;
 
-    console.log(vis.mapData);
     var map = vis.svg.selectAll('path')
         .data(vis.mapData);
 
