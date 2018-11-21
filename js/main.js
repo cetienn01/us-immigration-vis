@@ -65,18 +65,27 @@ function loadData() {
         });
 
         timelineData = data;
-        createVis();
+        // createVis();
 
     });
 
+    // Maps
+    queue()
+        .defer(d3.json, 'data/world-110m.json')
+        .defer(d3.tsv, 'data/world-country-names.tsv')
+        .defer(d3.json, 'data/us-states.json')
+        .await(createVis)
+
 }
 
-function createVis(){
+function createVis(error, worldMapData, countryNames, usMapData) {
 
-    console.log(timelineData)
+    console.log(timelineData);
 
     //create timeline chart
     timeline=new timelineChart("timeline_area", timelineData);
+    var worldMap = new Map('world_map_area', [], { map: worldMapData, names: countryNames, mapType: 'world' });
+    var usMap = new Map('states_map_area', [], { map: usMapData, mapType: 'us' });
 }
 
 
@@ -85,5 +94,4 @@ function updateTimeline() {
 
 }
 
-var worldMap = new Map('world_map_area', [], 'world');
-var usMap = new Map('states_map_area', [], 'us');
+
