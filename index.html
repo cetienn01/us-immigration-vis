@@ -15,11 +15,18 @@
 </head>
 <body>
 
+<div id="fullpage">
+
+	<div class="section" id="section-header">
 	<h1 id="main_header"> The State of Immigration</h1>
+	</div>
 
 
 <!-- Area for the Intro text + photo -->
-	<div class="container-fluid">
+
+
+		<div class="section" id="section1">
+			<div class="container-fluid">
 		<div class="row row1 align-items-center">
 			<div class="col-md-6">
 				<p class="standard_paragraph">
@@ -36,8 +43,12 @@
 				</div>
 			</div>
 		</div>
+			</div>
+		</div>
 
 		<!-- Area for the first visualization, the world map of where people come from -->
+		<div class="section" id="section2">
+			<div class="container-fluid">
 			<h2>Where Are People From?</h2>
 			<div class="row row2 align-items-center">
 				<div class="col-md-8">
@@ -60,8 +71,12 @@
 					<div id="world_map_details_area"></div>
 				</div>
 			</div>
+		</div>
+		</div>
 
 			<!-- Area for the second visualization, the timeline -->
+	<div class="section" id="section3">
+		<div class="container-fluid">
 			<h2>What is the History?</h2>
 			<div class="row row2 align-items-center">
 				<div class="col-md-6">
@@ -81,8 +96,12 @@
 					<div id="timeline_details_area"></div>
 				</div>
 			</div>
+		</div>
+	</div>
 
 		<!-- Area for the work visas details -->
+	<div class="section" id="section4">
+		<div class="container-fluid">
 		<h2>Why Are People Coming? Work Visas</h2>
 		<div class="row row2 align-items-center">
 
@@ -94,6 +113,8 @@
 				<div id="work_details_area"></div>
 			</div>
 		</div>
+		</div>
+	</div>
 
 		<!-- Removing sections we won't use
 		<!-- Area for DACA details
@@ -138,6 +159,8 @@
 		-->
 
 		<!-- Area for States people migrate to details -->
+	<div class="section" id="section5">
+		<div class="container-fluid">
 		<h2>Where do People Go? </h2>
 		<div class="row row2 align-items-center">
 
@@ -149,8 +172,12 @@
 											<div id="states_details_area"></div>
 										</div>
 		</div>
+		</div>
+	</div>
 
 			<!-- Area for 2016 Election details  -->
+	<div class="section" id="section6">
+		<div class="container-fluid">
 		<h2>How Has Everything Changed Since 2016? </h2>
 		<div class="row row2 align-items-center">
 
@@ -162,7 +189,11 @@
 												<div id="trump_details_area"></div>
 											</div>
 		</div>
+		</div>
+	</div>
 
+	<div class="section" id="section7">
+		<div class="container-fluid">
 		<h2>Authors </h2>
 		<div class="row row2 align-items-center">
 
@@ -176,11 +207,13 @@
 
 			<div class="col-md-4">
 				Placeholder for Elyse
+			</div>
 
 			</div>
 		</div>
 	</div>
 
+</div>
 
 
 	<!-- Load JS libraries: jQuery, bootstrap, D3 -->
@@ -204,6 +237,16 @@
 	<script src="js/main.js"></script>
 	<script src="js/timeline.js"></script>
 	<script src="js/workVis.js"></script>
+
+<script type="text/javascript">
+    new fullpage('#fullpage', {
+        anchors: ['section-header', 'section1','section2', 'section3', 'section4', 'section5', 'section6', 'section7'],
+        autoScrolling:true,
+        scrollHorizontally: true
+    });
+</script>
+
+
 
 
 </body>
