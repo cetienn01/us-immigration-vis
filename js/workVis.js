@@ -77,7 +77,7 @@ AreaChart.prototype.wrangleData = function(){
 
     var approvalCounts = d3.nest()
         .key(function(d) {return d.year;})
-        .rollup(function(v){ return v[0].approvals})
+        .rollup(function(v){ return v[0].Approvals})
         .entries(vis.data);
 
     //nest convert to string, convert key to date object
