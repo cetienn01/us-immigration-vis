@@ -31,7 +31,7 @@ timelineChart.prototype.initVis = function(){
     vis.margin = { top: 30, right: 35, bottom: 30, left: 150 };
 
     vis.width = 500 - vis.margin.left - vis.margin.right,
-        vis.height = 700 - vis.margin.top - vis.margin.bottom;
+        vis.height = 650 - vis.margin.top - vis.margin.bottom;
 
     //create the svg area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
