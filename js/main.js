@@ -18,40 +18,52 @@ var immigrationWorldMap;
 var immigrationUsMap;
 
 // read work visa
-d3.csv("data/work_visa_trends_2007_2017/work_visa_total.csv", function(error, csv){
+queue()
+    .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_total.csv")
+    .await(createWorkVis);
 
-    var data = csv;
+
+function createWorkVis(error, workTotal){
+    if(error) { console.log(error); }
+
+    var data = workTotal;
 
     // transpose
-    var data_t=[];
+    var data_t=transpose(data,"Category");
+    //console.log(data_t);
 
+    //make an area chart for total number of work visas
+    areachart = new AreaChart("work_details_area", data_t);
+
+    //make an area chart for total number of work visas
+    //areachart = new AreaChart("work_details_area", data_t);
+}
+
+
+//function for transposing (work visa trends) data
+function transpose(data, category)
+{
+    var data_t=[];
     data.forEach(function(d,index){
         counter = 0;
         for (var key in d){
             var obj = {};
-            if(key !== "Category") {
+            if(key !== category) {
                 if(index==0) {
                     obj.year = key;
-                    obj.receipts = Number(d[key].replace(/,/g, ""));
+                    obj[d[category]] = Number(d[key].replace(/,/g, ""));
                     data_t.push(obj);
                 }else{
-                    data_t[counter]=Object.assign({"approvals":+d[key].replace(/,/g, "")}, data_t[counter]);
+                    var obj_temp={};
+                    obj_temp[d[category]] = Number(d[key].replace(/,/g, ""));
+                    data_t[counter]=Object.assign(obj_temp, data_t[counter]);
                     counter++;
                 }
             }
         }
     });
-
-    // data_t.forEach(function(d){
-    //     d.year=parseYear(d.year);
-    // });
-
-    //console.log(data_t);
-
-    //make an area chart for total number of work visas
-    areachart = new AreaChart("work_details_area", data_t);
-});
-
+    return data_t;
+}
 
 
 var timelineData;
