@@ -20,20 +20,20 @@ var immigrationUsMap;
 // read work visa
 queue()
     .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_total.csv")
+    .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_edu.csv")
     .await(createWorkVis);
 
 
-function createWorkVis(error, workTotal){
+function createWorkVis(error, workTotal,eduTotal){
     if(error) { console.log(error); }
 
-    var data = workTotal;
-
-    // transpose
-    var data_t=transpose(data,"Category");
-    //console.log(data_t);
+    //need to transpose the data
+    var dataTotal=transpose(workTotal,"Category");
+    var dataEdu=transpose(eduTotal,"Education")
+    console.log(dataTotal);
 
     //make an area chart for total number of work visas
-    areachart = new AreaChart("work_details_area", data_t);
+    areachart = new AreaChart("work_map_area", dataTotal);
 
     //make an area chart for total number of work visas
     //areachart = new AreaChart("work_details_area", data_t);
