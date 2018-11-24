@@ -52,9 +52,6 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
     //make an area chart for total number of work visas
     areachart = new AreaChart("work_map_area", dataTotal);
 
-    //make the Trump trendline Chart
-    trendline= new TrendLine("trump_trendlines_area", dataTotal);
-
 
     // make a bar chart for each variable in configs
     barcharts1 = workMetrics1.map(function(name) {
@@ -64,6 +61,11 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
     barcharts2 = workMetrics2.map(function(name) {
         return new BarChart("work_details_area2", name.data, name.title);
     });
+
+    //make the Trump trendline Chart
+    trendline= new TrendLine("trump_trendlines_area", dataTotal);
+
+
 }
 
 

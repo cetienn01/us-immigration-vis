@@ -56,12 +56,19 @@ TrendLine.prototype.initVis = function(){
     vis.svg.append("g")
         .attr("class", "y-axis axis");
 
-    vis.line = d3.line()
-        .x(function(d) {return vis.x(d.key);})
-       .y(function(d) { return vis.y(d.value);});
+    vis.approvalsline = d3.line()
+        .x(function(d) { return vis.x(d.year); })
+        .y(function(d) { return vis.y(d.Approvals); })
+        .curve(d3.curveCatmullRom.alpha(0.5));
+
+    vis.applicationsline = d3.line()
+        .x(function(d) { return vis.x(d.year); })
+        .y(function(d) { return vis.y(d.Receipts); })
+        .curve(d3.curveCatmullRom.alpha(0.5));
 
     // (Filter, aggregate, modify data)
     vis.wrangleData();
+
 
 }
 
@@ -73,17 +80,24 @@ TrendLine.prototype.initVis = function(){
 TrendLine.prototype.wrangleData = function(){
     var vis = this;
 
-    var approvalCounts = d3.nest()
-        .key(function(d) {return d.year;})
-        .rollup(function(v){ return v[0].Approvals})
-        .entries(vis.data);
-
-    //nest convert to string, convert key to date object
-    approvalCounts.forEach(function(d) {
-        d.key = parseYear(d.key);
+    vis.data.forEach(function(d){
+        d.year=+d.year;
     })
+/*
 
-    vis.displayData = approvalCounts;
+       var approvalCounts = d3.nest()
+           .key(function(d) {return d.year;})
+           .rollup(function(v){ return v[0].Approvals})
+           .entries(vis.data);
+
+       //nest convert to string, convert key to date object
+       approvalCounts.forEach(function(d) {
+           d.key = parseYear(d.key);
+       })
+
+       vis.displayData = approvalCounts; */
+
+
 
     vis.updateVis();
 
@@ -96,24 +110,36 @@ TrendLine.prototype.wrangleData = function(){
 TrendLine.prototype.updateVis = function(){
     var vis = this;
 
+    console.log(vis.data)
 
-    vis.x.domain(d3.extent(vis.displayData, function(d) {
-        return d.key;
+    vis.x.domain(d3.extent(vis.data, function(d) {
+        return d.year;
     }));
 
-    vis.y.domain([0, d3.max(vis.displayData, function(d) {
-        return d.value;
+    vis.y.domain([0, d3.max(vis.data, function(d) {
+        return d.Receipts;
     })]);
 
-    var trendLine=vis.svg.append("path")
-        .data(vis.displayData)
-        .attr("class", "line")
-        //.attr("stroke", "#810f7c")
-        .attr("d", vis.line);
+    vis.data.sort(function(a, b) { return a.year - b.year; });
 
-    // Call axis functions with the new domain
+
+
+    var lines= vis.svg.selectAll("line")
+        .data(vis.data)
+
+        lines.enter().append("path")
+            .attr("class", "line")
+
+            .merge(lines)
+            .transition()
+            .duration(1000)
+            .attr("d", vis.applicationsline (vis.data));
+
+    lines.exit().remove();
+
+  /*  // Call axis functions with the new domain
     vis.svg.select(".x-axis").call(vis.xAxis);
-    vis.svg.select(".y-axis").call(vis.yAxis);
+    vis.svg.select(".y-axis").call(vis.yAxis); */
 
 
 }
