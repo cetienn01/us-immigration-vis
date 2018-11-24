@@ -91,6 +91,7 @@
 		<div class="section" data-anchor="section2">
 			<div class="container-fluid">
 			<h2>Where Are People From?</h2>
+
 			<div class="row row2 align-items-center">
 				<div class="col-md-8">
 					<select class="form-control col-md-2 offset-md-4" id="world-map-selection" onchange="updateWorldMap()">
@@ -110,6 +111,10 @@
 				</div>
 
 				<div class="col-md-4">
+					<p class="section2_paragraph">
+						The vast majority of people migrating the the US on work visas in the past 10 years are from <strong> India. </strong><br>
+						Click on the interactive visualization to the left to learn more about each country over the years.
+					</p>
 					<div id="world_map_details_area"></div>
 				</div>
 			</div>
@@ -315,6 +320,12 @@
 
     $("#world_map_area").click(function(){
         $("#world_map_details_area").show();
+    });
+
+    $("#states_details_area").hide();
+
+    $("#states_map_area").click(function(){
+        $("#states_details_area").show();
     });
 
 </script>
