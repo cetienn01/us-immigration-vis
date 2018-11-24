@@ -41,12 +41,12 @@ BarChart.prototype.initVis = function(){
         .attr("transform", "translate(" + vis.margin.left + ", 0)");
 
     //add title to each bar chart
-    // vis.svg.append("text")
-    //     .style("font-weight","bold")
-    //     .attr("class", "bar-title")
-    //     .attr("x", vis.margin.left)
-    //     .attr("y", -5)
-    //     .text(vis.config.title);
+    vis.svg.append("text")
+        .style("font-weight","bold")
+        .attr("class", "bar-title")
+        .attr("x", vis.margin.left)
+        .attr("y", -5)
+        .text(vis.config);
 
 
     // (Filter, aggregate, modify data)
@@ -93,8 +93,8 @@ BarChart.prototype.wrangleData = function() {
 
     //console.log(countsNew);
 
-    if (countsNew.length >= 10) {
-        vis.counts = countsNew.slice(0, 10);    //get top10, if needed
+    if (countsNew.length >= 15) {
+        vis.counts = countsNew.slice(0, 15);    //get top10, if needed
     } else {
         vis.counts = countsNew;
     }
