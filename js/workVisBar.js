@@ -11,10 +11,10 @@ BarChart = function(_parentElement, _data, _config){
 BarChart.prototype.initVis = function(){
     var vis = this;
 
-    vis.margin = { top: 20, right: 50, bottom: 20, left: 100 };
+    vis.margin = { top: 20, right: 20, bottom: 20, left: 120 };
 
     vis.width = 400 - vis.margin.left - vis.margin.right,
-        vis.height = 150 - vis.margin.top - vis.margin.bottom;
+        vis.height = 200 - vis.margin.top - vis.margin.bottom;
 
 
     // SVG drawing area

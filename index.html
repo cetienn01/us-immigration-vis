@@ -16,12 +16,12 @@
 <body>
 
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" id="main_navbar">
 	<a class="navbar-brand" href="#section-header">State of Immigration</a>
 	<div class="collapse navbar-collapse" id="navbarNavDropdown">
 		<ul class="navbar-nav">
 			<li class="nav-item active">
-				<a class="nav-link" href="#section1">Introduction <span class="sr-only">(current)</span></a>
+				<a class="nav-link" href="#introduction">Introduction <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item active">
 				<a class="nav-link" href="#section2">Where Are People From? </a>
@@ -55,9 +55,7 @@
 
 
 <!-- Area for the Intro text + photo -->
-
-
-		<div class="section" id="section1">
+		<div class="section" id="introduction">
 			<div class="container-fluid">
 			<div class="row row1 align-items-center">
 			<div class="col-md-6">
@@ -74,7 +72,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+			</div>
 			</div>
 		</div>
 
@@ -231,12 +229,12 @@
 		<div class="row row2 align-items-center">
 
 			<div class="col-md-6">
-												<div id="trump_trendlines_area"></div>
-											</div>
+				<div id="trump_trendlines_area"></div>
+			</div>
 
 			<div class="col-md-6">
-												<div id="trump_details_area"></div>
-											</div>
+				<div id="trump_details_area"></div>
+			</div>
 		</div>
 		</div>
 	</div>
@@ -277,6 +275,7 @@
 
 	<!-- Used the fullpage library -->
 	<script src="js/fullpage.js"></script>
+	<script src="js/fullpage.extensions.min.js"></script>
 
 <!-- Used Susie Lu's D3 Legend Library https://d3-legend.susielu.com/ -->
 	<script src="js/d3-legend.min.js"></script>
@@ -290,13 +289,13 @@
 
 <script type="text/javascript">
     new fullpage('#fullpage', {
-        anchors: ['section-header', 'section1','section2', 'section3', 'section4', 'section5', 'section6', 'section7'],
+        anchors: ['section-header', 'introduction','section2', 'section3', 'section4', 'section5', 'section6', 'section7'],
         autoScrolling:true,
         scrollHorizontally: true,
 		navigation:true
     });
-</script>
 
+    </script>
 
 
 
