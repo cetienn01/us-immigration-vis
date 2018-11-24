@@ -24,10 +24,11 @@ queue()
     .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_age.csv")
     .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_salary.csv")
     .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_occupation.csv")
+    .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_industry.csv")
     .await(createWorkVis);
 
 
-function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupationTotal){
+function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupationTotal,industryTotal){
     if(error) { console.log(error); }
 
     //need to transpose the data
@@ -36,6 +37,7 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
     var dataAge=transpose(ageTotal,"Age");
     var dataSalary=transpose(salaryTotal,"Salary");
     var dataOccupation=transpose(occupationTotal,"Occupation");
+    var dataIndustry=transpose(industryTotal,"Industry");
     //console.log(dataTotal);
 
 
@@ -50,6 +52,8 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
     salary_barchart = new BarChart("work_details_area", dataSalary, "Salary");
     //make bar chart for occupation
     occupation_barchart = new BarChart("work_details_area", dataOccupation, "Occupation");
+    //make bar chart for industry
+    industry_barchart = new BarChart("work_details_area", dataIndustry, "Industry");
 }
 
 
