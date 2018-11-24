@@ -36,7 +36,7 @@ function createWorkVis(error, workTotal,eduTotal){
     areachart = new AreaChart("work_map_area", dataTotal);
 
     //make an area chart for total number of work visas
-    //areachart = new AreaChart("work_details_area", data_t);
+    edu_barchart = new BarChart("work_details_area", dataEdu, "Education");
 }
 
 
