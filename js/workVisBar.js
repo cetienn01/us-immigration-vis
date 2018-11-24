@@ -11,7 +11,7 @@ BarChart = function(_parentElement, _data, _config){
 BarChart.prototype.initVis = function(){
     var vis = this;
 
-    vis.margin = { top: 20, right: 100, bottom: 20, left: 50 };
+    vis.margin = { top: 20, right: 50, bottom: 20, left: 100 };
 
     vis.width = 400 - vis.margin.left - vis.margin.right,
         vis.height = 150 - vis.margin.top - vis.margin.bottom;
@@ -30,7 +30,7 @@ BarChart.prototype.initVis = function(){
 
     vis.y = d3.scaleBand()
         .rangeRound([0,vis.height])
-        .padding(0.3);
+        .padding(0.1);
 
 
     vis.yAxis = d3.axisLeft()
@@ -41,12 +41,12 @@ BarChart.prototype.initVis = function(){
         .attr("transform", "translate(" + vis.margin.left + ", 0)");
 
     //add title to each bar chart
-    vis.svg.append("text")
-        .style("font-weight","bold")
-        .attr("class", "bar-title")
-        .attr("x", vis.margin.left)
-        .attr("y", -5)
-        .text(vis.config.title);
+    // vis.svg.append("text")
+    //     .style("font-weight","bold")
+    //     .attr("class", "bar-title")
+    //     .attr("x", vis.margin.left)
+    //     .attr("y", -5)
+    //     .text(vis.config.title);
 
 
     // (Filter, aggregate, modify data)
@@ -89,12 +89,9 @@ BarChart.prototype.wrangleData = function(){
         return b.value - a.value;
     });
 
-    console.log(countsNew);
+    //console.log(countsNew);
 
     vis.counts = countsNew;
-    //vis.configCounts = configCounts;
-
-    //console.log(configCounts)
 
     // Update the visualization
     vis.updateVis();
@@ -103,11 +100,12 @@ BarChart.prototype.wrangleData = function(){
 BarChart.prototype.updateVis = function(){
     var vis = this;
 
-    console.log(vis.counts);
+    //console.log(vis.counts);
 
     // (1) Update domains
     vis.x.domain([0, vis.counts[0].value]);  //first element should be the highest => sorted!
     vis.y.domain(vis.counts.map(function(d) {return d.key;}));
+
 
     // (2) Draw rectangles
     var rect = vis.svg.selectAll("rect")
@@ -115,10 +113,8 @@ BarChart.prototype.updateVis = function(){
 
     // Enter (initialize the newly added elements)
     rect.enter().append("rect")
-        .attr("class", "bar");
-
-    rect
-        .attr("fill", "lightcyan")
+        .attr("class", "bar")
+        .attr("fill", "lightgrey")
         .attr("x", vis.margin.left)
         .attr("y", function(d) {
             return vis.y(d.key);
