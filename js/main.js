@@ -22,17 +22,20 @@ queue()
     .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_total.csv")
     .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_edu.csv")
     .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_age.csv")
+    .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_salary.csv")
     .await(createWorkVis);
 
 
-function createWorkVis(error, workTotal,eduTotal,ageTotal){
+function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal){
     if(error) { console.log(error); }
 
     //need to transpose the data
     var dataTotal=transpose(workTotal,"Category");
     var dataEdu=transpose(eduTotal,"Education");
-    var dataAge=transpose(ageTotal,"Age")
+    var dataAge=transpose(ageTotal,"Age");
+    var dataSalary=transpose(salaryTotal,"Salary");
     console.log(dataTotal);
+
 
     //make an area chart for total number of work visas
     areachart = new AreaChart("work_map_area", dataTotal);
@@ -41,6 +44,8 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal){
     edu_barchart = new BarChart("work_details_area", dataEdu, "Education");
     //make bar chart for age
     age_barchart = new BarChart("work_details_area", dataAge, "Age");
+    //make bar chart for salary
+    salary_barchart = new BarChart("work_details_area", dataSalary, "Salary");
 }
 
 
