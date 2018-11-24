@@ -17,26 +17,42 @@ var parseYear = d3.timeParse("%Y");
 var immigrationWorldMap;
 var immigrationUsMap;
 
+
 // read work visa
 queue()
     .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_total.csv")
+    .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_edu.csv")
+    .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_age.csv")
+    .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_salary.csv")
+    .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_occupation.csv")
+    .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_industry.csv")
     .await(createWorkVis);
 
 
-function createWorkVis(error, workTotal){
+function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupationTotal,industryTotal){
     if(error) { console.log(error); }
 
-    var data = workTotal;
+    //need to transpose the data
+    var dataTotal=transpose(workTotal,"Category");
 
-    // transpose
-    var data_t=transpose(data,"Category");
-    //console.log(data_t);
+    //metrics
+    //work visa metrics
+    var workMetrics = [
+        { key: "Education", title: "Education", data: transpose(eduTotal,"Education")},
+        { key: "Age", title: "Age", data:transpose(ageTotal,"Age")},
+        { key: "Salary", title: "Salary", data: transpose(salaryTotal,"Salary")},
+        { key: "Occupation", title: "Occupation" , data: transpose(occupationTotal,"Occupation")},
+        { key: "Industry", title: "Industry", data: transpose(industryTotal,"Industry")}
+    ];
 
     //make an area chart for total number of work visas
-    areachart = new AreaChart("work_details_area", data_t);
+    areachart = new AreaChart("work_map_area", dataTotal);
 
-    //make an area chart for total number of work visas
-    //areachart = new AreaChart("work_details_area", data_t);
+
+    // make a bar chart for each variable in configs
+    barcharts = workMetrics.map(function(name) {
+        return new BarChart("work_details_area", name.data, name.title);
+    });
 }
 
 
@@ -89,21 +105,22 @@ function loadData() {
         .defer(d3.json, 'data/world-110m.json')
         .defer(d3.tsv, 'data/world-country-names.tsv')
         .defer(d3.json, 'data/us-states.json')
-        .defer(d3.csv, 'cleaned-data/yrbk-2017-immigration-by-country.csv')
+        .defer(d3.csv, 'cleaned-data/yrbk-2017-permanent-resident-by-state.csv')
+        .defer(d3.csv, 'data/work_visa_trends_2007_2017/work_visa_country.csv')
+        // .defer(d3.csv, 'cleaned-data/yrbk-2017-permanent-resident-by-country.csv')
         .await(createVis)
 
 }
 
-function createVis(error, worldMapData, countryNames, usMapData, immigrationByCountryData) {
+function createVis(error, worldMapData, countryNames, usMapData, immigrationByState, immigrationByCountryData) {
 
     console.log(timelineData);
 
     //create timeline chart
     timeline=new timelineChart("timeline_area", timelineData);
 
-    var processedImmigrationByCountryData = wrangleImmigrationByCountryData(immigrationByCountryData);
-    immigrationWorldMap = new Map('world_map_area', processedImmigrationByCountryData, { map: worldMapData, names: countryNames, mapType: 'world' });
-    immigrationUsMap = new Map('states_map_area', [], { map: usMapData, mapType: 'us' });
+    immigrationWorldMap = new Map('world_map_area', immigrationByCountryData, { map: worldMapData, names: countryNames, mapType: 'world' });
+    immigrationUsMap = new Map('states_map_area', immigrationByState, { map: usMapData, mapType: 'us' });
 }
 
 function updateTimeline() {
@@ -111,17 +128,10 @@ function updateTimeline() {
 
 }
 
-function wrangleImmigrationByCountryData(data) {
-    data.forEach(function(item) {
-        item.number = parseInt(item.number);
-    });
-    var immigrationByCountry = d3.nest()
-        .key(function(d) { return d.country; })
-        .key(function(d) { return d.year; })
-        .entries(data);
-    return immigrationByCountry;
+function updateWorldMap() {
+    immigrationWorldMap.filterData();
 }
 
-function filterMapData() {
-    immigrationWorldMap.filterData();
+function updateUsMap() {
+    immigrationUsMap.filterData();
 }

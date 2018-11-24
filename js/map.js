@@ -17,11 +17,11 @@ var projection = d3.geoMercator()
     .translate([width/5, height / 2]);
 
 
-var path= d3.geoPath()
+var path = d3.geoPath()
     .projection(projection);
 
 
-var color= d3.scaleQuantize()
+var color = d3.scaleQuantize()
     .range(colorbrewer.Blues[9]);
 
 function updateChoropleth() {

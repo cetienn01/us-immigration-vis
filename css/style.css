@@ -42,6 +42,14 @@ h2{
     font-size: 20px;
 }
 
+/*
+barchart for work viz
+ */
+.y-axis text {
+    font-size: 8px;
+}
+
+
 /* image overlay effect
 inspired by w3 schools: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_overlay_fade
 */
@@ -111,4 +119,6 @@ inspired by w3 schools: https://www.w3schools.com/howto/tryit.asp?filename=tryho
 }
 
 
-
+.legendQuant {
+    font-size: smaller;
+}

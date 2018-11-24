@@ -84,7 +84,8 @@
 			<h2>Where Are People From?</h2>
 			<div class="row row2 align-items-center">
 				<div class="col-md-8">
-					<select class="form-control" id="world-map-selection" onchange="filterMapData()">
+					<select class="form-control col-md-2 offset-md-4" id="world-map-selection" onchange="updateWorldMap()">
+						<option value="2007">2007</option>
 						<option value="2008">2008</option>
 						<option value="2009">2009</option>
 						<option value="2010">2010</option>
@@ -95,7 +96,7 @@
 						<option value="2015">2015</option>
 						<option value="2016">2016</option>
 						<option value="2017">2017</option>
-						</select>
+					</select>
 					<div id="world_map_area"></div>
 				</div>
 
@@ -193,17 +194,29 @@
 		<!-- Area for States people migrate to details -->
 	<div class="section" id="section5">
 		<div class="container-fluid">
-		<h2>Where do People Go? </h2>
-		<div class="row row2 align-items-center">
+			<h2>Where do People Go? </h2>
+			<div class="row row2 align-items-center">
 
-			<div class="col-md-6">
-											<div id="states_map_area"></div>
-										</div>
+				<div class="col-md-6">
+					<select class="form-control col-md-2 offset-md-4" id="us-map-selection" onchange="updateUsMap()">
+						<option value="2008">2008</option>
+						<option value="2009">2009</option>
+						<option value="2010">2010</option>
+						<option value="2011">2011</option>
+						<option value="2012">2012</option>
+						<option value="2013">2013</option>
+						<option value="2014">2014</option>
+						<option value="2015">2015</option>
+						<option value="2016">2016</option>
+						<option value="2017">2017</option>
+					</select>
+					<div id="states_map_area"></div>
+				</div>
 
-			<div class="col-md-6">
-											<div id="states_details_area"></div>
-										</div>
-		</div>
+				<div class="col-md-6">
+					<div id="states_details_area"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -269,6 +282,7 @@
 	<script src="js/main.js"></script>
 	<script src="js/timeline.js"></script>
 	<script src="js/workVis.js"></script>
+	<script src="js/workVisBar.js"></script>
 
 <script type="text/javascript">
     new fullpage('#fullpage', {
