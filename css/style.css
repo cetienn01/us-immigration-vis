@@ -47,7 +47,7 @@ h2{
 }
 
 #timeline_list_header {
-    color: #673AB7;
+    color: #810f7c;
     font-size: 20px;
 }
 
@@ -138,6 +138,7 @@ body.fp-viewing-section-header #main_navbar{
 
 #main_navbar {
     font-size: 15px;
+    padding:5px;
 }
 
 .nav-item:active {

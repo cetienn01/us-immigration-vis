@@ -18,6 +18,7 @@ var immigrationWorldMap;
 var immigrationUsMap;
 
 
+
 // read work visa
 queue()
     .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_total.csv")
@@ -50,6 +51,9 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
 
     //make an area chart for total number of work visas
     areachart = new AreaChart("work_map_area", dataTotal);
+
+    //make the Trump trendline Chart
+    trendline= new TrendLine("trump_trendlines_area", dataTotal);
 
 
     // make a bar chart for each variable in configs
