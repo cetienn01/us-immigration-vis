@@ -112,7 +112,9 @@ TrendLine.prototype.updateVis = function(){
 
     console.log(vis.data)
 
-    vis.x.domain([2007,2017]);
+    vis.x.domain(d3.extent(vis.data, function(d) {
+        return d.year;
+    }));
 
     vis.y.domain([0, d3.max(vis.data, function(d) {
         return d.Receipts;
