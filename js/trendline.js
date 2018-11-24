@@ -80,6 +80,8 @@ TrendLine.prototype.initVis = function(){
 TrendLine.prototype.wrangleData = function(){
     var vis = this;
 
+    vis.data.sort(function(a, b) { return a.year - b.year; });
+
     vis.data.forEach(function(d){
         d.year=+d.year;
     })
@@ -119,8 +121,6 @@ TrendLine.prototype.updateVis = function(){
     vis.y.domain([0, d3.max(vis.data, function(d) {
         return d.Receipts;
     })]);
-
-    vis.data.sort(function(a, b) { return a.year - b.year; });
 
     vis.svg.append("path")
         .data(vis.data)
