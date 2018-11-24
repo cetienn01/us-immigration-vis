@@ -112,9 +112,7 @@ TrendLine.prototype.updateVis = function(){
 
     console.log(vis.data)
 
-    vis.x.domain(d3.extent(vis.data, function(d) {
-        return d.year;
-    }));
+    vis.x.domain([2007,2017]);
 
     vis.y.domain([0, d3.max(vis.data, function(d) {
         return d.Receipts;
@@ -122,8 +120,19 @@ TrendLine.prototype.updateVis = function(){
 
     vis.data.sort(function(a, b) { return a.year - b.year; });
 
+    vis.svg.append("path")
+        .data(vis.data)
+        .attr("class", "line")
+        .attr("d", vis.applicationsline(vis.data));
+
+    vis.svg.append("path")
+        .data(vis.data)
+        .attr("class", "line")
+        .style("stroke", "#810f7c")
+        .attr("d", vis.approvalsline(vis.data));
 
 
+    /*
     var lines= vis.svg.selectAll("line")
         .data(vis.data)
 
@@ -135,11 +144,11 @@ TrendLine.prototype.updateVis = function(){
             .duration(1000)
             .attr("d", vis.applicationsline (vis.data));
 
-    lines.exit().remove();
+    lines.exit().remove(); */
 
-  /*  // Call axis functions with the new domain
+    // Call axis functions with the new domain
     vis.svg.select(".x-axis").call(vis.xAxis);
-    vis.svg.select(".y-axis").call(vis.yAxis); */
+    vis.svg.select(".y-axis").call(vis.yAxis);
 
 
 }
