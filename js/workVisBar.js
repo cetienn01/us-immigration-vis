@@ -91,13 +91,79 @@ BarChart.prototype.wrangleData = function(){
 
     console.log(countsNew);
 
+    vis.counts = countsNew;
     //vis.configCounts = configCounts;
 
     //console.log(configCounts)
 
     // Update the visualization
-    //vis.updateVis();
+    vis.updateVis();
 }
+
+BarChart.prototype.updateVis = function(){
+    var vis = this;
+
+    console.log(vis.counts);
+
+    // (1) Update domains
+    vis.x.domain([0, vis.counts[0].value]);  //first element should be the highest => sorted!
+    vis.y.domain(vis.counts.map(function(d) {return d.key;}));
+
+    // (2) Draw rectangles
+    var rect = vis.svg.selectAll("rect")
+        .data(vis.counts);
+
+    // Enter (initialize the newly added elements)
+    rect.enter().append("rect")
+        .attr("class", "bar");
+
+    rect
+        .attr("fill", "lightcyan")
+        .attr("x", vis.margin.left)
+        .attr("y", function(d) {
+            return vis.y(d.key);
+        })
+        .attr("width", function(d) {
+            return vis.x(d.value);
+        })
+        .attr("height", vis.y.bandwidth());
+
+    //Exit
+    //rect.exit().remove();
+
+    // (3) Draw labels
+    // label inside rectangles with values
+    var label = vis.svg.selectAll(".label")
+        .data(vis.counts);
+
+
+    label
+        .enter().append("text")
+        .attr("class", "label");
+
+    label
+        .attr("fill", "black")
+        .transition()
+        .duration(500)
+        .style("font-size","8px")
+        .attr("x", function(d) {
+            return vis.margin.left + vis.x(d.value) ;
+        })
+        .attr("y", function (d, index) {
+            return vis.y(d.key) + 10;
+        })
+        .text(function(d) {
+            return d.value;
+        });
+
+    // Exit
+    //label.exit().remove();
+
+
+    // Update the y-axis
+    vis.svg.select(".y-axis").call(vis.yAxis);
+}
+
 
 
 
