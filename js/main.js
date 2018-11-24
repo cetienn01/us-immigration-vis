@@ -21,22 +21,26 @@ var immigrationUsMap;
 queue()
     .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_total.csv")
     .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_edu.csv")
+    .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_age.csv")
     .await(createWorkVis);
 
 
-function createWorkVis(error, workTotal,eduTotal){
+function createWorkVis(error, workTotal,eduTotal,ageTotal){
     if(error) { console.log(error); }
 
     //need to transpose the data
     var dataTotal=transpose(workTotal,"Category");
-    var dataEdu=transpose(eduTotal,"Education")
+    var dataEdu=transpose(eduTotal,"Education");
+    var dataAge=transpose(ageTotal,"Age")
     console.log(dataTotal);
 
     //make an area chart for total number of work visas
     areachart = new AreaChart("work_map_area", dataTotal);
 
-    //make an area chart for total number of work visas
+    //make bar chart for education
     edu_barchart = new BarChart("work_details_area", dataEdu, "Education");
+    //make bar chart for age
+    age_barchart = new BarChart("work_details_area", dataAge, "Age");
 }
 
 
