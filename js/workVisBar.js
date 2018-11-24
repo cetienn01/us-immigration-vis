@@ -57,7 +57,7 @@ BarChart.prototype.initVis = function(){
  * Data wrangling
  */
 
-BarChart.prototype.wrangleData = function(){
+BarChart.prototype.wrangleData = function() {
     var vis = this;
 
     // (1) Group data by key variable (e.g. 'electricity') and count leaves
@@ -65,17 +65,19 @@ BarChart.prototype.wrangleData = function(){
 
     //get all keys
     var keys = Object.keys(vis.data[0]);
-    keys.forEach(function(key,index){   //remove year
-        if(key=="year"){
-            keys.splice(index,1);
+    keys.forEach(function (key, index) {   //remove year
+        if (key == "year") {
+            keys.splice(index, 1);
         }
     })
 
-    var counts = d3.nest().rollup(function(d){
+    var counts = d3.nest().rollup(function (d) {
         var totals = {};
 
-        keys.forEach(function(key,index){
-            totals[key] = d3.sum(d, function (v) {return v[key];});
+        keys.forEach(function (key, index) {
+            totals[key] = d3.sum(d, function (v) {
+                return v[key];
+            });
         });
         return totals;
     }).entries(vis.data)
@@ -83,15 +85,19 @@ BarChart.prototype.wrangleData = function(){
     //console.log(counts);
 
     //convert counts to array of objects
-    var countsNew = Object.keys(counts).map(key => ({key:key,value:counts[key]}));
+    var countsNew = Object.keys(counts).map(key => ({key: key, value: counts[key]}));
 
-    countsNew.sort(function(a, b) {
+    countsNew.sort(function (a, b) {
         return b.value - a.value;
     });
 
     //console.log(countsNew);
 
-    vis.counts = countsNew;
+    if (countsNew.length >= 10) {
+        vis.counts = countsNew.slice(0, 10);    //get top10, if needed
+    } else {
+        vis.counts = countsNew;
+    }
 
     // Update the visualization
     vis.updateVis();
