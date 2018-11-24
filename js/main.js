@@ -17,6 +17,7 @@ var parseYear = d3.timeParse("%Y");
 var immigrationWorldMap;
 var immigrationUsMap;
 
+
 // read work visa
 queue()
     .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_total.csv")
@@ -33,27 +34,25 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
 
     //need to transpose the data
     var dataTotal=transpose(workTotal,"Category");
-    var dataEdu=transpose(eduTotal,"Education");
-    var dataAge=transpose(ageTotal,"Age");
-    var dataSalary=transpose(salaryTotal,"Salary");
-    var dataOccupation=transpose(occupationTotal,"Occupation");
-    var dataIndustry=transpose(industryTotal,"Industry");
-    //console.log(dataTotal);
 
+    //metrics
+    //work visa metrics
+    var workMetrics = [
+        { key: "Education", title: "Education", data: transpose(eduTotal,"Education")},
+        { key: "Age", title: "Age", data:transpose(ageTotal,"Age")},
+        { key: "Salary", title: "Salary", data: transpose(salaryTotal,"Salary")},
+        { key: "Occupation", title: "Occupation" , data: transpose(occupationTotal,"Occupation")},
+        { key: "Industry", title: "Industry", data: transpose(industryTotal,"Industry")}
+    ];
 
     //make an area chart for total number of work visas
     areachart = new AreaChart("work_map_area", dataTotal);
 
-    //make bar chart for education
-    edu_barchart = new BarChart("work_details_area", dataEdu, "Education");
-    //make bar chart for age
-    age_barchart = new BarChart("work_details_area", dataAge, "Age");
-    //make bar chart for salary
-    salary_barchart = new BarChart("work_details_area", dataSalary, "Salary");
-    //make bar chart for occupation
-    occupation_barchart = new BarChart("work_details_area", dataOccupation, "Occupation");
-    //make bar chart for industry
-    industry_barchart = new BarChart("work_details_area", dataIndustry, "Industry");
+
+    // make a bar chart for each variable in configs
+    barcharts = workMetrics.map(function(name) {
+        return new BarChart("work_details_area", name.data, name.title);
+    });
 }
 
 
