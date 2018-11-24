@@ -37,10 +37,13 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
 
     //metrics
     //work visa metrics
-    var workMetrics = [
+    var workMetrics1 = [
         { key: "Education", title: "Education", data: transpose(eduTotal,"Education")},
         { key: "Age", title: "Age", data:transpose(ageTotal,"Age")},
-        { key: "Salary", title: "Salary", data: transpose(salaryTotal,"Salary")},
+        { key: "Salary", title: "Salary", data: transpose(salaryTotal,"Salary")}
+    ];
+
+    var workMetrics2 = [
         { key: "Occupation", title: "Occupation" , data: transpose(occupationTotal,"Occupation")},
         { key: "Industry", title: "Industry", data: transpose(industryTotal,"Industry")}
     ];
@@ -50,8 +53,12 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
 
 
     // make a bar chart for each variable in configs
-    barcharts = workMetrics.map(function(name) {
-        return new BarChart("work_details_area", name.data, name.title);
+    barcharts1 = workMetrics1.map(function(name) {
+        return new BarChart("work_details_area1", name.data, name.title);
+    })
+
+    barcharts2 = workMetrics2.map(function(name) {
+        return new BarChart("work_details_area2", name.data, name.title);
     });
 }
 
