@@ -121,7 +121,7 @@ timelineChart.prototype.updateVis = function(data){
         .transition()
         .duration(1000)
 
-    .attr("fill", "#673AB7")
+    .attr("fill", "#810f7c")
         .attr("r", 5)
     .attr("cx", 0)
         .attr("cy", function(d){

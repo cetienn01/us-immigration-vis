@@ -120,7 +120,7 @@ BarChart.prototype.updateVis = function(){
     // Enter (initialize the newly added elements)
     rect.enter().append("rect")
         .attr("class", "bar")
-        .attr("fill", "lightgrey")
+        .attr("fill", "#4C4C4C")
         .attr("x", vis.margin.left)
         .attr("y", function(d) {
             return vis.y(d.key);

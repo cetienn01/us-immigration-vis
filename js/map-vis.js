@@ -53,7 +53,7 @@ Map.prototype.initVis = function() {
         .projection(vis.projection);
 
     // Set color scale
-    var colorSelection = (vis.mapType === 'world' ? colorbrewer.PuOr[5] : colorbrewer.YlGnBu[5])
+    var colorSelection = (vis.mapType === 'world' ? colorbrewer.BuPu[5] : colorbrewer.BuPu[5])
     vis.color = d3.scaleQuantize()
         .range(colorSelection);
 
@@ -164,6 +164,7 @@ Map.prototype.updateVis = function() {
                 return '#ccc';
             }
         })
+        .style('stroke', "#4C4C4C")
         .on('mouseover', vis.tip.show)
         .on('mouseout', vis.tip.hide)
         .on('click', function(d) { vis.drawDetails(d, currentSelection); });
@@ -258,7 +259,7 @@ Map.prototype.drawDetails = function(d, currentSelection) {
         .attr("y", function(d) { return y(d.year); })
         .attr("height", y.bandwidth())
         .style('fill', function(d) {
-            return d.year === currentSelection ? vis.color(d.value) : '#ccc';
+            return d.year === currentSelection ? vis.color(d.value) : '#4C4C4C';
         });
 
     // add the x Axis

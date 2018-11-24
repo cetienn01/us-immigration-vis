@@ -2,6 +2,10 @@
   font-size: small;
 }
 
+body {
+    background-color: #d3d5d7;
+}
+
 #main_header{
   text-align: center;
      font-size:60px;
