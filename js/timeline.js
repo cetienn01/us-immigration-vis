@@ -28,7 +28,7 @@ timelineChart.prototype.initVis = function(){
     var vis = this;
 
     //margins and sizing
-    vis.margin = { top: 30, right: 35, bottom: 30, left: 150 };
+    vis.margin = { top: 30, right: 35, bottom: 0, left: 150 };
 
     vis.width = 500 - vis.margin.left - vis.margin.right,
         vis.height = 650 - vis.margin.top - vis.margin.bottom;
