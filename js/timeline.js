@@ -28,10 +28,10 @@ timelineChart.prototype.initVis = function(){
     var vis = this;
 
     //margins and sizing
-    vis.margin = { top: 30, right: 35, bottom: 0, left: 150 };
+    vis.margin = { top: 0, right: 35, bottom: 0, left: 100 };
 
     vis.width = 500 - vis.margin.left - vis.margin.right,
-        vis.height = 650 - vis.margin.top - vis.margin.bottom;
+        vis.height = 550 - vis.margin.top - vis.margin.bottom;
 
     //create the svg area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -183,6 +183,7 @@ timelineChart.prototype.timelineClick = function(i) {
         .append ("<li id='timeline_list_header'>" + vis.data[i].Name + "</li>")
         .append("<li>" + "Year: " + vis.data[i].Date + "</li>")
         .append("<li>" + vis.data[i].Details + "</li>")
+        .append("<li>" + "Source: " + vis.data[i].Source + "</li>")
         .attr("x", 10)
         .attr("y", 10);
 

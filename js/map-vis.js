@@ -265,7 +265,10 @@ Map.prototype.drawDetails = function(d, currentSelection) {
     // add the x Axis
     vis.detailsSvg.append("g")
         .attr("transform", "translate(0," + vis.height + ")")
-        .call(d3.axisBottom(x));
+        .call(d3.axisBottom(x)
+            .ticks(5));
+
+
 
     // add the y Axis
     vis.detailsSvg.append("g")
