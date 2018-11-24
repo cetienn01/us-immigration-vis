@@ -20,25 +20,25 @@
 	<a class="navbar-brand" href="#section-header">State of Immigration</a>
 	<div class="collapse navbar-collapse" id="navbarNavDropdown">
 		<ul class="navbar-nav">
-			<li class="nav-item active">
+			<li class="nav-item">
 				<a class="nav-link" href="#introduction">Introduction <span class="sr-only">(current)</span></a>
 			</li>
-			<li class="nav-item active">
+			<li class="nav-item">
 				<a class="nav-link" href="#section2">Where Are People From? </a>
 			</li>
-			<li class="nav-item active">
+			<li class="nav-item">
 				<a class="nav-link" href="#section3">What is the History?</a>
 			</li>
-			<li class="nav-item active">
+			<li class="nav-item">
 				<a class="nav-link" href="#section4">Who Are They?</a>
 			</li>
-			<li class="nav-item active">
+			<li class="nav-item">
 				<a class="nav-link" href="#section5">Where Do People Go?</a>
 			</li>
-			<li class="nav-item active">
+			<li class="nav-item">
 				<a class="nav-link" href="#section6">How Has Everything Changed Since 2016?</a>
 			</li>
-			<li class="nav-item active">
+			<li class="nav-item">
 				<a class="nav-link" href="#section7">Authors</a>
 			</li>
 		</ul>
@@ -47,15 +47,14 @@
 
 <div id="fullpage">
 
-	<div class="section" id="section-header">
+	<div class="section" data-anchor="section-header">
 		<div class="header_bg">
 			<h1 id="main_header"> The State of Immigration</h1>
 		</div>
 	</div>
 
-
 <!-- Area for the Intro text + photo -->
-		<div class="section" id="introduction">
+		<div class="section" data-anchor="introduction">
 			<div class="container-fluid">
 			<div class="row row1 align-items-center">
 			<div class="col-md-6">
@@ -77,7 +76,7 @@
 		</div>
 
 		<!-- Area for the first visualization, the world map of where people come from -->
-		<div class="section" id="section2">
+		<div class="section" data-anchor="section2">
 			<div class="container-fluid">
 			<h2>Where Are People From?</h2>
 			<div class="row row2 align-items-center">
@@ -106,7 +105,7 @@
 		</div>
 
 			<!-- Area for the second visualization, the timeline -->
-	<div class="section" id="section3">
+	<div class="section" data-anchor="section3">
 		<div class="container-fluid">
 			<h2>What is the History?</h2>
 			<div class="row row2 align-items-center">
@@ -131,7 +130,7 @@
 	</div>
 
 		<!-- Area for the work visas details -->
-	<div class="section" id="section4">
+	<div class="section" data-anchor="section4">
 		<div class="container-fluid">
 		<h2>Why Are People Coming? Work Visas</h2>
 		<div class="row row2 align-items-center">
@@ -194,7 +193,7 @@
 		-->
 
 		<!-- Area for States people migrate to details -->
-	<div class="section" id="section5">
+	<div class="section" data-anchor="section5">
 		<div class="container-fluid">
 			<h2>Where do People Go? </h2>
 			<div class="row row2 align-items-center">
@@ -223,7 +222,7 @@
 	</div>
 
 			<!-- Area for 2016 Election details  -->
-	<div class="section" id="section6">
+	<div class="section" data-anchor="section6">
 		<div class="container-fluid">
 		<h2>How Has Everything Changed Since 2016? </h2>
 		<div class="row row2 align-items-center">
@@ -239,7 +238,7 @@
 		</div>
 	</div>
 
-	<div class="section" id="section7">
+	<div class="section" data-anchor="section7">
 		<div class="container-fluid">
 		<h2>Authors </h2>
 		<div class="row row2 align-items-center">
@@ -289,6 +288,7 @@
 
 <script type="text/javascript">
     new fullpage('#fullpage', {
+        licenseKey: "OPEN-SOURCE-GPLV3-LICENSE",
         anchors: ['section-header', 'introduction','section2', 'section3', 'section4', 'section5', 'section6', 'section7'],
         autoScrolling:true,
         scrollHorizontally: true,
