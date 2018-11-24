@@ -107,13 +107,19 @@ Map.prototype.drawMap = function() {
 Map.prototype.updateVis = function() {
     var vis = this;
     var currentSelection;
+    var detailsElement = (vis.mapType === 'world' ? '#world_map_details_area' : '#states_details_area');
 
+    // Clear details element
+    $(detailsElement).empty();
+
+    // Define select box based on map type
     if (vis.mapType === 'world') {
         currentSelection = d3.select('#world-map-selection').property('value');
     } else {
         currentSelection = d3.select('#us-map-selection').property('value');
     }
 
+    // Set color domain
     vis.color
         .domain([
             d3.min(vis.mapData, function(d) { return d.properties[currentSelection]; }),
@@ -142,6 +148,7 @@ Map.prototype.updateVis = function() {
 
     vis.svg.call(vis.tip)
 
+    // Update map
     var map = vis.svg.selectAll('path')
         .data(vis.mapData);
 
@@ -158,9 +165,16 @@ Map.prototype.updateVis = function() {
             }
         })
         .on('mouseover', vis.tip.show)
-        .on('mouseout', vis.tip.hide);
+        .on('mouseout', vis.tip.hide)
+        .on('click', function(d) { vis.drawDetails(d, currentSelection); });
 
     vis.drawLegend();
+
+    if (vis.selected) {
+        vis.drawDetails(vis.selected, currentSelection);
+    } else {
+        vis.drawDetails(vis.mapData[0], currentSelection);
+    }
 }
 
 Map.prototype.filterData = function() {
@@ -173,12 +187,12 @@ Map.prototype.drawLegend = function() {
 
     var legend = vis.svg.append('g')
         .attr('class', 'legendQuant')
-        .attr('transform', 'translate(' + vis.width / 1.4 + ',' + vis.height * 1.2 + ')');
+        .attr('transform', 'translate(' + vis.width / 2 + ',' + vis.height * 1.2 + ')');
 
     legend.append('text')
         .attr('class', 'caption')
         .attr('x', 0)
-        .attr('y', -20)
+        .attr('y', -10)
         .attr('font-size', 15)
         .text('Scale');
 
@@ -191,4 +205,68 @@ Map.prototype.drawLegend = function() {
 
     vis.svg.select('.legendQuant')
         .call(legend);
+}
+
+Map.prototype.drawDetails = function(d, currentSelection) {
+    var vis = this;
+    var element = (vis.mapType === 'world' ? '#world_map_details_area' : '#states_details_area');
+    vis.selected = d;
+
+    $(element).empty();
+
+    vis.detailsWidth = $(element).width() - vis.margin.left - vis.margin.right;
+
+    // SVG drawing area
+    vis.detailsSvg = d3.select(element).append("svg")
+        .attr("width", vis.detailsWidth + vis.margin.left + vis.margin.right)
+        .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
+        .append("g")
+        .attr("transform", "translate(30, 50)");
+
+    // Title: Name of country or state
+    vis.detailsSvg.append('text')
+        .attr('y', -10)
+        .text(d[vis.countryOrState]);
+
+    // reformat data
+    var keys = Object.keys(d.properties).slice(0, -1);
+    var values = Object.values(d.properties).slice(0, -1);
+    var detailsData = [];
+
+    for (var i = 0; i < keys.length; i++) {
+        var obj = { 'year': keys[i], 'value': values[i] };
+        detailsData.push(obj);
+    }
+
+    // Scales for bar chart
+    var y = d3.scaleBand()
+        .domain(keys)
+        .range([vis.height, 0])
+        .padding(0.1);
+
+    var x = d3.scaleLinear()
+        .domain([0, d3.max(detailsData, function(d){ return d.value; })])
+        .range([0, vis.detailsWidth]);
+
+    // Add bars
+    vis.detailsSvg.selectAll('rect')
+        .data(detailsData)
+        .enter()
+        .append('rect')
+        .attr("class", "bar")
+        .attr("width", function(d) {return x(d.value); } )
+        .attr("y", function(d) { return y(d.year); })
+        .attr("height", y.bandwidth())
+        .style('fill', function(d) {
+            return d.year === currentSelection ? vis.color(d.value) : '#ccc';
+        });
+
+    // add the x Axis
+    vis.detailsSvg.append("g")
+        .attr("transform", "translate(0," + vis.height + ")")
+        .call(d3.axisBottom(x));
+
+    // add the y Axis
+    vis.detailsSvg.append("g")
+        .call(d3.axisLeft(y));
 }
