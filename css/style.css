@@ -6,9 +6,12 @@
   text-align: center;
      font-size:60px;
      padding:40px;
-     background-color: #4C4C4C;
      color: white;
      margin-bottom: 0px;
+    vertical-align: middle;
+    opacity: 50%;
+    stroke:  black;
+
  }
 
 h2{
@@ -16,6 +19,7 @@ h2{
       font-size:40px;
       padding:20px;
       color: #4C4C4C;
+
   }
 
 #timeline_selection_area {
@@ -91,6 +95,19 @@ inspired by w3 schools: https://www.w3schools.com/howto/tryit.asp?filename=tryho
 
 .standard_paragraph{
     font-size: 20px;
+}
+
+.header_bg {
+    /* The image used */
+    background-image: url("https://timedotcom.files.wordpress.com/2018/01/ellis.jpeg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
