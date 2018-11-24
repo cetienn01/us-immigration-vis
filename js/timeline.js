@@ -173,16 +173,16 @@ timelineChart.prototype.timelineClick = function(i) {
 
     //add the details table
     //eventually this will pull the intro paragaph from wikipedia to display
+    //update: couldn't get the wikipedia API working properly so had to add the info manually.
 
     var vis = this;
-
-    console.log("hello from timelineclick")
 
     $('#timeline_details_area li').remove();
 
     $("#timeline_details_area")
         .append ("<li id='timeline_list_header'>" + vis.data[i].Name + "</li>")
         .append("<li>" + "Year: " + vis.data[i].Date + "</li>")
+        .append("<li>" + vis.data[i].Details + "</li>")
         .attr("x", 10)
         .attr("y", 10);
 
