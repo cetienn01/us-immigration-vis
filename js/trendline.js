@@ -49,8 +49,7 @@ TrendLine.prototype.initVis = function(){
     vis.svg.append("g")
         .attr("class", "x-axis axis")
         .attr("transform", "translate(0," + vis.height + ")")
-        .call(vis.xAxis
-            .tickFormat(d3.timeFormat("%Y")));
+        .call(vis.xAxis);
 
 
     vis.svg.append("g")
@@ -80,10 +79,13 @@ TrendLine.prototype.initVis = function(){
 TrendLine.prototype.wrangleData = function(){
     var vis = this;
 
+    var parseDate = d3.timeParse("%Y");
+
     vis.data.sort(function(a, b) { return a.year - b.year; });
 
     vis.data.forEach(function(d){
         d.year=+d.year;
+        d.year=parseDate(d.year);
     })
 /*
 
@@ -114,6 +116,7 @@ TrendLine.prototype.updateVis = function(){
 
     console.log(vis.data)
 
+
     vis.x.domain(d3.extent(vis.data, function(d) {
         return d.year;
     }));
@@ -125,7 +128,7 @@ TrendLine.prototype.updateVis = function(){
     vis.svg.append("path")
         .data(vis.data)
         .attr("class", "line")
-        .style("stroke", "#810f7c")
+        .style("stroke", "#8c96c6")
         .attr("fill", "none")
         .attr("d", vis.applicationsline(vis.data));
 
