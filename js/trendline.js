@@ -139,21 +139,6 @@ TrendLine.prototype.updateVis = function(){
         .style("stroke", "#810f7c")
         .attr("d", vis.approvalsline(vis.data));
 
-
-    /*
-    var lines= vis.svg.selectAll("line")
-        .data(vis.data)
-
-        lines.enter().append("path")
-            .attr("class", "line")
-
-            .merge(lines)
-            .transition()
-            .duration(1000)
-            .attr("d", vis.applicationsline (vis.data));
-
-    lines.exit().remove(); */
-
     // Call axis functions with the new domain
     vis.svg.select(".x-axis").call(vis.xAxis);
     vis.svg.select(".y-axis").call(vis.yAxis);
