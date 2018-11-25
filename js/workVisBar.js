@@ -89,7 +89,7 @@ BarChart.prototype.wrangleData = function() {
             });
         });
         return totals;
-    }).entries(vis.data)
+    }).entries(vis.displayData)
 
     //console.log(counts);
 
@@ -128,7 +128,9 @@ BarChart.prototype.updateVis = function(){
 
     // Enter (initialize the newly added elements)
     rect.enter().append("rect")
-        .attr("class", "bar")
+        .attr("class", "bar");
+
+    rect
         .attr("fill", "#4C4C4C")
         .attr("x", vis.margin.left)
         .attr("y", function(d) {
@@ -140,7 +142,7 @@ BarChart.prototype.updateVis = function(){
         .attr("height", vis.y.bandwidth());
 
     //Exit
-    //rect.exit().remove();
+    rect.exit().remove();
 
 
     // Update the x-axis
@@ -158,6 +160,24 @@ BarChart.prototype.updateVis = function(){
     vis.svg.select(".y-axis_bar").call(vis.yAxis);
 }
 
+
+/*
+ * Filter data when the user changes the selection
+ * Example for brushRegion: 07/16/2016 to 07/28/2016
+ */
+
+BarChart.prototype.selectionChanged = function(brushRegion){
+    var vis = this;
+
+    // Filter data accordingly without changing the original data
+    vis.displayData = vis.data.filter(function(d) {
+        return (parseYear(d.year) >= brushRegion[0] & parseYear(d.year) <= brushRegion[1]);
+    });
+
+
+    // Update the visualization
+    vis.wrangleData();
+}
 
 
 

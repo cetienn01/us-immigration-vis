@@ -53,7 +53,6 @@ AreaChart.prototype.initVis = function(){
             .tickFormat(d3.timeFormat("%Y")));
 
 
-
     vis.svg.append("g")
         .attr("class", "y-axis axis");
 
@@ -62,6 +61,11 @@ AreaChart.prototype.initVis = function(){
         .x(function(d) {return vis.x(d.key);})
         .y0(vis.height)
         .y1(function(d) { return vis.y(d.value);});
+
+    //Initialize brush component
+    vis.brush = d3.brushX()
+        .extent([[0, 0], [vis.width, vis.height]])
+        .on("brush", brushed);
 
     // (Filter, aggregate, modify data)
     vis.wrangleData();
@@ -140,6 +144,17 @@ AreaChart.prototype.updateVis = function(){
         .style("font-size","12px")
         .text("Number of Approvals");
 
+    //exit remove
+    areaChart.exit().remove();
+
+
+    //Append brush component here
+    vis.svg.append("g")
+        .attr("class", "x brush")
+        .call(vis.brush)
+        .selectAll("rect")
+        .attr("y", -6)
+        .attr("height", vis.height + 7);
 
     // Call axis functions with the new domain
     vis.svg.select(".x-axis").call(vis.xAxis);

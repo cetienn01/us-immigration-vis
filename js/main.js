@@ -72,6 +72,33 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
     //make the Trump trendline Chart
     trendline= new TrendLine("trump_trendlines_area", dataTotal);
 
+}
+
+// React to 'brushed' event and update all bar charts
+function brushed() {
+
+    // * TO-DO *
+    // Get the extent of the current brush
+    var selectionRange = d3.brushSelection(d3.select(".brush").node());
+
+    // Convert the extent into the corresponding domain values
+    var selectionDomain = selectionRange.map(areachart.x.invert);
+
+    var barCharts = [barcharts1,barcharts2,barcharts3];
+
+    barCharts.forEach(function(barChart){
+        barChart.forEach(function(barChartDisplay){
+            barChartDisplay.selectionChanged(
+                d3.event.selection === null  ? areachart.x.domain() : selectionDomain
+            );
+        });
+    });
+
+    // barcharts1.forEach(function(barchart) {
+    //     barchart.selectionChanged(
+    //         d3.event.selection === null  ? areachart.x.domain() : selectionDomain
+    //     );
+    // })
 
 }
 
