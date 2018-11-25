@@ -11,7 +11,7 @@ BarChart = function(_parentElement, _data, _config){
 BarChart.prototype.initVis = function(){
     var vis = this;
 
-    vis.margin = { top: 20, right: 200, bottom: 50, left: 150 };
+    vis.margin = { top: 20, right: 200, bottom: 50, left: 170 };
 
     vis.width = 500 - vis.margin.left - vis.margin.right,
         vis.height = 200 - vis.margin.top - vis.margin.bottom;
@@ -40,7 +40,7 @@ BarChart.prototype.initVis = function(){
         .attr("class", "x-axis axis")
         .attr("transform", "translate("+vis.margin.left+"," + vis.height + ")");
 
-    //add the x Axis
+    //add the y Axis
     vis.yAxis = d3.axisLeft()
         .scale(vis.y)
 
@@ -103,7 +103,7 @@ BarChart.prototype.wrangleData = function() {
     //console.log(countsNew);
 
     if (countsNew.length >= 15) {
-        vis.counts = countsNew.slice(0, 14);    //get top20, if needed
+        vis.counts = countsNew.slice(0, 15);    //get top15, if needed
     } else {
         vis.counts = countsNew;
     }
@@ -141,34 +141,6 @@ BarChart.prototype.updateVis = function(){
 
     //Exit
     //rect.exit().remove();
-
-    // (3) Draw labels
-    // label inside rectangles with values
-    var label = vis.svg.selectAll(".label")
-        .data(vis.counts);
-
-
-    label
-        .enter().append("text")
-        .attr("class", "label");
-
-    label
-        .attr("fill", "black")
-        .transition()
-        .duration(500)
-        .style("font-size","8px")
-        .attr("x", function(d) {
-            return vis.margin.left + vis.x(d.value) ;
-        })
-        .attr("y", function (d, index) {
-            return vis.y(d.key) + 10;
-        })
-        .text(function(d) {
-            return d.value;
-        });
-
-    // Exit
-    //label.exit().remove();
 
 
     // Update the x-axis
