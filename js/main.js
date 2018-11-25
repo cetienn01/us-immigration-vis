@@ -40,13 +40,16 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
     //work visa metrics
     var workMetrics1 = [
         { key: "Education", title: "Education", data: transpose(eduTotal,"Education")},
-        { key: "Age", title: "Age", data:transpose(ageTotal,"Age")},
-        { key: "Salary", title: "Salary", data: transpose(salaryTotal,"Salary")}
+        { key: "Age", title: "Age", data:transpose(ageTotal,"Age")}
     ];
 
     var workMetrics2 = [
-        { key: "Occupation", title: "Occupation" , data: transpose(occupationTotal,"Occupation")},
-        { key: "Industry", title: "Industry", data: transpose(industryTotal,"Industry")}
+        { key: "Salary", title: "Salary", data: transpose(salaryTotal,"Salary")},
+        { key: "Occupation", title: "Occupation" , data: transpose(occupationTotal,"Occupation")}
+    ];
+
+    var workMetrics3 = [
+        { key: "Industry", title: "Industry (Top 15)", data: transpose(industryTotal,"Industry")}
     ];
 
     //make an area chart for total number of work visas
@@ -60,6 +63,10 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
 
     barcharts2 = workMetrics2.map(function(name) {
         return new BarChart("work_details_area2", name.data, name.title);
+    });
+
+    barcharts3 = workMetrics3.map(function(name) {
+        return new BarChart("work_details_area3", name.data, name.title);
     });
 
     //make the Trump trendline Chart
