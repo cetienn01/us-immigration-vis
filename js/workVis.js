@@ -53,6 +53,7 @@ AreaChart.prototype.initVis = function(){
             .tickFormat(d3.timeFormat("%Y")));
 
 
+
     vis.svg.append("g")
         .attr("class", "y-axis axis");
 
@@ -113,6 +114,32 @@ AreaChart.prototype.updateVis = function(){
         .attr("class", "area")
         .attr("fill", "#810f7c")
         .attr("d", vis.area);
+
+    //title
+    vis.svg.append("text")
+        .attr("x", vis.width/2 )
+        .attr("y", 0)
+        .style("font-weight","bold")
+        .style("text-anchor", "middle")
+        .text("USCIS H-1B Approvals (2007-2017)");
+
+    //x-axis title
+    vis.svg.append("text")
+        .attr("x", vis.width/2 )
+        .attr("y", vis.height + 40)
+        .style("text-anchor", "middle")
+        .style("font-size","12px")
+        .text("Year");
+
+    //y-axis title
+    vis.svg.append("text")
+        .attr("x", -vis.height/2 )
+        .attr("y", -vis.margin.left+9)
+        .attr("transform", "rotate(-90)")
+        .style("text-anchor", "middle")
+        .style("font-size","12px")
+        .text("Number of Approvals");
+
 
     // Call axis functions with the new domain
     vis.svg.select(".x-axis").call(vis.xAxis);
