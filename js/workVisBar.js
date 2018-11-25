@@ -11,7 +11,7 @@ BarChart = function(_parentElement, _data, _config){
 BarChart.prototype.initVis = function(){
     var vis = this;
 
-    vis.margin = { top: 20, right: 20, bottom: 20, left: 120 };
+    vis.margin = { top: 20, right: 170, bottom: 40, left: 150 };
 
     vis.width = 400 - vis.margin.left - vis.margin.right,
         vis.height = 200 - vis.margin.top - vis.margin.bottom;
@@ -32,12 +32,20 @@ BarChart.prototype.initVis = function(){
         .rangeRound([0,vis.height])
         .padding(0.1);
 
+    // add the x Axis
+    vis.xAxis = d3.axisBottom()
+        .scale(vis.x);
 
+    vis.xAxisGroup = vis.svg.append("g")
+        .attr("class", "x-axis axis")
+        .attr("transform", "translate("+vis.margin.left+"," + vis.height + ")");
+
+    //add the x Axis
     vis.yAxis = d3.axisLeft()
         .scale(vis.y)
 
     vis.yAxisGroup = vis.svg.append("g")
-        .attr("class", "y-axis axis")
+        .attr("class", "y-axis_bar axis")
         .attr("transform", "translate(" + vis.margin.left + ", 0)");
 
     //add title to each bar chart
@@ -162,8 +170,19 @@ BarChart.prototype.updateVis = function(){
     //label.exit().remove();
 
 
-    // Update the y-axis
-    vis.svg.select(".y-axis").call(vis.yAxis);
+    // Update the x-axis
+    vis.svg.select(".x-axis")
+        .call(vis.xAxis
+            .ticks(5))
+        .selectAll("text")
+        .style("text-anchor", "end")
+        .style("font-size","6px")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", "rotate(-65)");
+
+    //update y-axis
+    vis.svg.select(".y-axis_bar").call(vis.yAxis);
 }
 
 
