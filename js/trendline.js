@@ -87,20 +87,6 @@ TrendLine.prototype.wrangleData = function(){
         d.year=+d.year;
         d.year=parseDate(d.year);
     })
-/*
-
-       var approvalCounts = d3.nest()
-           .key(function(d) {return d.year;})
-           .rollup(function(v){ return v[0].Approvals})
-           .entries(vis.data);
-
-       //nest convert to string, convert key to date object
-       approvalCounts.forEach(function(d) {
-           d.key = parseYear(d.key);
-       })
-
-       vis.displayData = approvalCounts; */
-
 
 
     vis.updateVis();
