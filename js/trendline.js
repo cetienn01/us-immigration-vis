@@ -125,8 +125,8 @@ TrendLine.prototype.updateVis = function(){
     vis.svg.append("path")
         .data(vis.data)
         .attr("class", "line")
-        .attr("fill", "none")
         .style("stroke", "#810f7c")
+        .attr("fill", "none")
         .attr("d", vis.applicationsline(vis.data));
 
     vis.svg.append("path")
