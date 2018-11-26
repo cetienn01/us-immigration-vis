@@ -79,7 +79,6 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
 
     //make the Trump trendline Chart
     trendline= new TrendLine("trump_trendlines_area", dataTotal);
-    updateTrendline();
 
 }
 
@@ -197,12 +196,13 @@ function updateTrendline() {
 
     var country = document.getElementById('myInput').value;
 
+
     //console.log("you selected: " + country)
 
     d3.csv("cleaned-data/country-approvals-clean.csv", function (data) {
 
         data.forEach(function (d) {
-            d.year2017 = +d.year2017;
+        /*    d.year2017 = +d.year2017;
             d.year2016=+d.year2016;
             d.year2015 = +d.year2015;
             d.year2014=+d.year2014;
@@ -212,7 +212,7 @@ function updateTrendline() {
             d.year2010=+d.year2010;
             d.year2009=+d.year2009;
             d.year2008=+d.year2008;
-            d.year2007=+d.year2007;
+            d.year2007=+d.year2007; */
         });
 
         trendlineCountryData = data;

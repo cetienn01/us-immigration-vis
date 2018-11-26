@@ -152,57 +152,53 @@ TrendLine.prototype.addCountry = function(data, country) {
     var vis = this;
     console.log(country);
 
-    /* TO DO:
-    Get the Country Input from user and display their country line.
-
-
-
-
-    var currentCountry = {
-        approvals[],
-        year[]
-    }
-}
-
-    for (var i=0; i<data.length; i++) {
-        if (data[i].Country==country) {
-           // currentCountry.name= data[i].Country;
-            currentCountry[0].approvals = data[i].year2017;
-            currentCountry[0].year=2017;
-            currentCountry[1].approvals = data[i].year2016;
-            currentCountry[2].approvals = data[i].year2015;
-            currentCountry[3].approvals = data[i].year2014;
-            currentCountry[4].approvals = data[i].year2013;
-            currentCountry[5].approvals = data[i].year2012;
-            currentCountry[6].approvals = data[i].year2011;
-            currentCountry[7].approvals = data[i].year2010;
-            currentCountry[8].approvals = data[i].year2009;
-            currentCountry[9].approvals = data[i].year2008;
-            currentCountry[10].approvals = data[i].year2007;
-            break;
-        }
-
-    }
+    console.log(vis.data)
+    console.log(data)
 
     var parseDate = d3.timeParse("%Y");
-
-    currentCountry.forEach(function(d){
-        d.year=parseDate(d.year);
-    })
-
-    console.log(currentCountry);
 
     vis.countryline = d3.line()
         .x(function(d) { return vis.x(d.year); })
         .y(function(d) { return vis.y(d.approvals); })
         .curve(d3.curveCatmullRom.alpha(0.5));
 
+    //filter for user selection
+    var currentCountry = data.filter(function(d){
+        return d.Country==country;
+    })
+
+
+    var keys= Object.keys(currentCountry[0]);
+
+
+
+    var values=[];
+
+    keys.forEach(function(d){
+
+        if (d!='Country' && d!='Region') {
+        value=currentCountry[0][d]
+        console.log(d, value)
+        datapoint={}
+        datapoint['year']=parseDate(+d);
+        datapoint['approvals']=parseFloat(value.replace(/,/g, ''));
+        values.push(datapoint)
+        }
+    })
+
+
+    console.log(values)
+
+
+ //   console.log(currentCountry);
+
+
     vis.svg.append("path")
-        .data(currentCountry)
+        .data(values)
         .attr("class", "line")
         .style("stroke", "red")
         .attr("fill", "none")
-        .attr("d", vis.countryline(currentCountry));
+        .attr("d", vis.countryline(values));
 
-*/
+
 }
