@@ -55,39 +55,39 @@
 
 <!-- Area for the Intro text + photo -->
 	<div class="section" data-anchor="introduction">
-			<div class="intro_bg">
+		<div class="intro_bg">
 			<div class="container-fluid">
-			<div class="row row1 align-items-center">
-			<div class="col-md-7">
-				<div id="quote">
-					<em>“Remember, remember always, that all of us, you and I especially, are descended from immigrants and revolutionists.” </em><br>
-					Franklin D. Roosevelt
+				<div class="row row1 align-items-center">
+					<div class="col-md-7">
+						<div id="quote">
+							<em>“Remember, remember always, that all of us, you and I especially, are descended from immigrants and revolutionists.” </em><br>
+							Franklin D. Roosevelt
+						</div>
+
+						<p class="standard_paragraph">
+							The history of America is a history of <strong> immigration. </strong> The country is founded on generations of people from around the world, bringing their stories to the United States to live and work. <br> <br>
+							In today's polarized political climate, the beauty of American immigration is often forgotten. Too little attention is paid to the fact that every person who migrates to the US is a vital part of the <strong> living history </strong> of the country. <br> <br>
+							This visualization project explores trends in work visa immigration from a contemporary lens- 2007 to 2017. We look at where people have come from, the history, who they are, where they move, and how the 2016 election has impacted work immigration. <br> <br>
+							We hope this data art project can combat xenophobia and remind us of the <strong> beauty and value of migration. </strong>
+
+						</p>
+					</div>
 				</div>
-
-				<p class="standard_paragraph">
-					The history of America is a history of <strong> immigration. </strong> The country is founded on generations of people from around the world, bringing their stories to the United States to live and work. <br> <br>
-					In today's polarized political climate, the beauty of American immigration is often forgotten. Too little attention is paid to the fact that every person who migrates to the US is a vital part of the <strong> living history </strong> of the country. <br> <br>
-					This visualization project explores trends in work visa immigration from a contemporary lens- 2007 to 2017. We look at where people have come from, the history, who they are, where they move, and how the 2016 election has impacted work immigration. <br> <br>
-					We hope this data art project can combat xenophobia and remind us of the <strong> beauty and value of migration. </strong>
-
-				</p>
-			</div>
-			</div>
 				<div class="row row1 align-items-end">
 					<div class="col-md-7"></div>
-				<div class="col-md-5">
-					<p class="credits">
-						Photo by Nathan Adams. From Flickr Creative Commons. https://www.flickr.com/photos/nathan_adams/8720200308/sizes/l
-					</p>
+					<div class="col-md-5">
+						<p class="credits">
+							Photo by Nathan Adams. From Flickr Creative Commons. https://www.flickr.com/photos/nathan_adams/8720200308/sizes/l
+						</p>
+					</div>
 				</div>
 			</div>
-			</div>
-			</div>
 		</div>
+	</div>
 
 	<!-- Area for the first visualization, the world map of where people come from -->
 	<div class="section" data-anchor="section2">
-			<div class="container-fluid">
+		<div class="container-fluid">
 			<h2>Where Are People From?</h2>
 
 			<div class="row row2 align-items-center">
@@ -117,7 +117,7 @@
 				</div>
 			</div>
 		</div>
-		</div>
+	</div>
 
 	<!-- Area for the second visualization, the timeline -->
 	<div class="section" data-anchor="section3">
@@ -194,87 +194,74 @@
 
 	<!-- Area for States people migrate to details -->
 	<div class="section" data-anchor="section5">
-		<div class="container-fluid">
-			<h2>Where do People Go? </h2>
-			<div class="row row2 align-items-center">
+		<p class="container-fluid">
+		<h2>Where do People Go? </h2>
+		<p class="text-center">The following data looks at H-1B visas applications that were marked as "CERTIFIED", meaning that the applicant is eligible to file an H-1B, not necessarily approved.</p>
+		<div class="row row2 align-items-center">
 
-				<div class="col-md-6">
-					<select class="form-control col-md-2 offset-md-4" id="us-map-selection" onchange="updateUsMap()">
-						<option value="2008">2008</option>
-						<option value="2009">2009</option>
-						<option value="2010">2010</option>
-						<option value="2011">2011</option>
-						<option value="2012">2012</option>
-						<option value="2013">2013</option>
-						<option value="2014">2014</option>
-						<option value="2015">2015</option>
-						<option value="2016">2016</option>
-						<option value="2017">2017</option>
-					</select>
-					<div id="states_map_area"></div>
-				</div>
+			<div class="col-md-6">
+				<select class="form-control col-md-2 offset-md-4" id="us-map-selection" onchange="updateUsMap()">
+					<option value="2016">2016</option>
+					<option value="2017">2017</option>
+				</select>
+				<div id="states_map_area"></div>
+			</div>
 
-				<div class="col-md-6">
-					<div id="states_details_area"></div>
-				</div>
+			<div class="col-md-6">
+				<div id="states_details_area"></div>
 			</div>
 		</div>
 	</div>
 
+
 	<!-- Area for 2016 Election details  -->
 	<div class="section" data-anchor="section6">
 		<div class="container-fluid">
-		<h2>How Has Everything Changed Since 2016? </h2>
-		<div class="row row2 align-items-center">
+			<h2>How Has Everything Changed Since 2016? </h2>
+			<div class="row row2 align-items-center">
 
-			<div class="col-md-6">
-				<!--
-				<form>
-					<div class="form-group">
-						<label for="countryName">Type a Country Here</label>
-						<input type="text" class="form-control" id="countryName">
-						<button type="submit" class="btn btn-primary" onchange="updateTrendline()">Submit</button>
-					</div>
-				</form>
-				-->
+				<div class="col-md-6">
+					<div id="trump_trendlines_area"></div>
+				</div>
 
-				<div id="trump_trendlines_area"></div>
+				<div class="col-md-6">
+					<p class="section2_paragraph">
+						The election of Donald Trump in 2016 has dramatic potential to alter American immigration. The trendlines to the right show <span class="applications"> applications</span> and <span class="approvals">approvals</span> for work visas over the past 10 years. <br>
+					There's a sharp dip in approvals after 2016, even though applications continue upwards, although more years' data will be needed to see how the trendline continues.
+					</p>
+					<div id="trump_details_area"></div>
+				</div>
 			</div>
-
-			<div class="col-md-6">
-				<p class="section2_paragraph">
-					The election of Donald Trump in 2016 has dramatic potential to alter American immigration. The trendlines to the right show <span class="applications"> applications</span> and <span class="approvals">approvals</span> for work visas over the past 10 years. <br>
-				There's a sharp dip in approvals after 2016, even though applications continue upwards, although more years' data will be needed to see how the trendline continues.
-				</p>
-				<div id="trump_details_area"></div>
-			</div>
-		</div>
 		</div>
 	</div>
 
 	<div class="section" data-anchor="section7">
 		<div class="container-fluid">
-		<h2>Authors </h2>
-		<div class="row row2 align-items-center">
+			<h2>Authors </h2>
+			<div class="row row2 align-items-center">
 
-			<div class="col-md-4">
-				Placeholder for Celena
-			</div>
-
-			<div class="col-md-4">
-				Placeholder for Pratt
-			</div>
-
-			<div class="col-md-4">
-				<img src="img/Voegeli_HeadShot.jpg" alt="a headshot of a woman with short blonde hair" class="image">
-				<div class="overlay overlay_grey">
-					<div class="overlay_text"> Elyse Voegeli <br> Master in Public Policy 2019 <br> Harvard Kennedy School </div>
+				<div class="col-md-4">
+					<img src="img/celena.jpg" class="image"/>
+					<div class="overlay overlay_grey">
+						<div class="overlay_text"> Celena Toon <br> Software Developer <br> Harvard Extension School Student </div>
+					</div>
 				</div>
-			</div>
+
+				<div class="col-md-4">
+					Placeholder for Pratt
+				</div>
+
+				<div class="col-md-4">
+					<img src="img/Voegeli_HeadShot.jpg" alt="a headshot of a woman with short blonde hair" class="image">
+					<div class="overlay overlay_grey">
+						<div class="overlay_text"> Elyse Voegeli <br> Master in Public Policy 2019 <br> Harvard Kennedy School </div>
+					</div>
+				</div>
 
 			</div>
 		</div>
 	</div>
+</div>
 
 </div>
 
@@ -313,7 +300,7 @@
 		navigation:true
     });
 
-    </script>
+</script>
 
 <script>
 	$("#world_map_details_area").hide();

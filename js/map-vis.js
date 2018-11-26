@@ -130,7 +130,7 @@ Map.prototype.updateVis = function() {
     if (vis.mapType === 'world') {
         text = 'Work Visas: ';
     } else {
-        text = 'Immigrants: ';
+        text = 'H-1B Certified: ';
     }
 
     // create tooltips
