@@ -194,6 +194,11 @@ function updateUsMap() {
 
 
 function updateTrendline() {
+
+    var country = document.getElementById('myInput').value;
+
+    console.log("you selected: " + country)
+
     d3.csv("cleaned-data/country-approvals-clean.csv", function (data) {
 
         data.forEach(function (d) {
@@ -212,10 +217,7 @@ function updateTrendline() {
 
         trendlineCountryData = data;
 
-        //test country
-        var country="Greece";
-        // console.log(country)
-
+        //add this to the trendline visualization
         trendline.addCountry(trendlineCountryData, country);
 
     });
@@ -226,7 +228,8 @@ function updateTrendline() {
 
 
 
-// AUTOCOMPLETE CODE from w3 schools
+//************** AUTOCOMPLETE CODE from w3 schools **************////////
+
 
 function autocomplete(inp, arr) {
 

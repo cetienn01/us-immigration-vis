@@ -244,13 +244,12 @@ body.fp-viewing-section-header #main_navbar{
     left: 0;
 }
 
-/*** AUTOCOMPLETE STYLE
- */
+/*********************/
+/* AUTOCOMPLETE STYLE */
+/*********************/
 
 * { box-sizing: border-box; }
-body {
-    font: 16px Arial;
-}
+
 .autocomplete {
     /*the container must be positioned relative:*/
     position: relative;
