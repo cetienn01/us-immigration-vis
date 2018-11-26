@@ -16,6 +16,9 @@ var parseYear = d3.timeParse("%Y");
 // Maps
 var immigrationWorldMap;
 var immigrationUsMap;
+
+//Trendline
+var trendline;
 var trendlineCountryData;
 
 
@@ -72,6 +75,7 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
 
     //make the Trump trendline Chart
     trendline= new TrendLine("trump_trendlines_area", dataTotal);
+    updateTrendline();
 
 }
 
@@ -184,7 +188,7 @@ function updateUsMap() {
     immigrationUsMap.filterData();
 }
 
-updateTrendline()
+
 function updateTrendline() {
     d3.csv("cleaned-data/country-approvals.csv", function (data) {
 
@@ -203,17 +207,18 @@ function updateTrendline() {
         });
 
         trendlineCountryData = data;
-        console.log(data)
+
+        //test country
+        var country="Algeria";
+        // console.log(country)
+
+        trendline.addCountry(trendlineCountryData, country);
 
     });
 
   //  var country= $("#countryName").val();
 
-    //test country
-    var country="Algeria";
-    console.log(country)
 
-    trendline.addCountry(trendlineCountryData, country);
 
 
 }

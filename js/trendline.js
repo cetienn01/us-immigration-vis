@@ -149,14 +149,29 @@ TrendLine.prototype.addCountry = function(data, country) {
     var vis = this;
 
     var currentCountry=[];
+    currentCountry.year=[2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007];
+    currentCountry.approvals=[];
 
     for (var i=0; i<data.length; i++) {
-        if (data[i].country==country) {
-            currentCountry
+        if (data[i].Country==country) {
+            currentCountry.name= data[i].Country;
+            currentCountry.approvals[0] = data[i].year2017;
+            currentCountry.approvals[1] = data[i].year2016;
+            currentCountry.approvals[2] = data[i].year2015;
+            currentCountry.approvals[3] = data[i].year2014;
+            currentCountry.approvals[4] = data[i].year2013;
+            currentCountry.approvals[5] = data[i].year2012;
+            currentCountry.approvals[6] = data[i].year2011;
+            currentCountry.approvals[7] = data[i].year2010;
+            currentCountry.approvals[8] = data[i].year2009;
+            currentCountry.approvals[9] = data[i].year2008;
+            currentCountry.approvals[10] = data[i].year2007;
+            break;
         }
-        else {
-            console.log ("invalid entry")
-        }
+
     }
+
+    console.log(currentCountry)
+
 
 }
