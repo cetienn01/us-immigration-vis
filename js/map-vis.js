@@ -53,8 +53,10 @@ Map.prototype.initVis = function() {
         .projection(vis.projection);
 
     // Set color scale
-    var colorSelection = (vis.mapType === 'world' ? colorbrewer.BuPu[9] : colorbrewer.BuPu[7])
-    vis.color = d3.scaleQuantize()
+    var colorSelection = (vis.mapType === 'world' ? colorbrewer.BuPu[7] : colorbrewer.BuPu[7])
+
+    vis.color = d3.scaleThreshold()
+        .domain([50,100,500,1000,10000,50000,100000])
         .range(colorSelection);
 
     vis.drawMap();
@@ -120,11 +122,11 @@ Map.prototype.updateVis = function() {
     }
 
     // Set color domain
-    vis.color
+  /*  vis.color
         .domain([
             d3.min(vis.mapData, function(d) { return d.properties[currentSelection]; }),
             d3.max(vis.mapData, function(d) { return d.properties[currentSelection]; })
-        ]);
+        ]); */
 
     var text;
     if (vis.mapType === 'world') {
