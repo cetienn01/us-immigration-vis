@@ -103,7 +103,7 @@ AreaChart.prototype.wrangleData = function(){
 AreaChart.prototype.updateVis = function(){
     var vis = this;
 
-    console.log(vis.displayData);
+    //console.log(vis.displayData);
 
     vis.x.domain(d3.extent(vis.displayData, function(d) {
         return d.key;

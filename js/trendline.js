@@ -149,11 +149,14 @@ TrendLine.prototype.updateVis = function(){
 
 TrendLine.prototype.addCountry = function(data, country) {
 
+    var vis = this;
+    console.log(country);
+
     /* TO DO:
     Get the Country Input from user and display their country line.
 
 
-    var vis = this;
+
 
     var currentCountry = {
         approvals[],

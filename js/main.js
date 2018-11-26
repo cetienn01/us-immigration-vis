@@ -197,7 +197,7 @@ function updateTrendline() {
 
     var country = document.getElementById('myInput').value;
 
-    console.log("you selected: " + country)
+    //console.log("you selected: " + country)
 
     d3.csv("cleaned-data/country-approvals-clean.csv", function (data) {
 
