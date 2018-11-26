@@ -151,17 +151,20 @@ TrendLine.prototype.addCountry = function(data, country) {
 
     /* TO DO:
     Get the Country Input from user and display their country line.
-     */
 
- /*   var vis = this;
 
-    var currentCountry= [];
+    var vis = this;
+
+    var currentCountry = {
+        approvals[],
+        year[]
+    }
+}
 
     for (var i=0; i<data.length; i++) {
         if (data[i].Country==country) {
-            currentCountry=data[i];
-         /*   currentCountry.name= data[i].Country;
-            currentCountry.approvals.push(data[i].year2017)
+           // currentCountry.name= data[i].Country;
+            currentCountry[0].approvals = data[i].year2017;
             currentCountry[0].year=2017;
             currentCountry[1].approvals = data[i].year2016;
             currentCountry[2].approvals = data[i].year2015;
@@ -196,7 +199,7 @@ TrendLine.prototype.addCountry = function(data, country) {
         .attr("class", "line")
         .style("stroke", "red")
         .attr("fill", "none")
-        .attr("d", vis.countryline(currentCountry)); */
+        .attr("d", vis.countryline(currentCountry));
 
-
+*/
 }

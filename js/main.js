@@ -158,14 +158,14 @@ function loadData() {
         .defer(d3.tsv, 'data/world-country-names.tsv')
         .defer(d3.json, 'data/us-states.json')
         .defer(d3.csv, 'data/h1b-by-state-2016-2017.csv')
-        .defer(d3.csv, 'data/work_visa_trends_2007_2017/work_visa_country.csv')
+        .defer(d3.csv, 'cleaned-data/country-approvals-clean.csv')
         .await(createVis)
 
 }
 
 function createVis(error, worldMapData, countryNames, usMapData, immigrationByState, immigrationByCountryData) {
 
-    console.log(timelineData);
+    console.log(immigrationByCountryData)
 
     //create timeline chart
     timeline=new timelineChart("timeline_area", timelineData);
