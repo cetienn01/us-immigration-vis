@@ -100,15 +100,16 @@ TrendLine.prototype.wrangleData = function(){
 TrendLine.prototype.updateVis = function(){
     var vis = this;
 
+    var formatDate = d3.timeFormat("%Y");
+
     vis.tip = d3.tip()
         .attr('class', 'd3-tip')
         .html(function(d){
-            console.log("hello from trendtooltip")
-                return 'Applications' + d.Receipts + '<br>' + 'Acceptances' + d.Approvals;
+                return formatDate(d.year) + '<br>' + 'Applications: ' + d.Receipts + '<br>' + 'Acceptances: ' + d.Approvals;
         })
         .offset([0,0]);
 
-    vis.svg.call(vis.tip)
+    vis.svg.call(vis.tip);
 
 
     vis.x.domain(d3.extent(vis.data, function(d) {
