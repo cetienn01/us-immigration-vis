@@ -220,8 +220,11 @@
 			<h2>How Has Everything Changed Since 2016? </h2>
 			<div class="row row2 align-items-center">
 
-				<div class="col-md-6">
+				<div class="col-md-4">
+					<div id="trump_trendlines_area"></div>
+				</div>
 
+				<div class="col-md-4">
 					<!-- thanks to w3schools for autocomplete code https://www.w3schools.com/howto/howto_js_autocomplete.asp -->
 					<form autocomplete="off" onChange="updateTrendline()">
 						<div class="autocomplete" style="width:300px;">
@@ -229,11 +232,11 @@
 						</div>
 						<input type="submit">
 					</form>
+					<div id="trump_country_trendlines_area"></div>
 
-					<div id="trump_trendlines_area"></div>
 				</div>
 
-				<div class="col-md-6">
+				<div class="col-md-4">
 					<p class="section2_paragraph">
 						The election of Donald Trump in 2016 has dramatic potential to alter American immigration. The trendlines to the right show <span class="applications"> applications</span> and <span class="approvals">approvals</span> for work visas over the past 10 years. <br>
 					There's a sharp dip in approvals after 2016, even though applications continue upwards, although more years' data will be needed to see how the trendline continues.
@@ -303,6 +306,7 @@
 	<script src="js/workVis.js"></script>
 	<script src="js/workVisBar.js"></script>
 	<script src="js/trendline.js"></script>
+	<script src="js/countrytrendline.js"></script>
 
 <script type="text/javascript">
     new fullpage('#fullpage', {

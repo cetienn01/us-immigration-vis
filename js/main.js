@@ -19,6 +19,7 @@ var immigrationUsMap;
 
 //Trendline
 var trendline;
+var trendline2;
 var trendlineCountryData;
 
 
@@ -78,6 +79,7 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
     });
 
     //make the Trump trendline Chart
+    console.log(dataTotal)
     trendline= new TrendLine("trump_trendlines_area", dataTotal);
 
 }
@@ -192,37 +194,85 @@ function updateUsMap() {
 }
 
 
+countryTrendline()
+
+function countryTrendline() {
+    var values = [];
+
+    //initialize with a random country
+    country="Pakistan"
+
+    d3.csv("cleaned-data/country-approvals-clean.csv", function (data) {
+
+        trendlineCountryData=data;
+
+        var parseDate = d3.timeParse("%Y");
+
+        //filter for user selection
+        var currentCountry = data.filter(function (d) {
+            return d.Country == country;
+        })
+
+
+        var keys = Object.keys(currentCountry[0]);
+
+
+        keys.forEach(function (d) {
+
+            if (d != 'Country' && d != 'Region') {
+                value = currentCountry[0][d]
+                //    console.log(d, value)
+                datapoint = {}
+                datapoint['year'] = parseDate(+d);
+                datapoint['approvals'] = parseFloat(value.replace(/,/g, ''));
+                values.push(datapoint)
+            }
+        })
+
+
+        trendline2= new CountryTrendLine("trump_country_trendlines_area", values);
+
+        //   trendline.addCountry(trendlineCountryData, country)
+
+    });
+}
+
 function updateTrendline() {
 
     var country = document.getElementById('myInput').value;
 
-
-    //console.log("you selected: " + country)
+    var values=[];
 
     d3.csv("cleaned-data/country-approvals-clean.csv", function (data) {
 
-        data.forEach(function (d) {
-        /*    d.year2017 = +d.year2017;
-            d.year2016=+d.year2016;
-            d.year2015 = +d.year2015;
-            d.year2014=+d.year2014;
-            d.year2013 = +d.year2013;
-            d.year2012=+d.year2012;
-            d.year2011 = +d.year2011;
-            d.year2010=+d.year2010;
-            d.year2009=+d.year2009;
-            d.year2008=+d.year2008;
-            d.year2007=+d.year2007; */
-        });
-
         trendlineCountryData = data;
 
-        //add this to the trendline visualization
-        trendline.addCountry(trendlineCountryData, country);
+        var parseDate = d3.timeParse("%Y");
 
-    });
+        //filter for user selection
+        var currentCountry = data.filter(function (d) {
+            return d.Country == country;
+        })
 
-  //  var country= $("#countryName").val();
+
+        var keys = Object.keys(currentCountry[0]);
+
+
+        keys.forEach(function (d) {
+
+            if (d != 'Country' && d != 'Region') {
+                value = currentCountry[0][d]
+                //    console.log(d, value)
+                datapoint = {}
+                datapoint['year'] = parseDate(+d);
+                datapoint['approvals'] = parseFloat(value.replace(/,/g, ''));
+                values.push(datapoint)
+            }
+        })
+
+    trendline2.updateVis(values)
+
+    })
 
 }
 

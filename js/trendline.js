@@ -170,15 +170,13 @@ TrendLine.prototype.addCountry = function(data, country) {
 
     var keys= Object.keys(currentCountry[0]);
 
-
-
     var values=[];
 
     keys.forEach(function(d){
 
         if (d!='Country' && d!='Region') {
         value=currentCountry[0][d]
-        console.log(d, value)
+        //console.log(d, value)
         datapoint={}
         datapoint['year']=parseDate(+d);
         datapoint['approvals']=parseFloat(value.replace(/,/g, ''));
@@ -189,10 +187,7 @@ TrendLine.prototype.addCountry = function(data, country) {
 
     console.log(values)
 
-
  //   console.log(currentCountry);
-
-
     vis.svg.append("path")
         .data(values)
         .attr("class", "line")
