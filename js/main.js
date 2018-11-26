@@ -16,6 +16,7 @@ var parseYear = d3.timeParse("%Y");
 // Maps
 var immigrationWorldMap;
 var immigrationUsMap;
+var trendlineCountryData;
 
 
 
@@ -181,4 +182,38 @@ function updateWorldMap() {
 
 function updateUsMap() {
     immigrationUsMap.filterData();
+}
+
+updateTrendline()
+function updateTrendline() {
+    d3.csv("cleaned-data/country-approvals.csv", function (data) {
+
+        data.forEach(function (d) {
+            d.year2017 = +d.year2017;
+            d.year2016=+d.year2016;
+            d.year2015 = +d.year2015;
+            d.year2014=+d.year2014;
+            d.year2013 = +d.year2013;
+            d.year2012=+d.year2012;
+            d.year2011 = +d.year2011;
+            d.year2010=+d.year2010;
+            d.year2009=+d.year2009;
+            d.year2008=+d.year2008;
+            d.year2007=+d.year2007;
+        });
+
+        trendlineCountryData = data;
+        console.log(data)
+
+    });
+
+  //  var country= $("#countryName").val();
+
+    //test country
+    var country="Algeria";
+    console.log(country)
+
+    trendline.addCountry(trendlineCountryData, country);
+
+
 }

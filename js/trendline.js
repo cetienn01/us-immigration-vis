@@ -144,3 +144,19 @@ TrendLine.prototype.updateVis = function(){
 
 
 }
+
+TrendLine.prototype.addCountry = function(data, country) {
+    var vis = this;
+
+    var currentCountry=[];
+
+    for (var i=0; i<data.length; i++) {
+        if (data[i].country==country) {
+            currentCountry
+        }
+        else {
+            console.log ("invalid entry")
+        }
+    }
+
+}
