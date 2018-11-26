@@ -271,7 +271,6 @@ Map.prototype.drawDetails = function(d, currentSelection) {
             .ticks(5));
 
 
-
     // add the y Axis
     vis.detailsSvg.append("g")
         .call(d3.axisLeft(y));

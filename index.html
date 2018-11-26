@@ -221,6 +221,15 @@
 			<div class="row row2 align-items-center">
 
 				<div class="col-md-6">
+
+					<!-- thanks to w3schools for autocomplete code https://www.w3schools.com/howto/howto_js_autocomplete.asp -->
+					<form autocomplete="off" onChange="updateTrendline()">
+						<div class="autocomplete" style="width:300px;">
+							<input id="myInput" type="text" name="myCountry" placeholder="Country">
+						</div>
+						<input type="submit">
+					</form>
+
 					<div id="trump_trendlines_area"></div>
 				</div>
 
@@ -320,6 +329,10 @@
     });
 
 
+</script>
+
+<script>
+    autocomplete(document.getElementById("myInput"), countries);
 </script>
 
 
