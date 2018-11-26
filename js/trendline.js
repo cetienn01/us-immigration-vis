@@ -100,7 +100,15 @@ TrendLine.prototype.wrangleData = function(){
 TrendLine.prototype.updateVis = function(){
     var vis = this;
 
-    console.log(vis.data)
+    vis.tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .html(function(d){
+            console.log("hello from trendtooltip")
+                return 'Applications' + d.Receipts + '<br>' + 'Acceptances' + d.Approvals;
+        })
+        .offset([0,0]);
+
+    vis.svg.call(vis.tip)
 
 
     vis.x.domain(d3.extent(vis.data, function(d) {
@@ -116,6 +124,8 @@ TrendLine.prototype.updateVis = function(){
         .attr("class", "line")
         .style("stroke", "#8c96c6")
         .attr("fill", "none")
+        .on('mouseover', vis.tip.show)
+        .on('mouseout', vis.tip.hide)
         .attr("d", vis.applicationsline(vis.data));
 
     vis.svg.append("path")
@@ -123,6 +133,8 @@ TrendLine.prototype.updateVis = function(){
         .attr("class", "line")
         .attr("fill", "none")
         .style("stroke", "#810f7c")
+        .on('mouseover', vis.tip.show)
+        .on('mouseout', vis.tip.hide)
         .attr("d", vis.approvalsline(vis.data));
 
     // Call axis functions with the new domain
