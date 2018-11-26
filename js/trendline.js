@@ -65,6 +65,8 @@ TrendLine.prototype.initVis = function(){
         .y(function(d) { return vis.y(d.Receipts); })
         .curve(d3.curveCatmullRom.alpha(0.5));
 
+
+
     // (Filter, aggregate, modify data)
     vis.wrangleData();
 
@@ -146,32 +148,55 @@ TrendLine.prototype.updateVis = function(){
 }
 
 TrendLine.prototype.addCountry = function(data, country) {
-    var vis = this;
 
-    var currentCountry=[];
-    currentCountry.year=[2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007];
-    currentCountry.approvals=[];
+    /* TO DO:
+    Get the Country Input from user and display their country line.
+     */
+
+ /*   var vis = this;
+
+    var currentCountry= [];
 
     for (var i=0; i<data.length; i++) {
         if (data[i].Country==country) {
-            currentCountry.name= data[i].Country;
-            currentCountry.approvals[0] = data[i].year2017;
-            currentCountry.approvals[1] = data[i].year2016;
-            currentCountry.approvals[2] = data[i].year2015;
-            currentCountry.approvals[3] = data[i].year2014;
-            currentCountry.approvals[4] = data[i].year2013;
-            currentCountry.approvals[5] = data[i].year2012;
-            currentCountry.approvals[6] = data[i].year2011;
-            currentCountry.approvals[7] = data[i].year2010;
-            currentCountry.approvals[8] = data[i].year2009;
-            currentCountry.approvals[9] = data[i].year2008;
-            currentCountry.approvals[10] = data[i].year2007;
+            currentCountry=data[i];
+         /*   currentCountry.name= data[i].Country;
+            currentCountry.approvals.push(data[i].year2017)
+            currentCountry[0].year=2017;
+            currentCountry[1].approvals = data[i].year2016;
+            currentCountry[2].approvals = data[i].year2015;
+            currentCountry[3].approvals = data[i].year2014;
+            currentCountry[4].approvals = data[i].year2013;
+            currentCountry[5].approvals = data[i].year2012;
+            currentCountry[6].approvals = data[i].year2011;
+            currentCountry[7].approvals = data[i].year2010;
+            currentCountry[8].approvals = data[i].year2009;
+            currentCountry[9].approvals = data[i].year2008;
+            currentCountry[10].approvals = data[i].year2007;
             break;
         }
 
     }
 
-    console.log(currentCountry)
+    var parseDate = d3.timeParse("%Y");
+
+    currentCountry.forEach(function(d){
+        d.year=parseDate(d.year);
+    })
+
+    console.log(currentCountry);
+
+    vis.countryline = d3.line()
+        .x(function(d) { return vis.x(d.year); })
+        .y(function(d) { return vis.y(d.approvals); })
+        .curve(d3.curveCatmullRom.alpha(0.5));
+
+    vis.svg.append("path")
+        .data(currentCountry)
+        .attr("class", "line")
+        .style("stroke", "red")
+        .attr("fill", "none")
+        .attr("d", vis.countryline(currentCountry)); */
 
 
 }

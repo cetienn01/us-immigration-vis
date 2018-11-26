@@ -209,7 +209,7 @@ function updateTrendline() {
         trendlineCountryData = data;
 
         //test country
-        var country="Algeria";
+        var country="Greece";
         // console.log(country)
 
         trendline.addCountry(trendlineCountryData, country);
