@@ -196,26 +196,31 @@ function updateUsMap() {
 queue()
     .defer(d3.csv,"cleaned-data/country-approvals-clean.csv")
     .defer(d3.csv,"cleaned-data/h2a-country-approvals-clean.csv")
+    .defer(d3.csv,"cleaned-data/h2b-country-approvals-clean.csv")
     .await(countryTrendline);
 
 
-function countryTrendline(error, h1aData, h2aData) {
+function countryTrendline(error, h1aData, h2aData, h2bData) {
 
     h1aDatasetComplete=h1aData;
     h2aDatasetComplete=h2aData;
+    h2bDatasetComplete=h2bData;
 
     var h1aDataset=[];
     var h2aDataset=[];
+    var h2bDataset=[];
 
 
     //initialize with a random country
     country="Pakistan"
 
+    //clean and process the datasets for display
     h1aDataset=wrangleCountryData(country, h1aData);
-
     h2aDataset=wrangleCountryData(country, h2aData);
+    h2bDataset=wrangleCountryData(country, h2bData);
 
-    trendline2= new CountryTrendLine("trump_country_trendlines_area", h1aDataset, h2aDataset);
+
+    trendline2= new CountryTrendLine("trump_country_trendlines_area", h1aDataset, h2aDataset, h2bDataset);
 
 }
 
@@ -251,20 +256,20 @@ function wrangleCountryData(country, data) {
 }
 
 
-
 function updateTrendline() {
 
     var country = document.getElementById('myInput').value;
 
     var h1aDataset=[];
     var h2aDataset=[];
+    var h2bDataset=[];
 
 
     h1aDataset=wrangleCountryData(country, h1aDatasetComplete);
-
     h2aDataset=wrangleCountryData(country, h2aDatasetComplete);
+    h2bDataset=wrangleCountryData(country, h2bDatasetComplete);
 
-    trendline2.updateVis(h1aDataset, h2aDataset)
+    trendline2.updateVis(h1aDataset, h2aDataset, h2bDataset)
 
 }
 

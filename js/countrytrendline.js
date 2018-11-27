@@ -4,10 +4,11 @@
  * @param _data						-- the dataset 'household characteristics'
  */
 
-CountryTrendLine = function(_parentElement, _data, _data2){
+CountryTrendLine = function(_parentElement, _data, _data2, _data3){
     this.parentElement = _parentElement;
     this.data = _data;
     this.data2=_data2;
+    this.data3=_data3;
     this.displayData = [];
 
     this.initVis();
@@ -77,7 +78,7 @@ CountryTrendLine.prototype.initVis = function(){
 CountryTrendLine.prototype.wrangleData = function(){
     var vis = this;
 
-    vis.updateVis(vis.data, vis.data2);
+    vis.updateVis(vis.data, vis.data2, vis.data3);
 
 }
 
@@ -85,7 +86,7 @@ CountryTrendLine.prototype.wrangleData = function(){
  * The drawing function
  */
 
-CountryTrendLine.prototype.updateVis = function(data, data2){
+CountryTrendLine.prototype.updateVis = function(data, data2, data3){
     var vis = this;
 
     console.log(data)
@@ -106,8 +107,7 @@ CountryTrendLine.prototype.updateVis = function(data, data2){
         return d.year;
     }));
 
-    //check which visa type as more and set that as the domain
-
+    //check which visa type has more and set that as the domain
     if( (d3.max(data, function(d){return d.approvals})) >= (d3.max(data2, function(d){return d.approvals}))) {
         vis.y.domain([0, d3.max(data, function(d) {
             return d.approvals;
@@ -119,8 +119,7 @@ CountryTrendLine.prototype.updateVis = function(data, data2){
         })]);
     }
 
-
-
+    //draw the first visa line
     var line= vis.svg.selectAll(".line")
         .data(data);
 
@@ -137,6 +136,7 @@ CountryTrendLine.prototype.updateVis = function(data, data2){
 
         line.exit().remove();
 
+    //draw the second visa line
     var line2= vis.svg.selectAll(".line2")
         .data(data2);
 
@@ -148,14 +148,32 @@ CountryTrendLine.prototype.updateVis = function(data, data2){
         .duration(1000)
         .attr("d", vis.countryline(data2))
         .attr("fill", "none")
-        .style("stroke", "blue");
+        .style("stroke", "#74a9cf");
 
 
     line2.exit().remove();
 
 
-    // Call axis functions with the new domain
+    //draw the third visa line
+    var line3= vis.svg.selectAll(".line3")
+        .data(data3);
 
+    line3.enter().append("path")
+        .attr("class", "line3")
+
+        .merge(line3)
+        .transition()
+        .duration(1000)
+        .attr("d", vis.countryline(data3))
+        .attr("fill", "none")
+        .style("stroke", "#f1eef6");
+
+
+    line3.exit().remove();
+
+
+
+    // Call axis functions with the new domain
     vis.svg.select(".y-axis")
         .transition()
         .duration(1000)
