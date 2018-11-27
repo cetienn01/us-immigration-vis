@@ -79,7 +79,7 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
     });
 
     //make the Trump trendline Chart
-    console.log(dataTotal)
+    //console.log(dataTotal)
     trendline= new TrendLine("trump_trendlines_area", dataTotal);
 
 }
@@ -193,89 +193,85 @@ function updateUsMap() {
     immigrationUsMap.filterData();
 }
 
+queue()
+    .defer(d3.csv,"cleaned-data/country-approvals-clean.csv")
+    .defer(d3.csv,"cleaned-data/h2a-country-approvals-clean.csv")
+    .await(countryTrendline);
 
-countryTrendline()
 
-function countryTrendline() {
-    var values = [];
+function countryTrendline(error, h1aData, h2aData) {
+
+    h1aDatasetComplete=h1aData;
+    h2aDatasetComplete=h2aData;
+
+    var h1aDataset=[];
+    var h2aDataset=[];
+
 
     //initialize with a random country
     country="Pakistan"
 
-    d3.csv("cleaned-data/country-approvals-clean.csv", function (data) {
+    h1aDataset=wrangleCountryData(country, h1aData);
 
-        trendlineCountryData=data;
+    h2aDataset=wrangleCountryData(country, h2aData);
 
-        var parseDate = d3.timeParse("%Y");
+    trendline2= new CountryTrendLine("trump_country_trendlines_area", h1aDataset, h2aDataset);
 
-        //filter for user selection
-        var currentCountry = data.filter(function (d) {
-            return d.Country == country;
-        })
-
-
-        var keys = Object.keys(currentCountry[0]);
-
-
-        keys.forEach(function (d) {
-
-            if (d != 'Country' && d != 'Region') {
-                value = currentCountry[0][d]
-                //    console.log(d, value)
-                datapoint = {}
-                datapoint['year'] = parseDate(+d);
-                datapoint['approvals'] = parseFloat(value.replace(/,/g, ''));
-                values.push(datapoint)
-            }
-        })
-
-
-        trendline2= new CountryTrendLine("trump_country_trendlines_area", values);
-
-        //   trendline.addCountry(trendlineCountryData, country)
-
-    });
 }
+
+
+function wrangleCountryData(country, data) {
+
+    //console.log(country, data)
+    var parseDate = d3.timeParse("%Y");
+
+    var values=[];
+
+    //filter for user selection
+    var currentCountry = data.filter(function (d) {
+        return d.Country == country;
+    })
+
+    var keys = Object.keys(currentCountry[0]);
+
+
+    keys.forEach(function (d) {
+
+        if (d != 'Country' && d != 'Region') {
+            value = currentCountry[0][d]
+            //    console.log(d, value)
+            datapoint = {}
+            datapoint['year'] = parseDate(+d);
+            datapoint['approvals'] = parseFloat(value.replace(/,/g, ''));
+            values.push(datapoint)
+        }
+    })
+
+    return values;
+}
+
+
 
 function updateTrendline() {
 
     var country = document.getElementById('myInput').value;
 
-    var values=[];
-
-    d3.csv("cleaned-data/h2a-country-approvals-clean.csv", function (data) {
-
-        trendlineCountryData = data;
-
-        var parseDate = d3.timeParse("%Y");
-
-        //filter for user selection
-        var currentCountry = data.filter(function (d) {
-            return d.Country == country;
-        })
+    var h1aDataset=[];
+    var h2aDataset=[];
 
 
-        var keys = Object.keys(currentCountry[0]);
+    h1aDataset=wrangleCountryData(country, h1aDatasetComplete);
 
+    h2aDataset=wrangleCountryData(country, h2aDatasetComplete);
 
-        keys.forEach(function (d) {
-
-            if (d != 'Country' && d != 'Region') {
-                value = currentCountry[0][d]
-                //    console.log(d, value)
-                datapoint = {}
-                datapoint['year'] = parseDate(+d);
-                datapoint['approvals'] = parseFloat(value.replace(/,/g, ''));
-                values.push(datapoint)
-            }
-        })
-
-    trendline2.updateVis(values)
-
-    })
+    trendline2.updateVis(h1aDataset, h2aDataset)
 
 }
 
+//global variables to store visa data
+var h1aDatasetComplete=[];
+var h2aDatasetComplete=[];
+var h2bDatasetComplete=[];
 
 
 //**************//

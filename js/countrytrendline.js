@@ -4,9 +4,10 @@
  * @param _data						-- the dataset 'household characteristics'
  */
 
-CountryTrendLine = function(_parentElement, _data){
+CountryTrendLine = function(_parentElement, _data, _data2){
     this.parentElement = _parentElement;
     this.data = _data;
+    this.data2=_data2;
     this.displayData = [];
 
     this.initVis();
@@ -76,7 +77,7 @@ CountryTrendLine.prototype.initVis = function(){
 CountryTrendLine.prototype.wrangleData = function(){
     var vis = this;
 
-    vis.updateVis(vis.data);
+    vis.updateVis(vis.data, vis.data2);
 
 }
 
@@ -84,7 +85,7 @@ CountryTrendLine.prototype.wrangleData = function(){
  * The drawing function
  */
 
-CountryTrendLine.prototype.updateVis = function(data){
+CountryTrendLine.prototype.updateVis = function(data, data2){
     var vis = this;
 
     console.log(data)
@@ -105,9 +106,20 @@ CountryTrendLine.prototype.updateVis = function(data){
         return d.year;
     }));
 
-    vis.y.domain([0, d3.max(data, function(d) {
-        return d.approvals;
-    })]);
+    //check which visa type as more and set that as the domain
+
+    if( (d3.max(data, function(d){return d.approvals})) >= (d3.max(data2, function(d){return d.approvals}))) {
+        vis.y.domain([0, d3.max(data, function(d) {
+            return d.approvals;
+        })]);
+    }
+    else{
+        vis.y.domain([0, d3.max(data2, function(d) {
+            return d.approvals;
+        })]);
+    }
+
+
 
     var line= vis.svg.selectAll(".line")
         .data(data);
@@ -124,6 +136,22 @@ CountryTrendLine.prototype.updateVis = function(data){
 
 
         line.exit().remove();
+
+    var line2= vis.svg.selectAll(".line2")
+        .data(data2);
+
+    line2.enter().append("path")
+        .attr("class", "line2")
+
+        .merge(line2)
+        .transition()
+        .duration(1000)
+        .attr("d", vis.countryline(data2))
+        .attr("fill", "none")
+        .style("stroke", "blue");
+
+
+    line2.exit().remove();
 
 
     // Call axis functions with the new domain
