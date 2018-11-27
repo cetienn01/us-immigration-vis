@@ -379,16 +379,35 @@ function autocomplete(inp, arr) {
     });
 }
 
+//mouse over effects for text and visualizations
 function applicationsMouseOver(){
-    trendline.updateVis(false, true)
-
+    $( ".trendline1" ).addClass( "activeLine" );
 }
 
 function approvalsMouseOver(){
-    trendline.updateVis(true, false)
-
+    $( ".trendline2" ).addClass( "activeLine" );
 }
 
 function trendlineTextMouseOut(){
-    trendline.updateVis(false, false)
+    $( ".trendline1" ).removeClass( "activeLine" );
+    $( ".trendline2" ).removeClass( "activeLine" );
 }
+
+function H1BMouseOver(){
+    $( ".countryline1" ).addClass( "activeLine" );
+}
+
+function H2AMouseOver(){
+    $( ".countryline2" ).addClass( "activeLine" );
+}
+
+function H2BMouseOver(){
+    $( ".countryline3" ).addClass( "activeLine" );
+}
+
+function VisaTrendlineMouseOut(){
+    $( ".countryline1" ).removeClass( "activeLine" );
+    $( ".countryline2" ).removeClass( "activeLine" );
+    $( ".countryline3" ).removeClass( "activeLine" );
+}
+

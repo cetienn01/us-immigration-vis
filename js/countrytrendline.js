@@ -120,11 +120,11 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3){
     }
 
     //draw the first visa line
-    var line= vis.svg.selectAll(".line")
+    var line= vis.svg.selectAll(".countryline1")
         .data(data);
 
         line.enter().append("path")
-            .attr("class", "line")
+            .attr("class", "countryline1")
 
             .merge(line)
             .transition()
@@ -137,11 +137,11 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3){
         line.exit().remove();
 
     //draw the second visa line
-    var line2= vis.svg.selectAll(".line2")
+    var line2= vis.svg.selectAll(".countryline2")
         .data(data2);
 
     line2.enter().append("path")
-        .attr("class", "line2")
+        .attr("class", "countryline2")
 
         .merge(line2)
         .transition()
@@ -155,11 +155,11 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3){
 
 
     //draw the third visa line
-    var line3= vis.svg.selectAll(".line3")
+    var line3= vis.svg.selectAll(".countryline3")
         .data(data3);
 
     line3.enter().append("path")
-        .attr("class", "line3")
+        .attr("class", "countryline3")
 
         .merge(line3)
         .transition()

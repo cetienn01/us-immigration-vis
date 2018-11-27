@@ -217,6 +217,10 @@ body.fp-viewing-section-header #main_navbar{
     color: #8c96c6;
 }
 
+.activeLine {
+ stroke-width: 3px;
+}
+
 /*********************/
 /*  TOOLTIP OVERLAY  */
 /*********************/

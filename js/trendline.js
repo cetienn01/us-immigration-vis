@@ -91,7 +91,7 @@ TrendLine.prototype.wrangleData = function(){
     })
 
 
-    vis.updateVis(false, false);
+    vis.updateVis();
 
 }
 
@@ -99,7 +99,7 @@ TrendLine.prototype.wrangleData = function(){
  * The drawing function
  */
 
-TrendLine.prototype.updateVis = function(line1bold, line2bold){
+TrendLine.prototype.updateVis = function(){
     var vis = this;
 
     var formatDate = d3.timeFormat("%Y");
@@ -144,50 +144,34 @@ TrendLine.prototype.updateVis = function(line1bold, line2bold){
     vis.svg.select(".x-axis").call(vis.xAxis);
     vis.svg.select(".y-axis").call(vis.yAxis); */
 
-    var line1= vis.svg.selectAll(".line1")
+    var line1= vis.svg.selectAll(".trendline1")
         .data(vis.data);
 
     line1.enter().append("path")
-        .attr("class", "line1")
+        .attr("class", "trendline1")
 
         .merge(line1)
         .transition()
         .duration(100)
         .attr("d", vis.approvalsline(vis.data))
         .attr("fill", "none")
-        .style("stroke", "#810f7c")
-        .attr("stroke-width", function(d){
-            if (line1bold==true) {
-                return 3;
-            }
-            else {
-                return 1;
-            }
-        });
+        .style("stroke", "#810f7c");
 
 
     line1.exit().remove();
 
-    var line2= vis.svg.selectAll(".line2")
+    var line2= vis.svg.selectAll(".trendline2")
         .data(vis.data);
 
     line2.enter().append("path")
-        .attr("class", "line2")
+        .attr("class", "trendline2")
 
         .merge(line2)
         .transition()
         .duration(100)
         .attr("d", vis.applicationsline(vis.data))
         .attr("fill", "none")
-        .style("stroke", "#8c96c6")
-        .attr("stroke-width", function(d){
-            if (line2bold==true) {
-                return 3;
-            }
-            else {
-                return 1;
-            }
-        });
+        .style("stroke", "#8c96c6");
 
 
     line2.exit().remove();
