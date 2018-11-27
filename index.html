@@ -221,17 +221,29 @@
 			<div class="row row2 align-items-center">
 
 				<div class="col-md-4">
+
+				</div>
+				<div class="col-md-4">
+					<!-- thanks to w3schools for autocomplete code https://www.w3schools.com/howto/howto_js_autocomplete.asp -->
+					<form autocomplete="off" >
+						<div class="autocomplete" style="width:300px;">
+							<input id="myInput" type="text" name="myCountry" placeholder="Country">
+						</div>
+						<button name="country" id= "countrybutton"  class="btn btn-primary" type= "button" onclick="updateTrendline()"> Submit</button>
+					</form>
+				</div>
+				<div class="col-md-4">
+
+				</div>
+			</div>
+
+			<div class="row row2 align-items-center">
+
+				<div class="col-md-4">
 					<div id="trump_trendlines_area"></div>
 				</div>
 
 				<div class="col-md-4">
-					<!-- thanks to w3schools for autocomplete code https://www.w3schools.com/howto/howto_js_autocomplete.asp -->
-					<form autocomplete="off" onChange="updateTrendline()">
-						<div class="autocomplete" style="width:300px;">
-							<input id="myInput" type="text" name="myCountry" placeholder="Country">
-						</div>
-						<!-- <input type="submit"> -->
-					</form>
 					<div id="trump_country_trendlines_area"></div>
 				</div>
 
