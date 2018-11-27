@@ -243,7 +243,7 @@ function updateTrendline() {
 
     var values=[];
 
-    d3.csv("cleaned-data/country-approvals-clean.csv", function (data) {
+    d3.csv("cleaned-data/h2a-country-approvals-clean.csv", function (data) {
 
         trendlineCountryData = data;
 
@@ -278,9 +278,9 @@ function updateTrendline() {
 
 
 
-//************** AUTOCOMPLETE CODE from w3 schools **************////////
-
-
+//**************//
+// AUTOCOMPLETE CODE from w3 schools //
+// **************//
 function autocomplete(inp, arr) {
 
     var currentFocus;
