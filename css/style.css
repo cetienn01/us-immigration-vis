@@ -203,7 +203,18 @@ body.fp-viewing-section-header #main_navbar{
 
 .approvals{
     color: #810f7c;
+}
 
+.H1B{
+    color: #810f7c;
+}
+
+.H2A{
+    color: #74a9cf;
+}
+
+.H2B{
+    color: #8c96c6;
 }
 
 /*********************/
@@ -299,6 +310,7 @@ input[type=text] {
 #trump_details_area {
     padding-left:40px;
 }
+
 
 
 
