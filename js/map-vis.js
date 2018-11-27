@@ -163,7 +163,7 @@ Map.prototype.updateVis = function() {
             if (d.properties[vis.countryOrState]) {
                 return vis.color(d.properties[currentSelection]);
             } else {
-                return '#ccc';
+                return '#d3d5d7';
             }
         })
         .style('stroke', "#4C4C4C")
