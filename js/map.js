@@ -106,7 +106,7 @@ function updateChoropleth() {
             if (value) {
                 return color(value);
             } else {
-                return "#ffffff";
+                return "var(--background-color)";
             }
         })
 

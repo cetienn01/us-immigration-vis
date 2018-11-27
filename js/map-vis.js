@@ -53,7 +53,7 @@ Map.prototype.initVis = function() {
         .projection(vis.projection);
 
     // Set color scale
-    var colorSelection = (vis.mapType === 'world' ? colorbrewer.RdPu[7] : colorbrewer.RdPu[7])
+    var colorSelection = (vis.mapType === 'world' ? colorbrewer.Blues[7] : colorbrewer.Blues[7])
 
     vis.color = d3.scaleThreshold()
         .domain([50,100,500,1000,10000,50000,100000])

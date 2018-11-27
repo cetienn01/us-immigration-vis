@@ -1,6 +1,8 @@
 :root {
-    --main-color: #810f7c;
-    --secondary-color: #8c96c6;
+    --main-color: #9ecae1;
+    --secondary-color: #08306b;
+    --tertiary-color: #2171b5;
+    --background-color: white;
 }
 
 
@@ -9,7 +11,7 @@
 }
 
 body {
-    background-color: white;
+    background-color: var(--background-color);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -90,7 +92,7 @@ inspired by w3 schools: https://www.w3schools.com/howto/tryit.asp?filename=tryho
 }
 
 .overlay_grey{
-    background-color: papayawhip;
+    background-color: var(--background-color);
 }
 
 .overlay:hover {
@@ -126,7 +128,7 @@ inspired by w3 schools: https://www.w3schools.com/howto/tryit.asp?filename=tryho
     padding:0px;
 }
 
-.standard_paragraph{
+.intro_paragraph{
     font-size: 20px;
 }
 
@@ -180,14 +182,14 @@ body.fp-viewing-section-header #main_navbar{
 }
 
 #quote{
-    color: var(--main-color);
+    color: var(--secondary-color);
     padding-top: 100px;
     font-size: 20px;
     padding-bottom: 50px;
 }
 
-.standard_paragraph strong{
-    color: var(--main-color);
+.intro_paragraph strong{
+    color: var(--secondary-color);
 }
 
 .section2_paragraph strong{
@@ -204,11 +206,11 @@ body.fp-viewing-section-header #main_navbar{
 }
 
 .applications{
-    color: var(--secondary-color);
+    color: var(--main-color);
 }
 
 .approvals{
-    color: var(--main-color);
+    color: var(--secondary-color);
 }
 
 .H1B{
@@ -216,7 +218,7 @@ body.fp-viewing-section-header #main_navbar{
 }
 
 .H2A{
-    color: #74a9cf;
+    color: var(--tertiary-color);
 }
 
 .H2B{
@@ -320,6 +322,11 @@ input[type=text] {
 
 #trump_details_area {
     padding-left:40px;
+}
+
+.navbar{
+    background-color: var(--main-color);
+    color: white;
 }
 
 

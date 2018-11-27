@@ -148,7 +148,7 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3){
         .duration(1000)
         .attr("d", vis.countryline(data2))
         .attr("fill", "none")
-        .style("stroke", "#74a9cf");
+        .style("stroke", "var(--tertiary-color)");
 
 
     line2.exit().remove();

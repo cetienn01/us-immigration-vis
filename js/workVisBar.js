@@ -131,7 +131,7 @@ BarChart.prototype.updateVis = function(){
         .attr("class", "bar");
 
     rect
-        .attr("fill", "#4C4C4C")
+        .attr("fill", "var(--main-color)")
         .attr("x", vis.margin.left)
         .attr("y", function(d) {
             return vis.y(d.key);
