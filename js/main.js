@@ -377,3 +377,17 @@ function autocomplete(inp, arr) {
         closeAllLists(e.target);
     });
 }
+
+function applicationsMouseOver(){
+    trendline.updateVis(false, true)
+
+}
+
+function approvalsMouseOver(){
+    trendline.updateVis(true, false)
+
+}
+
+function trendlineTextMouseOut(){
+    trendline.updateVis(false, false)
+}

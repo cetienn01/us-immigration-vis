@@ -91,7 +91,7 @@ TrendLine.prototype.wrangleData = function(){
     })
 
 
-    vis.updateVis();
+    vis.updateVis(false, false);
 
 }
 
@@ -99,7 +99,7 @@ TrendLine.prototype.wrangleData = function(){
  * The drawing function
  */
 
-TrendLine.prototype.updateVis = function(){
+TrendLine.prototype.updateVis = function(line1bold, line2bold){
     var vis = this;
 
     var formatDate = d3.timeFormat("%Y");
@@ -122,7 +122,7 @@ TrendLine.prototype.updateVis = function(){
         return d.Receipts;
     })]);
 
-    vis.svg.append("path")
+   /* vis.svg.append("path")
         .data(vis.data)
         .attr("class", "line")
         .style("stroke", "#8c96c6")
@@ -142,12 +142,73 @@ TrendLine.prototype.updateVis = function(){
 
     // Call axis functions with the new domain
     vis.svg.select(".x-axis").call(vis.xAxis);
-    vis.svg.select(".y-axis").call(vis.yAxis);
+    vis.svg.select(".y-axis").call(vis.yAxis); */
+
+    var line1= vis.svg.selectAll(".line1")
+        .data(vis.data);
+
+    line1.enter().append("path")
+        .attr("class", "line1")
+
+        .merge(line1)
+        .transition()
+        .duration(100)
+        .attr("d", vis.approvalsline(vis.data))
+        .attr("fill", "none")
+        .style("stroke", "#810f7c")
+        .attr("stroke-width", function(d){
+            if (line1bold==true) {
+                return 3;
+            }
+            else {
+                return 1;
+            }
+        });
+
+
+    line1.exit().remove();
+
+    var line2= vis.svg.selectAll(".line2")
+        .data(vis.data);
+
+    line2.enter().append("path")
+        .attr("class", "line2")
+
+        .merge(line2)
+        .transition()
+        .duration(100)
+        .attr("d", vis.applicationsline(vis.data))
+        .attr("fill", "none")
+        .style("stroke", "#8c96c6")
+        .attr("stroke-width", function(d){
+            if (line2bold==true) {
+                return 3;
+            }
+            else {
+                return 1;
+            }
+        });
+
+
+    line2.exit().remove();
+
+
+    // Call axis functions with the new domain
+
+    vis.svg.select(".y-axis")
+        .transition()
+        .duration(1000)
+        .call(vis.yAxis);
+
+    vis.svg.select(".x-axis")
+        .transition()
+        .duration(1000)
+        .call(vis.xAxis);
 
 
 }
 
-TrendLine.prototype.addCountry = function(data, country) {
+/*TrendLine.prototype.addCountry = function(data, country) {
 
     var vis = this;
     console.log(country);
@@ -196,4 +257,4 @@ TrendLine.prototype.addCountry = function(data, country) {
         .attr("d", vis.countryline(values));
 
 
-}
+} */
