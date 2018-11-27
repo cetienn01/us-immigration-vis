@@ -116,7 +116,7 @@ AreaChart.prototype.updateVis = function(){
     var areaChart=vis.svg.append("path")
         .datum(vis.displayData)
         .attr("class", "area")
-        .attr("fill", "#810f7c")
+        .attr("fill", "var(--main-color)")
         .attr("d", vis.area);
 
     //title
@@ -159,6 +159,5 @@ AreaChart.prototype.updateVis = function(){
     // Call axis functions with the new domain
     vis.svg.select(".x-axis").call(vis.xAxis);
     vis.svg.select(".y-axis").call(vis.yAxis);
-
 
 }

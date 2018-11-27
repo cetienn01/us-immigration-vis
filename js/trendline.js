@@ -122,28 +122,6 @@ TrendLine.prototype.updateVis = function(){
         return d.Receipts;
     })]);
 
-   /* vis.svg.append("path")
-        .data(vis.data)
-        .attr("class", "line")
-        .style("stroke", "#8c96c6")
-        .attr("fill", "none")
-        .on('mouseover', vis.tip.show)
-        .on('mouseout', vis.tip.hide)
-        .attr("d", vis.applicationsline(vis.data));
-
-    vis.svg.append("path")
-        .data(vis.data)
-        .attr("class", "line")
-        .attr("fill", "none")
-        .style("stroke", "#810f7c")
-        .on('mouseover', vis.tip.show)
-        .on('mouseout', vis.tip.hide)
-        .attr("d", vis.approvalsline(vis.data));
-
-    // Call axis functions with the new domain
-    vis.svg.select(".x-axis").call(vis.xAxis);
-    vis.svg.select(".y-axis").call(vis.yAxis); */
-
     var line1= vis.svg.selectAll(".trendline1")
         .data(vis.data);
 
@@ -155,7 +133,7 @@ TrendLine.prototype.updateVis = function(){
         .duration(100)
         .attr("d", vis.approvalsline(vis.data))
         .attr("fill", "none")
-        .style("stroke", "#810f7c");
+        .style("stroke", "var(--main-color)");
 
 
     line1.exit().remove();
@@ -171,7 +149,7 @@ TrendLine.prototype.updateVis = function(){
         .duration(100)
         .attr("d", vis.applicationsline(vis.data))
         .attr("fill", "none")
-        .style("stroke", "#8c96c6");
+        .style("stroke", "var(--secondary-color)");
 
 
     line2.exit().remove();
@@ -191,54 +169,3 @@ TrendLine.prototype.updateVis = function(){
 
 
 }
-
-/*TrendLine.prototype.addCountry = function(data, country) {
-
-    var vis = this;
-    console.log(country);
-
-    console.log(vis.data)
-    console.log(data)
-
-    var parseDate = d3.timeParse("%Y");
-
-    vis.countryline = d3.line()
-        .x(function(d) { return vis.x(d.year); })
-        .y(function(d) { return vis.y(d.approvals); })
-        .curve(d3.curveCatmullRom.alpha(0.5));
-
-    //filter for user selection
-    var currentCountry = data.filter(function(d){
-        return d.Country==country;
-    })
-
-
-    var keys= Object.keys(currentCountry[0]);
-
-    var values=[];
-
-    keys.forEach(function(d){
-
-        if (d!='Country' && d!='Region') {
-        value=currentCountry[0][d]
-        //console.log(d, value)
-        datapoint={}
-        datapoint['year']=parseDate(+d);
-        datapoint['approvals']=parseFloat(value.replace(/,/g, ''));
-        values.push(datapoint)
-        }
-    })
-
-
-    console.log(values)
-
- //   console.log(currentCountry);
-    vis.svg.append("path")
-        .data(values)
-        .attr("class", "line")
-        .style("stroke", "red")
-        .attr("fill", "none")
-        .attr("d", vis.countryline(values));
-
-
-} */

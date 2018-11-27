@@ -131,7 +131,7 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3){
             .duration(1000)
             .attr("d", vis.countryline(data))
             .attr("fill", "none")
-            .style("stroke", "#810f7c");
+            .style("stroke", "var(--main-color)");
 
 
         line.exit().remove();
@@ -166,12 +166,10 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3){
         .duration(1000)
         .attr("d", vis.countryline(data3))
         .attr("fill", "none")
-        .style("stroke", "#8c96c6");
+        .style("stroke", "var(--secondary-color");
 
 
     line3.exit().remove();
-
-
 
     // Call axis functions with the new domain
     vis.svg.select(".y-axis")
