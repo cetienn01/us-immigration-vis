@@ -261,7 +261,7 @@ Map.prototype.drawDetails = function(d, currentSelection) {
         .attr("y", function(d) { return y(d.year); })
         .attr("height", y.bandwidth())
         .style('fill', function(d) {
-            return d.year === currentSelection ? vis.color(d.value) : '#4C4C4C';
+            return d.year === currentSelection ? vis.color(d.value) : 'var(--main-color)';
         });
 
     // add the x Axis
