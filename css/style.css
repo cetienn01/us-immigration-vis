@@ -341,4 +341,11 @@ input[type=text] {
     float: left;
 }
 
+#trend_section{
+    padding-bottom: 50px;
+}
+
+.annotation.above text {
+   font-size: 15px;
+}
 

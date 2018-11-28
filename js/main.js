@@ -80,7 +80,7 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
 
     //make the Trump trendline Chart
     //console.log(dataTotal)
-    trendline= new TrendLine("trump_trendlines_area", dataTotal);
+    //trendline= new TrendLine("trump_trendlines_area", dataTotal);
 
 }
 
@@ -220,7 +220,7 @@ function countryTrendline(error, h1aData, h2aData, h2bData) {
     h2bDataset=wrangleCountryData(country, h2bData);
 
 
-    trendline2= new CountryTrendLine("trump_country_trendlines_area", h1aDataset, h2aDataset, h2bDataset);
+    trendline2= new CountryTrendLine("trump_country_trendlines_area", h1aDataset, h2aDataset, h2bDataset, country);
 
 }
 
@@ -269,7 +269,7 @@ function updateTrendline() {
     h2aDataset=wrangleCountryData(country, h2aDatasetComplete);
     h2bDataset=wrangleCountryData(country, h2bDatasetComplete);
 
-    trendline2.updateVis(h1aDataset, h2aDataset, h2bDataset)
+    trendline2.updateVis(h1aDataset, h2aDataset, h2bDataset, country)
 
 }
 

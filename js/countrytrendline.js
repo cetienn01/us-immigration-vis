@@ -4,12 +4,13 @@
  * @param _data						-- the dataset 'household characteristics'
  */
 
-CountryTrendLine = function(_parentElement, _data, _data2, _data3){
+CountryTrendLine = function(_parentElement, _data, _data2, _data3, _country){
     this.parentElement = _parentElement;
     this.data = _data;
     this.data2=_data2;
     this.data3=_data3;
     this.displayData = [];
+    this.country=_country;
 
     this.initVis();
 }
@@ -24,8 +25,8 @@ CountryTrendLine.prototype.initVis = function(){
     // * TO-DO *
     vis.margin = { top: 40, right: 60, bottom: 60, left: 60 };
 
-    vis.width = 500 - vis.margin.left - vis.margin.right,
-        vis.height = 400 - vis.margin.top - vis.margin.bottom;
+    vis.width = 700 - vis.margin.left - vis.margin.right,
+        vis.height = 500 - vis.margin.top - vis.margin.bottom;
 
 
     // SVG drawing area
@@ -89,7 +90,7 @@ CountryTrendLine.prototype.initVis = function(){
 CountryTrendLine.prototype.wrangleData = function(){
     var vis = this;
 
-    vis.updateVis(vis.data, vis.data2, vis.data3);
+    vis.updateVis(vis.data, vis.data2, vis.data3,vis.country);
 
 }
 
@@ -97,7 +98,7 @@ CountryTrendLine.prototype.wrangleData = function(){
  * The drawing function
  */
 
-CountryTrendLine.prototype.updateVis = function(data, data2, data3){
+CountryTrendLine.prototype.updateVis = function(data, data2, data3, country){
     var vis = this;
 
     console.log(data)
@@ -191,32 +192,64 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3){
 
     vis.svg.call(vis.tip);
 
-    var parseDate = d3.timeParse("%Y");
-    var trumpdate= vis.x(parseDate("2016"))
-    console.log(trumpdate)
+    vis.annotate(country);
+
+}
+
+CountryTrendLine.prototype.annotate = function(country) {
+    var vis = this;
 
     //annotations from susie liu's annotations library
 
-
+    var parseDate = d3.timeParse("%Y");
+    var trumpdate= vis.x(parseDate("2016"));
+    var syrianwardate=vis.x(parseDate("2011"));
+    var iraqwarend=vis.x(parseDate("2011"));
+    console.log(trumpdate)
 
     const annotations = [{
         note: { label: "Election of Donald Trump" },
         subject: {
-            y1: vis.margin.top,
+            y1: 0,
             y2: vis.height
         },
         y: vis.margin.top,
-        x: trumpdate //position the x based on an x scale
+        x: trumpdate
     }];
+
+    if (country=="Syria"){
+        annotations.push({
+            note: {label: "Start of the War in Syria"},
+            subject: {
+                y1: 0,
+                y2: vis.height
+            },
+            y: vis.margin.top,
+            x: syrianwardate
+        })
+    }
+
+    if (country=="Iraq"){
+        annotations.push({
+            note: {label: "End of the Iraq War"},
+            subject: {
+                y1: 0,
+                y2: vis.height
+            },
+            y: vis.margin.top,
+            x: iraqwarend
+        })
+    }
 
     const type = d3.annotationCustomType(
         d3.annotationXYThreshold,
         {"note":{
                 "lineType":"none",
-                "orientation": "top",
+                "orientation": "right",
                 "align":"middle"}
         }
     );
+
 
     const makeAnnotations = d3.annotation()
         .type(type)
@@ -226,8 +259,5 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3){
     vis.svg.append("g")
         .attr("class", "annotation-group")
         .call(makeAnnotations)
-
-
-
 
 }
