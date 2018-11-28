@@ -60,8 +60,8 @@ CountryTrendLine.prototype.initVis = function(){
     vis.countryline = d3.line()
         .x(function(d) {
             return vis.x(d.year); })
-        .y(function(d) { return vis.y(d.approvals); })
-        .curve(d3.curveCatmullRom.alpha(0.5));
+        .y(function(d) { return vis.y(d.approvals); });
+        //.curve(d3.curveCatmullRom.alpha(0.5));
 
     var formatDate = d3.timeFormat("%Y");
 
@@ -135,7 +135,8 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3){
             .duration(1000)
             .attr("d", vis.countryline(data))
             .attr("fill", "none")
-            .style("stroke", "var(--main-color)");
+            .style("stroke", "var(--main-color)")
+            .style("shape-rendering", "geometricPrecision");
 
 
         line.exit().remove();
@@ -152,7 +153,8 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3){
         .duration(1000)
         .attr("d", vis.countryline(data2))
         .attr("fill", "none")
-        .style("stroke", "var(--tertiary-color)");
+        .style("stroke", "var(--tertiary-color)")
+        .style("shape-rendering", "geometricPrecision");
 
 
     line2.exit().remove();
@@ -170,7 +172,8 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3){
         .duration(1000)
         .attr("d", vis.countryline(data3))
         .attr("fill", "none")
-        .style("stroke", "var(--secondary-color");
+        .style("stroke", "var(--secondary-color")
+        .style("shape-rendering", "geometricPrecision");
 
 
     line3.exit().remove();
@@ -187,6 +190,44 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3){
         .call(vis.xAxis);
 
     vis.svg.call(vis.tip);
+
+    var parseDate = d3.timeParse("%Y");
+    var trumpdate= vis.x(parseDate("2016"))
+    console.log(trumpdate)
+
+    //annotations from susie liu's annotations library
+
+
+
+    const annotations = [{
+        note: { label: "Election of Donald Trump" },
+        subject: {
+            y1: vis.margin.top,
+            y2: vis.height
+        },
+        y: vis.margin.top,
+        x: trumpdate //position the x based on an x scale
+    }];
+
+    const type = d3.annotationCustomType(
+        d3.annotationXYThreshold,
+        {"note":{
+                "lineType":"none",
+                "orientation": "top",
+                "align":"middle"}
+        }
+    );
+
+    const makeAnnotations = d3.annotation()
+        .type(type)
+        .annotations(annotations)
+        .textWrap(30)
+
+    vis.svg.append("g")
+        .attr("class", "annotation-group")
+        .call(makeAnnotations)
+
+
 
 
 }

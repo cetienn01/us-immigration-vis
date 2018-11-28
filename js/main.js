@@ -194,7 +194,7 @@ function updateUsMap() {
 }
 
 queue()
-    .defer(d3.csv,"cleaned-data/country-approvals-clean.csv")
+    .defer(d3.csv,"cleaned-data/h1b-country-approvals-clean.csv")
     .defer(d3.csv,"cleaned-data/h2a-country-approvals-clean.csv")
     .defer(d3.csv,"cleaned-data/h2b-country-approvals-clean.csv")
     .await(countryTrendline);
@@ -212,7 +212,7 @@ function countryTrendline(error, h1aData, h2aData, h2bData) {
 
 
     //initialize with a random country
-    country="Pakistan"
+    country="World"
 
     //clean and process the datasets for display
     h1aDataset=wrangleCountryData(country, h1aData);
