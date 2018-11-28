@@ -53,10 +53,10 @@ Map.prototype.initVis = function() {
         .projection(vis.projection);
 
     // Set color scale
-    var colorSelection = (vis.mapType === 'world' ? colorbrewer.Blues[7] : colorbrewer.Blues[7])
+    var colorSelection = (vis.mapType === 'world' ? colorbrewer.YlGnBu[9] : colorbrewer.YlGnBu[9])
 
     vis.color = d3.scaleThreshold()
-        .domain([50,100,500,1000,10000,50000,100000])
+        .domain([10,50,100,500,1000,5000,10000,50000,100000])
         .range(colorSelection);
 
     vis.drawMap();
@@ -163,10 +163,10 @@ Map.prototype.updateVis = function() {
             if (d.properties[vis.countryOrState]) {
                 return vis.color(d.properties[currentSelection]);
             } else {
-                return 'whitesmoke';
+                return '#BDBDBD';
             }
         })
-        .style('stroke', "#4C4C4C")
+        .style('stroke', "var(--background-color)")
         .on('mouseover', vis.tip.show)
         .on('mouseout', vis.tip.hide)
         .on('click', function(d) { vis.drawDetails(d, currentSelection); });
@@ -190,14 +190,14 @@ Map.prototype.drawLegend = function() {
 
     var legend = vis.svg.append('g')
         .attr('class', 'legendQuant')
-        .attr('transform', 'translate(' + vis.width / 2 + ',' + vis.height * 1.2 + ')');
+        .attr('transform', 'translate(' + -vis.margin.left/1.1 + ',' + vis.height*1.05 + ')');
 
     legend.append('text')
         .attr('class', 'caption')
         .attr('x', 0)
         .attr('y', -10)
         .attr('font-size', 15)
-        .text('Scale');
+        .text('Number of People Migrating');
 
     legend = d3.legendColor()
         .labelFormat(d3.format('.0f'))

@@ -1,8 +1,8 @@
 :root {
-    --main-color: #9ecae1;
+    --main-color: #41b6c4;
     --secondary-color: #08306b;
     --tertiary-color: #2171b5;
-    --background-color: white;
+    --background-color: whitesmoke;
     --text-color: black;
     --header-color: black;
 }
@@ -132,11 +132,12 @@ inspired by w3 schools: https://www.w3schools.com/howto/tryit.asp?filename=tryho
 }
 
 .intro_paragraph{
-    font-size: 20px;
+    font-size: 17px;
+    color: white;
 }
 
 .section2_paragraph{
-    font-size: 15px;
+    font-size: 17px;
     padding-right: 20px;
 }
 
@@ -327,5 +328,9 @@ input[type=text] {
     padding-left:40px;
 }
 
+.world-map-selection {
+    text-align: left;
+    float: left;
+}
 
 
