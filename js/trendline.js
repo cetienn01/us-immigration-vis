@@ -127,6 +127,8 @@ TrendLine.prototype.updateVis = function(){
 
     line1.enter().append("path")
         .attr("class", "trendline1")
+        .on('mouseover', vis.tip.show)
+        .on('mouseout', vis.tip.hide)
 
         .merge(line1)
         .transition()
@@ -143,6 +145,8 @@ TrendLine.prototype.updateVis = function(){
 
     line2.enter().append("path")
         .attr("class", "trendline2")
+        .on('mouseover', vis.tip.show)
+        .on('mouseout', vis.tip.hide)
 
         .merge(line2)
         .transition()
@@ -166,6 +170,8 @@ TrendLine.prototype.updateVis = function(){
         .transition()
         .duration(1000)
         .call(vis.xAxis);
+
+    vis.svg.call(vis.tip);
 
 
 }
