@@ -63,6 +63,17 @@ CountryTrendLine.prototype.initVis = function(){
         .y(function(d) { return vis.y(d.approvals); })
         .curve(d3.curveCatmullRom.alpha(0.5));
 
+    var formatDate = d3.timeFormat("%Y");
+
+    //tooltip
+    vis.tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .html(function(d){
+            return formatDate(d.year) + 'Acceptances: ' + d.approvals;
+        })
+        .offset([0,0]);
+
+
 
     // (Filter, aggregate, modify data)
     vis.wrangleData();
@@ -93,15 +104,6 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3){
 
     var formatDate = d3.timeFormat("%Y");
 
-    /*vis.tip = d3.tip()
-        .attr('class', 'd3-tip')
-        .html(function(d){
-                return formatDate(d.year) + 'Acceptances: ' + d.approvals;
-        })
-        .offset([0,0]);
-
-    vis.svg.call(vis.tip); */
-
 
     vis.x.domain(d3.extent(data, function(d) {
         return d.year;
@@ -125,6 +127,8 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3){
 
         line.enter().append("path")
             .attr("class", "countryline1")
+            .on('mouseover', vis.tip.show)
+            .on('mouseout', vis.tip.hide)
 
             .merge(line)
             .transition()
@@ -181,6 +185,8 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3){
         .transition()
         .duration(1000)
         .call(vis.xAxis);
+
+    vis.svg.call(vis.tip);
 
 
 }
