@@ -103,6 +103,7 @@ TrendLine.prototype.updateVis = function(){
     var vis = this;
 
     var formatDate = d3.timeFormat("%Y");
+    var parseDate = d3.timeParse("%Y");
 
     vis.tip = d3.tip()
         .attr('class', 'd3-tip')
@@ -112,7 +113,6 @@ TrendLine.prototype.updateVis = function(){
         .offset([0,0]);
 
     vis.svg.call(vis.tip);
-
 
     vis.x.domain(d3.extent(vis.data, function(d) {
         return d.year;
@@ -172,6 +172,38 @@ TrendLine.prototype.updateVis = function(){
         .call(vis.xAxis);
 
     vis.svg.call(vis.tip);
+
+    var trumpdate= vis.x(parseDate("2016"))
+    console.log(trumpdate)
+
+    //annotations from susie liu's annotations library
+    const annotations = [{
+        note: { label: "Election of Donald Trump" },
+        subject: {
+            y1: vis.margin.top,
+            y2: vis.height
+        },
+        y: vis.margin.top,
+        x: trumpdate //position the x based on an x scale
+    }];
+
+    const type = d3.annotationCustomType(
+        d3.annotationXYThreshold,
+        {"note":{
+                "lineType":"none",
+                "orientation": "top",
+                "align":"middle"}
+        }
+    );
+
+    const makeAnnotations = d3.annotation()
+        .type(type)
+        .annotations(annotations)
+        .textWrap(30)
+
+    vis.svg.append("g")
+        .attr("class", "annotation-group")
+        .call(makeAnnotations)
 
 
 }
