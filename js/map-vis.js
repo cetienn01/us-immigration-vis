@@ -181,7 +181,7 @@ Map.prototype.updateVis = function() {
         })
         .on('click', function(d, i) {
             var currentColor = (d.properties[currentSelection] ? vis.color(d.properties[currentSelection]) : '#aaa');
-            d3.selectAll('path').style('fill', '#e4e4e4')
+            vis.svg.selectAll('path').style('fill', '#e4e4e4')
             d3.select(this).style('fill', currentColor);
             vis.drawDetails(d, currentSelection);
         });
