@@ -117,19 +117,19 @@
 				<div class="row align-items-center" style="height:65%;" id="overview_text">
 					<div class="col-md-4">
 						<div class="overview_bubble">
-						<span class="count1">1622403</span><br>
+						<span id="count1">1622403</span><br>
 						H1B Visas
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="overview_bubble">
-						<span class="count2">919518</span><br>
+						<span id="count2">919518</span><br>
 						H2A Visas
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="overview_bubble">
-						<span class="count3">711229</span><br>
+						<span id="count3">711229</span><br>
 						H2B Visas
 						</div>
 					</div>
@@ -269,24 +269,6 @@
 		<h2>Who Migrates to the US on Work Visas?</h2>
 
 			<div class="row row2 align-items-center">
-				<div class="col-md-6">
-				</div>
-				<div class="col-md-6">
-					<div class="form-group">
-						<label for="barChartArea">Select Bar Chart </label>
-						<select class="form-control" id="barChartArea" onchange='userSelect()'>
-							<option value="None">Choose One</option>
-							<option value="Education">Education</option>
-							<option value="Salary">Salary</option>
-							<option value="Age">Age</option>
-							<option value="Occupation">Occupation</option>
-							<option value="Industry">Industry</option>
-						</select>
-					</div>
-				</div>
-			</div>
-			<div class="row row2 align-items-center">
-
 				<div class="col-md-4">
 					<div id="work_map_area"></div>
 				</div>
@@ -295,31 +277,28 @@
 				</div>
 
 				<div class="col-md-7">
+                    <div class="form-group">
+                        <label for="barChartArea">Select Bar Chart </label>
+                        <select class="form-control" id="barChartArea" onchange='userSelect()'>
+                            <option value="None">Choose One</option>
+                            <option value="Education">Education</option>
+                            <option value="Salary">Salary</option>
+                            <option value="Age">Age</option>
+                            <option value="Occupation">Occupation</option>
+                            <option value="Industry">Industry</option>
+                        </select>
+                    </div>
 					<div id="work_details_area1"></div>
-				</div>
-
-				<!--
-                <div class="col-md-5">
-                    <div id="work_details_area2"></div>
                 </div>
-                -->
 			</div>
 
 			<!-- Container for Industry; names are too long and will need a separate row -->
 			<div class="row justify-content-end">
-				<div class="col-md-5">
+				<div class="col-md-12">
 					<p class="section_paragraph">
-						The area chart above shows total approved work visas from 2007 to 2017. Select a section of the area chart to view how the demographics of people awarded work visas changes over time! <br> <br>
-						As you can see, the majority of migrants on work visas tend to be <strong> young, well educated, and in the computer science or tech sector. </strong>
+						The area chart above shows total approved H1-B work visas from 2007 to 2017. Select a section of the area chart to view how the demographics of people awarded work visas changes over time! As you can see, the majority of migrants on H1-B work visas tend to be <strong> young, well educated, and in the computer science or tech sector. </strong>
 					</p>
 				</div>
-				<div class="col-md-3">
-					<div id="work_details_area3"></div>
-				</div>
-
-				<div class="col-md-4">
-				</div>
-
 			</div>
 		</div>
 	</div>
@@ -371,6 +350,33 @@
 			</div>
 		</div>
 	</div>
+
+    <!-- Area for the fourth story, about the Philippines-->
+    <div class="section" data-anchor="story_philippines" id="story4">
+        <div class="story4_bg">
+            <div class="container-fluid h-100">
+                <div class="row align-items-center" style="height:95%;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 story_text_block">
+                        <p class="story_paragraph">
+                            "I was born in an outer city suburb in the Philippines called Quezon City. My family and I immigrated to the United States when I was almost 6 years old, and that was almost 12 years ago today. It was always a priority for my parents to provide a better life for us than the lives my siblings and I would have had to go through in the Philippines. They knew that living in the America would give us the opportunities to strive for a higher education and to pursue our dreams. So with hard work, dedication, and most importantly faith, my parents were able to move our family of 5 across the world, more than 10,000 miles away."
+                            <br>-Faye
+                        </p>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row align-items-end" style="height:5%;">
+
+                    <div class="col-md-12">
+                        <p class="credits">
+                            Story thanks to http://immigrants.mndigital.org/exhibits/show/immigrantstories-exhibit/item/478 <br>
+                            Photo thanks to https://en.wikipedia.org/wiki/Quezon_City
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 	<!-- Area for 2016 Election details  -->
 	<div class="section" data-anchor="section6">
@@ -477,7 +483,7 @@
 	<script type="text/javascript">
 			new fullpage('#fullpage', {
 					licenseKey: "OPEN-SOURCE-GPLV3-LICENSE",
-					anchors: ['section-header', 'introduction', 'section1','section2', 'story_yemen', 'section3', 'story_pakistan', 'section4', 'story_mexico', 'section5', 'section6', 'section7'],
+					anchors: ['section-header', 'introduction', 'section1','section2', 'story_yemen', 'section3', 'story_pakistan', 'section4', 'story_mexico', 'section5', 'story_philippines', 'section6', 'section7'],
 					autoScrolling:true,
 					scrollHorizontally: true,
 			navigation:true

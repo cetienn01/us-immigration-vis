@@ -301,6 +301,20 @@ STORY PAGES
 
 }
 
+.story4_bg {
+    /* The image used */
+    background-image: url("../img/quezon_city_greyscale.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
 
 /*********************************
 WORLD MAP
