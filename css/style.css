@@ -5,6 +5,7 @@
     --background-color: whitesmoke;
     --text-color: black;
     --header-color: black;
+    --story-text-color:white;
 }
 
 
@@ -140,9 +141,20 @@ inspired by w3 schools: https://www.w3schools.com/howto/tryit.asp?filename=tryho
     color: white;
 }
 
+.story_paragraph{
+    font-size: 30px;
+    color: var(--story-text-color);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 .section2_paragraph{
     font-size: 17px;
     padding-right: 20px;
+}
+
+.story_text_block{
+    margin: auto;
+    width: 50%;
 }
 
 .header_bg {
@@ -172,6 +184,20 @@ inspired by w3 schools: https://www.w3schools.com/howto/tryit.asp?filename=tryho
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.story1_bg {
+    /* The image used */
+    background-image: url("../img/yemen-revolution.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
 
