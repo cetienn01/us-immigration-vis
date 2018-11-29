@@ -145,6 +145,8 @@ inspired by w3 schools: https://www.w3schools.com/howto/tryit.asp?filename=tryho
     font-size: 30px;
     color: var(--story-text-color);
     background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    text-align: justify;
 }
 
 .section2_paragraph{
@@ -233,11 +235,13 @@ body.fp-viewing-section-header #main_navbar{
     color: var(--main-color);
 }
 
+#story1{
+    height:100%;
+    width: 100%;
+}
 .credits {
     font-size: 10px;
     color: white;
-    position: absolute;
-    bottom: 0;
     text-align: right;
     padding-right: 20px;
 }
