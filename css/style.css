@@ -9,7 +9,7 @@
 
 
 .family-label {
-  font-size: small;
+    font-size: small;
 }
 
 body {
@@ -18,11 +18,11 @@ body {
     color: var(--text-color)
 }
 
-#main_header{
-     font-size:55px;
-     padding-left:40px;
-     color: white;
-     margin-bottom: 0px;
+#main_header {
+    font-size:55px;
+    padding-left:40px;
+    color: white;
+    margin-bottom: 0px;
     vertical-align: middle;
     opacity: 50%;
     height: 100%;
@@ -38,14 +38,13 @@ body {
 }
 
 
-h2{
-      text-align: center;
-      font-size:40px;
-      padding:10px;
-      color: var(--header-color);
+h2 {
+    text-align: center;
+    font-size:40px;
+    padding:10px;
+    color: var(--header-color);
     padding-top: 50px;
-
-  }
+}
 
 #timeline_selection_area {
     margin: auto;
@@ -353,3 +352,7 @@ input[type=text] {
     padding-bottom: 50px;
 }
 
+.location-label {
+    font-size: 16pt;
+    padding: 10px;
+}

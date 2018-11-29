@@ -53,7 +53,7 @@ Map.prototype.initVis = function() {
         .projection(vis.projection);
 
     // Set color scale
-    var colorSelection = (vis.mapType === 'world' ? colorbrewer.YlGnBu[9] : colorbrewer.YlGnBu[9])
+    var colorSelection = colorbrewer.YlGnBu[9];
 
     vis.color = d3.scaleThreshold()
         .domain([10,50,100,500,1000,5000,10000,50000,100000])
@@ -94,7 +94,6 @@ Map.prototype.drawMap = function() {
     // Map visa data to properties field of geojson data
     for (var i = 0; i < map.length; i++) {
         for (var j = 0; j < vis.data.length; j++) {
-            var properties;
             if (map[i][vis.countryOrState] === vis.data[j][vis.countryOrState]) {
                 map[i].properties = vis.data[j];
             }
@@ -167,16 +166,33 @@ Map.prototype.updateVis = function() {
             }
         })
         .style('stroke', "var(--background-color)")
-        .on('mouseover', vis.tip.show)
-        .on('mouseout', vis.tip.hide)
-        .on('click', function(d) { vis.drawDetails(d, currentSelection); });
+        .on('mouseover', function(d, i) {
+            d3.select(this)
+                .style('stroke', 'black')
+                .style('opacity', 0.5)
+                .style('cursor', 'pointer');
+            vis.tip.show(d, i);
+        })
+        .on('mouseout', function(d, i) { 
+            d3.select(this)
+                .style('stroke', 'white')
+                .style('opacity', 1)
+            vis.tip.hide(d, i);
+        })
+        .on('click', function(d, i) {
+            var currentColor = (d.properties[currentSelection] ? vis.color(d.properties[currentSelection]) : '#aaa');
+            d3.selectAll('path').style('fill', '#e4e4e4')
+            d3.select(this).style('fill', currentColor);
+            vis.drawDetails(d, currentSelection);
+        });
 
     vis.drawLegend();
 
     if (vis.selected) {
         vis.drawDetails(vis.selected, currentSelection);
     } else {
-        vis.drawDetails(vis.mapData[0], currentSelection);
+        var index = (vis.mapType === 'world' ? 73 : 4);
+        vis.drawDetails(vis.mapData[index], currentSelection);
     }
 }
 
@@ -200,6 +216,13 @@ Map.prototype.drawLegend = function() {
         .text('Number of People Migrating');
 
     legend = d3.legendColor()
+        .labels(function({i, genLength, generatedLabels,labelDelimiter}) {
+            if (i === 0) {
+                const values = generatedLabels[i].split(`${labelDelimiter}`)
+                return `0 to ${values[1]}`
+              } 
+              return generatedLabels[i];
+        })
         .labelFormat(d3.format('.0f'))
         .shapeWidth(15)
         .shapePadding(5)
@@ -224,54 +247,64 @@ Map.prototype.drawDetails = function(d, currentSelection) {
         .attr("width", vis.detailsWidth + vis.margin.left + vis.margin.right)
         .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
         .append("g")
-        .attr("transform", "translate(30, 50)");
+        .attr("transform", "translate(35, 50)");
 
-    // Title: Name of country or state
-    vis.detailsSvg.append('text')
+    // Check if data is available for selected country
+    // Display barchart if data is available, otherwise display 'no data' message
+    if (Object.keys(d.properties).length === 0) {
+        vis.detailsSvg.append('text')
         .attr('y', -10)
-        .text(d[vis.countryOrState]);
+        .text('Data is not available for ' + d.Country);
+    } else {
+        // Title: Name of country or state
+        vis.detailsSvg.append('text')
+            .attr('class', 'location-label')
+            .attr('x', 20)
+            .attr('y', -10)
+            .text(d[vis.countryOrState]);
 
-    // reformat data
-    var keys = Object.keys(d.properties).slice(0, -1);
-    var values = Object.values(d.properties).slice(0, -1);
-    var detailsData = [];
+        // reformat data
+        var keys = Object.keys(d.properties).slice(0, -1);
+        var values = Object.values(d.properties).slice(0, -1);
+        var detailsData = [];
 
-    for (var i = 0; i < keys.length; i++) {
-        var obj = { 'year': keys[i], 'value': values[i] };
-        detailsData.push(obj);
+        for (var i = 0; i < keys.length; i++) {
+            var obj = { 'year': keys[i], 'value': values[i] };
+            detailsData.push(obj);
+        }
+
+        // Scales for bar chart
+        var y = d3.scaleBand()
+            .domain(keys)
+            .range([vis.height, 0])
+            .padding(0.1);
+
+        var x = d3.scaleLinear()
+            .domain([0, d3.max(detailsData, function(d){ return d.value; })])
+            .range([0, vis.detailsWidth]);
+
+        // Add bars
+        vis.detailsSvg.selectAll('rect')
+            .data(detailsData)
+            .enter()
+            .append('rect')
+            .attr("class", "bar")
+            .attr("width", function(d) {return x(d.value); } )
+            .attr("y", function(d) { return y(d.year); })
+            .attr("height", y.bandwidth())
+            .style('fill', function(d) {
+                return d.year === currentSelection ? 'var(--main-color)' : '#ccc';
+            });
+
+        // add the x Axis
+        vis.detailsSvg.append("g")
+            .attr("transform", "translate(0," + vis.height + ")")
+            .call(d3.axisBottom(x)
+                .ticks(5));
+
+
+        // add the y Axis
+        vis.detailsSvg.append("g")
+            .call(d3.axisLeft(y));
     }
-
-    // Scales for bar chart
-    var y = d3.scaleBand()
-        .domain(keys)
-        .range([vis.height, 0])
-        .padding(0.1);
-
-    var x = d3.scaleLinear()
-        .domain([0, d3.max(detailsData, function(d){ return d.value; })])
-        .range([0, vis.detailsWidth]);
-
-    // Add bars
-    vis.detailsSvg.selectAll('rect')
-        .data(detailsData)
-        .enter()
-        .append('rect')
-        .attr("class", "bar")
-        .attr("width", function(d) {return x(d.value); } )
-        .attr("y", function(d) { return y(d.year); })
-        .attr("height", y.bandwidth())
-        .style('fill', function(d) {
-            return d.year === currentSelection ? vis.color(d.value) : 'var(--main-color)';
-        });
-
-    // add the x Axis
-    vis.detailsSvg.append("g")
-        .attr("transform", "translate(0," + vis.height + ")")
-        .call(d3.axisBottom(x)
-            .ticks(5));
-
-
-    // add the y Axis
-    vis.detailsSvg.append("g")
-        .call(d3.axisLeft(y));
 }

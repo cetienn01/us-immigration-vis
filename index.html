@@ -316,37 +316,20 @@
 	<script src="js/trendline.js"></script>
 	<script src="js/countrytrendline.js"></script>
 
-<script type="text/javascript">
-    new fullpage('#fullpage', {
-        licenseKey: "OPEN-SOURCE-GPLV3-LICENSE",
-        anchors: ['section-header', 'introduction','section2', 'section3', 'section4', 'section5', 'section6', 'section7'],
-        autoScrolling:true,
-        scrollHorizontally: true,
-		navigation:true
-    });
+	<script type="text/javascript">
+			new fullpage('#fullpage', {
+					licenseKey: "OPEN-SOURCE-GPLV3-LICENSE",
+					anchors: ['section-header', 'introduction','section2', 'section3', 'section4', 'section5', 'section6', 'section7'],
+					autoScrolling:true,
+					scrollHorizontally: true,
+			navigation:true
+			});
 
-</script>
+	</script>
 
-<script>
-	$("#world_map_details_area").hide();
-
-    $("#world_map_area").click(function(){
-        $("#world_map_details_area").show();
-    });
-
-    $("#states_details_area").hide();
-
-    $("#states_map_area").click(function(){
-        $("#states_details_area").show();
-    });
-
-
-</script>
-
-<script>
-    autocomplete(document.getElementById("myInput"), countries);
-</script>
-
+	<script>
+			autocomplete(document.getElementById("myInput"), countries);
+	</script>
 
 </body>
 </html>
