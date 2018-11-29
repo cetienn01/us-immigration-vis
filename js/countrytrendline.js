@@ -62,7 +62,7 @@ CountryTrendLine.prototype.initVis = function(){
         .x(function(d) {
             return vis.x(d.year); })
         .y(function(d) { return vis.y(d.approvals); });
-        //.curve(d3.curveCatmullRom.alpha(0.5));
+        //.curve(d3.curveCatmullRom.alpha(0.9));
 
     var formatDate = d3.timeFormat("%Y");
 
@@ -155,6 +155,7 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3, country){
         .attr("d", vis.countryline(data2))
         .attr("fill", "none")
         .style("stroke", "var(--tertiary-color)")
+        .style("shape-rendering", "geometricPrecision")
         .style("shape-rendering", "geometricPrecision");
 
 
