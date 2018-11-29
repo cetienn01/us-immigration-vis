@@ -30,7 +30,7 @@ body {
     color: var(--text-color)
 }
 
-.section2_paragraph{
+.section_paragraph{
     font-size: 17px;
     padding-right: 20px;
 }
@@ -98,7 +98,7 @@ MAIN PAGE
     opacity: .5;  */
 }
 
-.section2_paragraph strong{
+.section_paragraph strong{
     color: var(--main-color);
 }
 
@@ -107,7 +107,7 @@ MAIN PAGE
 INTRO PAGE
 *********************************/
 .intro_paragraph{
-    font-size: 17px;
+    font-size: 25px;
     color: white;
 }
 
@@ -130,8 +130,8 @@ INTRO PAGE
 
 #quote{
     color: var(--secondary-color);
-    padding-top: 100px;
-    font-size: 20px;
+    font-size: 25px;
+    padding-top:75px;
     padding-bottom: 50px;
 }
 
@@ -181,7 +181,7 @@ STORY PAGES
 *********************************/
 
 .story_paragraph{
-    font-size: 30px;
+    font-size: 25px;
     color: var(--story-text-color);
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;

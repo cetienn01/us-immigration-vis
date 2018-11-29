@@ -57,24 +57,22 @@
 <!-- Area for the Intro text + photo -->
 	<div class="section" data-anchor="introduction">
 		<div class="intro_bg">
-			<div class="container-fluid">
-				<div class="row row1 align-items-center">
-					<div class="col-md-7">
+			<div class="container-fluid h-100">
+				<div class="row row1 align-items-center" style="height:95%;">
+					<div class="col-md-9">
 						<div id="quote">
 							<em>“Remember, remember always, that all of us, you and I especially, are descended from immigrants and revolutionists.” </em><br>
 							Franklin D. Roosevelt
 						</div>
 
 						<p class="intro_paragraph">
-							The history of America is a history of <strong> immigration. </strong> The country is founded on generations of people from around the world, bringing their stories to the United States to live and work. <br> <br>
-							In today's polarized political climate, the beauty of American immigration is often forgotten. Too little attention is paid to the fact that every person who migrates to the US is a vital part of the <strong> living history </strong> of the country. <br> <br>
-							This visualization project explores trends in work visa immigration from a contemporary lens- 2007 to 2017. We look at where people have come from, the history, who they are, where they move, and how the 2016 election has impacted work immigration. <br> <br>
-							We hope this data art project can combat xenophobia and remind us of the <strong> beauty and value of migration. </strong>
+							The history of America is a history of <strong> immigration. </strong> The country is founded on generations of people from around the world, bringing their stories to the United States to live and work. In today's polarized political climate, the beauty of American immigration is often forgotten. Too little attention is paid to the fact that every person who migrates to the US is a vital part of the <strong> living history </strong> of the country. <br> <br>
+							This visualization project explores trends in work visa immigration from a contemporary lens- 2007 to 2017. We look at where people have come from, the history, who they are, where they move, and how the 2016 election has impacted work immigration. We hope this data art project can combat xenophobia and remind us of the <strong> beauty and value of migration. </strong>
 
 						</p>
 					</div>
 				</div>
-				<div class="row row1 align-items-end">
+				<div class="row row1 align-items-end" style="height:5%;">
 					<div class="col-md-7"></div>
 					<div class="col-md-5">
 						<p class="credits">
@@ -110,7 +108,7 @@
 				</div>
 
 				<div class="col-md-4">
-					<p class="section2_paragraph">
+					<p class="section_paragraph">
 						The vast majority of people migrating the the US on work visas in the past 10 years are from <strong> India. </strong><br>
 						Click on the interactive visualization to the left to learn more about each country over the years.
 					</p>
@@ -121,7 +119,7 @@
 	</div>
 
 	<!-- Area for the first story, about Yemen -->
-	<div class="section" data-anchor="story1" id="story1">
+	<div class="section" data-anchor="story_yemen" id="story1">
 		<div class="story1_bg">
 		<div class="container-fluid h-100">
 			<div class="row align-items-center" style="height:95%;">
@@ -166,7 +164,7 @@
 				</div>
 
 				<div class="col-md-6">
-					<p class="section2_paragraph">
+					<p class="section_paragraph">
 						The US has a fraught history of legislation relating to migration. At times, legislation has been explicitly racist or <strong> discriminatory </strong>. At other times, legislation has been used to <strong> encourage </strong> migration.  <br>
 						Click on the interactive timeline to the left to learn more about each legislation, or to sort between different types of legislation.
 					</p>
@@ -221,7 +219,7 @@
 			<!-- Container for Industry; names are too long and will need a separate row -->
 			<div class="row justify-content-end">
 				<div class="col-md-5">
-					<p class="section2_paragraph">
+					<p class="section_paragraph">
 						The area chart above shows total approved work visas from 2007 to 2017. Select a section of the area chart to view how the demographics of people awarded work visas changes over time! <br> <br>
 						As you can see, the majority of migrants on work visas tend to be <strong> young, well educated, and in the computer science or tech sector. </strong>
 					</p>
@@ -273,7 +271,7 @@
 				</div>
 
 				<div class="col-md-5">
-					<p class="section2_paragraph">
+					<p class="section_paragraph">
 					<!--	The election of Donald Trump in 2016 has dramatic potential to alter American immigration. The first trendline to the right show <span class="applications" onmouseover="applicationsMouseOver()" onmouseout="trendlineTextMouseOut()"> applications</span> and <span class="approvals" onmouseover="approvalsMouseOver()" onmouseout="trendlineTextMouseOut()">approvals</span> for work visas over the past 10 years. <br> <br>
 						There's a sharp dip in approvals after 2016, even though applications continue upwards, although more years' data will be needed to see how the trendline continues. <br><br> -->
 						The trendline to the right shows
@@ -363,7 +361,7 @@
 	<script type="text/javascript">
 			new fullpage('#fullpage', {
 					licenseKey: "OPEN-SOURCE-GPLV3-LICENSE",
-					anchors: ['section-header', 'introduction','section2', 'section3', 'section4', 'section5', 'section6', 'section7'],
+					anchors: ['section-header', 'introduction','section2', 'story_yemen', 'section3', 'section4', 'section5', 'section6', 'section7'],
 					autoScrolling:true,
 					scrollHorizontally: true,
 			navigation:true
