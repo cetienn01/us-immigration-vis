@@ -8,6 +8,17 @@
     --story-text-color:white;
 }
 
+/*********************************
+OVERALL
+*********************************/
+
+h2 {
+    text-align: center;
+    font-size:40px;
+    padding:10px;
+    color: var(--header-color);
+    padding-top: 50px;
+}
 
 .family-label {
     font-size: small;
@@ -19,6 +30,39 @@ body {
     color: var(--text-color)
 }
 
+.section2_paragraph{
+    font-size: 17px;
+    padding-right: 20px;
+}
+
+.credits {
+    font-size: 10px;
+    color: white;
+    text-align: right;
+    padding-right: 20px;
+}
+
+/*********************************
+NAVBAR
+*********************************/
+
+body.fp-viewing-section-header #main_navbar{
+    display:none;
+}
+
+#main_navbar {
+    font-size: 15px;
+    padding:5px;
+}
+
+.nav-item:active {
+    color: var(--main-color);
+}
+
+
+/*********************************
+MAIN PAGE
+*********************************/
 #main_header {
     font-size:55px;
     padding-left:40px;
@@ -38,14 +82,63 @@ body {
     font-size:45px;
 }
 
+.header_bg {
+    /* The image used */
+    background-image: url("https://timedotcom.files.wordpress.com/2018/01/ellis.jpeg");
 
-h2 {
-    text-align: center;
-    font-size:40px;
-    padding:10px;
-    color: var(--header-color);
-    padding-top: 50px;
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /*change the opacity
+    opacity: .5;  */
 }
+
+.section2_paragraph strong{
+    color: var(--main-color);
+}
+
+
+/*********************************
+INTRO PAGE
+*********************************/
+.intro_paragraph{
+    font-size: 17px;
+    color: white;
+}
+
+.intro_bg {
+    /* The image used */
+    background-image: url("../img/StatueLiberty.PNG");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.intro_paragraph strong{
+    color: var(--secondary-color);
+}
+
+#quote{
+    color: var(--secondary-color);
+    padding-top: 100px;
+    font-size: 20px;
+    padding-bottom: 50px;
+}
+
+
+/*********************************
+TIMELINE PAGE
+*********************************/
 
 #timeline_selection_area {
     margin: auto;
@@ -66,9 +159,10 @@ h2 {
     font-size: 20px;
 }
 
-/*
-barchart for work viz
- */
+
+/*********************************
+WORK VIZ PAGE
+*********************************/
 .y-axis_bar text {
     font-size: 12px;
 }
@@ -81,65 +175,10 @@ remove y-axis in the barcharts
 }
 
 
-/* image overlay effect
-inspired by w3 schools: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_overlay_fade
-*/
 
-.overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    transition: .5s ease;
-    margin:auto;
-
-}
-
-.overlay_grey{
-    background-color: var(--background-color);
-}
-
-.overlay:hover {
-    opacity: 1;
-}
-
-.overlay_text {
-    text-align: center;
-    font-size: 15px;
-    opacity: 1;
-    vertical-align: middle;
-    margin:auto;
-    padding-top: 20%;
-    color: var(--main-color);
-
-
-}
-
-.img-responsive {
-    height: 100%;
-}
-
-.image {
-    object-fit: cover;
-    width: 60%;
-    border-radius: 50%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.image_container {
-    padding:0px;
-}
-
-.intro_paragraph{
-    font-size: 17px;
-    color: white;
-}
+/*********************************
+STORY PAGES
+*********************************/
 
 .story_paragraph{
     font-size: 30px;
@@ -149,43 +188,10 @@ inspired by w3 schools: https://www.w3schools.com/howto/tryit.asp?filename=tryho
     text-align: justify;
 }
 
-.section2_paragraph{
-    font-size: 17px;
-    padding-right: 20px;
-}
-
 .story_text_block{
     margin: auto;
     width: 50%;
-}
-
-.header_bg {
-    /* The image used */
-    background-image: url("https://timedotcom.files.wordpress.com/2018/01/ellis.jpeg");
-
-    /* Full height */
-    height: 100%;
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    /*change the opacity
-    opacity: .5;  */
-}
-
-.intro_bg {
-    /* The image used */
-    background-image: url("../img/StatueLiberty.PNG");
-
-    /* Full height */
-    height: 100%;
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    padding-top: 40px;
 }
 
 .story1_bg {
@@ -201,50 +207,29 @@ inspired by w3 schools: https://www.w3schools.com/howto/tryit.asp?filename=tryho
     background-size: cover;
 
 }
+#story1{
+    height:100%;
+    width: 100%;
+}
 
+
+/*********************************
+WORLD MAP
+*********************************/
 
 .legendQuant {
     font-size: smaller;
 }
 
-body.fp-viewing-section-header #main_navbar{
-    display:none;
+.world-map-selection {
+    text-align: left;
+    float: left;
 }
 
-#main_navbar {
-    font-size: 15px;
-    padding:5px;
-}
 
-.nav-item:active {
-    color: var(--main-color);
-}
-
-#quote{
-    color: var(--secondary-color);
-    padding-top: 100px;
-    font-size: 20px;
-    padding-bottom: 50px;
-}
-
-.intro_paragraph strong{
-    color: var(--secondary-color);
-}
-
-.section2_paragraph strong{
-    color: var(--main-color);
-}
-
-#story1{
-    height:100%;
-    width: 100%;
-}
-.credits {
-    font-size: 10px;
-    color: white;
-    text-align: right;
-    padding-right: 20px;
-}
+/*********************************
+TRENDLINES
+*********************************/
 
 .applications{
     color: var(--main-color);
@@ -269,6 +254,22 @@ body.fp-viewing-section-header #main_navbar{
 .activeLine {
  stroke-width: 3px;
 }
+
+#trump_details_area {
+    padding-left:40px;
+}
+
+
+#trend_section{
+    padding-bottom: 50px;
+}
+
+.annotation.above text {
+    font-size: 15px;
+}
+
+
+
 
 /*********************/
 /*  TOOLTIP OVERLAY  */
@@ -361,28 +362,68 @@ input[type=text] {
     color: #ffffff;
 }
 
-#trump_details_area {
-    padding-left:40px;
+.location-label {
+    font-size: 16pt;
+    padding: 10px;
 }
 
-.world-map-selection {
-    text-align: left;
-    float: left;
-}
 
-#trend_section{
-    padding-bottom: 50px;
-}
-
-.annotation.above text {
-   font-size: 15px;
-}
+/*********************************
+AUTHORS PAGE
+*********************************/
+/* image overlay effect
+inspired by w3 schools: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_overlay_fade
+*/
 
 #authors_section{
     padding-bottom: 50px;
 }
 
-.location-label {
-    font-size: 16pt;
-    padding: 10px;
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    margin:auto;
+
+}
+
+.overlay_grey{
+    background-color: var(--background-color);
+}
+
+.overlay:hover {
+    opacity: 1;
+}
+
+.overlay_text {
+    text-align: center;
+    font-size: 15px;
+    opacity: 1;
+    vertical-align: middle;
+    margin:auto;
+    padding-top: 20%;
+    color: var(--main-color);
+}
+
+.img-responsive {
+    height: 100%;
+}
+
+.image {
+    object-fit: cover;
+    width: 60%;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image_container {
+    padding:0px;
 }
