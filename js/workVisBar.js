@@ -11,11 +11,13 @@ BarChart = function(_parentElement, _data, _config){
 BarChart.prototype.initVis = function(){
     var vis = this;
 
-    vis.margin = { top: 20, right: 200, bottom: 50, left: 170 };
+    vis.margin = { top: 20, right: 200, bottom: 75, left: 180 };
 
-    vis.width = 500 - vis.margin.left - vis.margin.right,
-        vis.height = 200 - vis.margin.top - vis.margin.bottom;
+    vis.width = 650 - vis.margin.left - vis.margin.right,
+        vis.height = 350 - vis.margin.top - vis.margin.bottom;
 
+    //remove any existing barchart
+    d3.selectAll("#" + vis.parentElement +" > *").remove();
 
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -151,7 +153,7 @@ BarChart.prototype.updateVis = function(){
             .ticks(5))
         .selectAll("text")
         .style("text-anchor", "end")
-        .style("font-size","8px")
+        .style("font-size","12px")
         .attr("dx", "-.8em")
         .attr("dy", ".15em")
         .attr("transform", "rotate(-65)");

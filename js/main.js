@@ -37,7 +37,6 @@ queue()
     .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_industry.csv")
     .await(createWorkVis);
 
-
 function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupationTotal,industryTotal){
     if(error) { console.log(error); }
 
@@ -47,41 +46,95 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
 
     //metrics
     //work visa metrics
-    var workMetrics1 = [
-        { key: "Education", title: "Education", data: transpose(eduTotal,"Education")},
-        { key: "Age", title: "Age", data:transpose(ageTotal,"Age")}
-    ];
+    // var workMetrics1 = [
+    //     { key: "Education", title: "Education", data: transpose(eduTotal,"Education")},
+    //     { key: "Age", title: "Age", data:transpose(ageTotal,"Age")}
+    // ];
+    //
+    // var workMetrics2 = [
+    //     { key: "Salary", title: "Salary", data: transpose(salaryTotal,"Salary")},
+    //     { key: "Occupation", title: "Occupation" , data: transpose(occupationTotal,"Occupation")}
+    // ];
+    //
+    // var workMetrics3 = [
+    //     { key: "Industry", title: "Industry (Top 15)", data: transpose(industryTotal,"Industry")}
+    // ];
 
-    var workMetrics2 = [
-        { key: "Salary", title: "Salary", data: transpose(salaryTotal,"Salary")},
+
+    eduMetric = [
+        { key: "Education", title: "Education", data: transpose(eduTotal,"Education")}
+    ];
+    ageMetric = [
+        { key: "Age", title: "Age", data: transpose(ageTotal,"Age")}
+    ];
+    salaryMetric= [
+        { key: "Salary", title: "Salary", data: transpose(salaryTotal,"Salary")}
+    ];
+    occupationMetric = [
         { key: "Occupation", title: "Occupation" , data: transpose(occupationTotal,"Occupation")}
     ];
-
-    var workMetrics3 = [
+    industryMetric = [
         { key: "Industry", title: "Industry (Top 15)", data: transpose(industryTotal,"Industry")}
     ];
+
+
 
     //make an area chart for total number of work visas
     areachart = new AreaChart("work_map_area", dataTotal);
 
 
     // make a bar chart for each variable in configs
-    barcharts1 = workMetrics1.map(function(name) {
-        return new BarChart("work_details_area1", name.data, name.title);
-    })
+    // barcharts1 = workMetrics1.map(function(name) {
+    //     return new BarChart("work_details_area1", name.data, name.title);
+    // })
+    //
+    // barcharts2 = workMetrics2.map(function(name) {
+    //     return new BarChart("work_details_area2", name.data, name.title);
+    // });
+    //
+    // barcharts3 = workMetrics3.map(function(name) {
+    //     return new BarChart("work_details_area3", name.data, name.title);
+    // });
 
-    barcharts2 = workMetrics2.map(function(name) {
-        return new BarChart("work_details_area2", name.data, name.title);
-    });
-
-    barcharts3 = workMetrics3.map(function(name) {
-        return new BarChart("work_details_area3", name.data, name.title);
-    });
-
+    //barchart = new BarChart("work_details_area1",transpose(selValue.toLowerCase()+Total))
+    //console.log(selValue.toLowerCase()+"Total");
     //make the Trump trendline Chart
     //console.log(dataTotal)
     //trendline= new TrendLine("trump_trendlines_area", dataTotal);
+}
 
+// update each time user selects a different value
+function userSelect(){
+    //get user selected barchart
+    selValue = d3.select("#barChartArea").property("value");
+
+
+    console.log(ageMetric[0]);
+
+    if(selValue === "Education"){
+        selBarChart = eduMetric.map(function(name) {
+            return new BarChart("work_details_area1", name.data, name.title);
+        });
+    }else if(selValue === "Age"){
+        selBarChart = ageMetric.map(function(name) {
+            return new BarChart("work_details_area1", name.data, name.title);
+        });
+    }else if(selValue === "Salary"){
+        selBarChart = salaryMetric.map(function(name) {
+            return new BarChart("work_details_area1", name.data, name.title);
+        });
+    }else if(selValue === "Occupation"){
+        selBarChart = occupationMetric.map(function(name) {
+            return new BarChart("work_details_area1", name.data, name.title);
+        });
+    }else if(selValue === "Industry"){
+        selBarChart = industryMetric.map(function(name) {
+            return new BarChart("work_details_area1", name.data, name.title);
+        });
+    }else{
+        //remove all graphics
+        d3.selectAll("#work_details_area1 > *").remove();
+    }
 }
 
 // React to 'brushed' event and update all bar charts
@@ -94,7 +147,7 @@ function brushed() {
     // Convert the extent into the corresponding domain values
     var selectionDomain = selectionRange.map(areachart.x.invert);
 
-    var barCharts = [barcharts1,barcharts2,barcharts3];
+    var barCharts = [selBarChart];
 
     barCharts.forEach(function(barChart){
         barChart.forEach(function(barChartDisplay){
@@ -111,7 +164,6 @@ function brushed() {
     // })
 
 }
-
 
 //function for transposing (work visa trends) data
 function transpose(data, category)
