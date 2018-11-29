@@ -1,7 +1,7 @@
 :root {
-    --main-color: #41b6c4;
+    --main-color: #41B6C4;
     --secondary-color: #0c2c84;
-    --tertiary-color: #7fcdbb;
+    --tertiary-color: goldenrod;
     --background-color: whitesmoke;
     --text-color: black;
     --header-color: black;
@@ -244,7 +244,7 @@ STORY PAGES
 .story_paragraph{
     font-size: 25px;
     color: var(--story-text-color);
-    background-color: rgba(65, 182, 196, 0.8);
+    background-color: var(--text-background-color);
     padding: 20px;
     text-align: justify;
 }
