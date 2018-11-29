@@ -113,8 +113,8 @@ inspired by w3 schools: https://www.w3schools.com/howto/tryit.asp?filename=tryho
     opacity: 1;
     vertical-align: middle;
     margin:auto;
-    padding-top: 30%;
-    color: var(--secondary-color);
+    padding-top: 20%;
+    color: var(--main-color);
 
 
 }
@@ -347,5 +347,9 @@ input[type=text] {
 
 .annotation.above text {
    font-size: 15px;
+}
+
+#authors_section{
+    padding-bottom: 50px;
 }
 
