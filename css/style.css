@@ -18,7 +18,7 @@ h2 {
     font-size:40px;
     padding:10px;
     color: var(--header-color);
-    padding-top: 50px;
+    padding-top: 5%;
 }
 
 .family-label {
@@ -124,10 +124,14 @@ INTRO PAGE
 }
 
 #quote{
-    color: var(--secondary-color);
+   color:white;
     font-size: 25px;
-    padding-top:75px;
     padding-bottom: 50px;
+}
+
+#intro_block {
+    background-color: var(--text-background-color);
+    padding: 20px;
 }
 
 /*********************************
@@ -267,6 +271,20 @@ STORY PAGES
 #story1{
     height:100%;
     width: 100%;
+}
+
+.story2_bg {
+    /* The image used */
+    background-image: url("../img/india-pakistan-partition.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
 
