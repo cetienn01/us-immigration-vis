@@ -172,8 +172,6 @@ OVERVIEW PAGE
 #overview_text{
     text-align: center;
     font-size:40px;
-    color: var(--main-color)
-    background-color: var(--text-background-color);
     vertical-align: middle;
 }
 
@@ -184,7 +182,6 @@ OVERVIEW PAGE
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
-    float:center;
     margin:auto;
     text-align: center;
     display: table-cell;
@@ -268,28 +265,10 @@ STORY PAGES
     background-size: cover;
 
 }
-#story1{
-    height:100%;
-    width: 100%;
-}
 
 .story2_bg {
     /* The image used */
     background-image: url("../img/coffee_eritrea_greyscale.jpg");
-
-    /* Full height */
-    height: 100%;
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-}
-
-.story5_bg {
-    /* The image used */
-    background-image: url("../img/india-pakistan-partition.jpg");
 
     /* Full height */
     height: 100%;
@@ -329,6 +308,19 @@ STORY PAGES
 
 }
 
+.story5_bg {
+    /* The image used */
+    background-image: url("../img/india-pakistan-partition.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
 
 /*********************************
 WORLD MAP
