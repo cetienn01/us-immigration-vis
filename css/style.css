@@ -287,6 +287,20 @@ STORY PAGES
 
 }
 
+.story3_bg {
+    /* The image used */
+    background-image: url("../img/california-ag-labor_greyscale.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
 
 /*********************************
 WORLD MAP

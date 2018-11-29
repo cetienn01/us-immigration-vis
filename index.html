@@ -104,7 +104,7 @@
 
 	<!-- Area for the overview and explanation of work visas -->
 	<div class="section" data-anchor="section1">
-		<div class="overview_bg">
+		<div class="overview_bg" >
 			<div class="container-fluid h-100" id="overview">
 				<div class="row align-items-center" style="height:20%;"></div>
 				<div class="row align-items-center" style="height:10%;" id="overview_header">
@@ -146,7 +146,6 @@
 		</div>
 
 	</div>
-
 
 	<!-- Area for the first visualization, the world map of where people come from -->
 	<div class="section" data-anchor="section2">
@@ -325,6 +324,33 @@
 		</div>
 	</div>
 
+    <!-- Area for the third story, about agricultural work-->
+    <div class="section" data-anchor="story_mexico" id="story3">
+        <div class="story3_bg">
+            <div class="container-fluid h-100">
+                <div class="row align-items-center" style="height:95%;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 story_text_block">
+                        <p class="story_paragraph">
+                            I was born in Jalisco Mexico, where I lived with my parents and eleven siblings. At the age of 15, I started my remarkable journey coming to California in the United States. At one point I lived in the mountains. I then began working in the vegetable fields in California in order to bring, raise and help educate my siblings. I then got an opportunity to work as a dishwasher and night cleaner at a lodge in Pebble Beach. I worked hard and long hours on the graveyard shift so I could continue to go to school and learn English. I was quickly promoted to line cook and had the opportunity to cook for past President George H.W. Bush. I am currently a private chef, radio host, writer, journalist and TV and radio producer. I maintain a very busy life doing the things I love with a passion.
+                            <br>-Pedro
+                        </p>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row align-items-end" style="height:5%;">
+
+                    <div class="col-md-12">
+                        <p class="credits">
+                            Story thanks to https://myimmigrationstory.com/. <br>
+                            Photo thanks to https://www.cnn.com/videos/politics/2017/04/06/california-farmers-undocumented-workers-jones-pkg-ac.cnn
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 	<!-- Area for States people migrate to details -->
 	<div class="section" data-anchor="section5">
 		<p class="container-fluid">
@@ -345,7 +371,6 @@
 			</div>
 		</div>
 	</div>
-
 
 	<!-- Area for 2016 Election details  -->
 	<div class="section" data-anchor="section6">
@@ -387,6 +412,7 @@
 		</div>
 	</div>
 
+    <!-- Area for Authors Section -->
 	<div class="section" data-anchor="section7">
 		<div class="container-fluid">
 			<h2 id="authors_section">Authors </h2>
@@ -451,7 +477,7 @@
 	<script type="text/javascript">
 			new fullpage('#fullpage', {
 					licenseKey: "OPEN-SOURCE-GPLV3-LICENSE",
-					anchors: ['section-header', 'introduction', 'section1','section2', 'story_yemen', 'section3', 'story_pakistan', 'section4', 'section5', 'section6', 'section7'],
+					anchors: ['section-header', 'introduction', 'section1','section2', 'story_yemen', 'section3', 'story_pakistan', 'section4', 'story_mexico', 'section5', 'section6', 'section7'],
 					autoScrolling:true,
 					scrollHorizontally: true,
 			navigation:true
@@ -465,39 +491,41 @@
 
 <!-- counter animation from https://codepen.io/shivasurya/pen/FatiB -->
 <script>
-    $('.count1').each(function () {
-        $(this).prop('Counter',0).animate({
-            Counter: $(this).text()
-        }, {
-            duration: 6000,
-            easing: 'swing',
-            step: function (now) {
-                $(this).text(Math.ceil(now));
-            }
-        });
-    });
-    $('.count2').each(function () {
-        $(this).prop('Counter',0).animate({
-            Counter: $(this).text()
-        }, {
-            duration: 5000,
-            easing: 'swing',
-            step: function (now) {
-                $(this).text(Math.ceil(now));
-            }
-        });
-    });
-    $('.count3').each(function () {
-        $(this).prop('Counter',0).animate({
-            Counter: $(this).text()
-        }, {
-            duration: 4000,
-            easing: 'swing',
-            step: function (now) {
-                $(this).text(Math.ceil(now));
-            }
-        });
-    });
+
+            $('.count1').each(function () {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).text()
+                }, {
+                    duration: 6000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            });
+            $('.count2').each(function () {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).text()
+                }, {
+                    duration: 5000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            });
+            $('.count3').each(function () {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).text()
+                }, {
+                    duration: 4000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            });
+
 </script>
 
 </body>
