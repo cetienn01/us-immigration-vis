@@ -6,6 +6,7 @@
     --text-color: black;
     --header-color: black;
     --story-text-color:white;
+    --text-background-color: rgba(65, 182, 196, 0.8);
 }
 
 /*********************************
@@ -67,7 +68,7 @@ MAIN PAGE
     font-size:55px;
     padding:40px;
     color: white;
-    background-color: rgba(12, 44, 132, 0.5);
+    background-color: var(--text-background-color);
     text-align: center;
 }
 
@@ -160,13 +161,33 @@ OVERVIEW PAGE
     font-size:40px;
     padding:10px;
     padding-top: 50px;
-    background-color: rgba(0, 0, 0, 0.5);
+
+    vertical-align: middle;
 }
+
 #overview_text{
     text-align: center;
     font-size:40px;
     color: var(--main-color)
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--text-background-color);
+    vertical-align: middle;
+}
+
+.overview_bubble{
+    width: 300px;
+    height: 300px;
+    background-color: var(--text-background-color);
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    float:center;
+    margin:auto;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.overview_bubble_p {
 
 }
 
@@ -219,7 +240,7 @@ STORY PAGES
 .story_paragraph{
     font-size: 25px;
     color: var(--story-text-color);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(65, 182, 196, 0.8);
     padding: 20px;
     text-align: justify;
 }

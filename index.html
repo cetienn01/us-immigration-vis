@@ -104,24 +104,30 @@
 	<div class="section" data-anchor="section1">
 		<div class="overview_bg">
 			<div class="container-fluid h-100" id="overview">
-				<div class="row align-items-center" style="height:10%;"></div>
+				<div class="row align-items-center" style="height:20%;"></div>
 				<div class="row align-items-center" style="height:10%;" id="overview_header">
 					<div class="col-md-12">
 					Over the past 10 years, the US has issued
 					</div>
 				</div>
-				<div class="row align-items-center" style="height:75%;" id="overview_text">
+				<div class="row align-items-center" style="height:65%;" id="overview_text">
 					<div class="col-md-4">
+						<div class="overview_bubble">
 						<span class="count1">1622403</span><br>
 						H1B Visas
+						</div>
 					</div>
 					<div class="col-md-4">
+						<div class="overview_bubble">
 						<span class="count2">919518</span><br>
 						H2A Visas
+						</div>
 					</div>
 					<div class="col-md-4">
+						<div class="overview_bubble">
 						<span class="count3">711229</span><br>
 						H2B Visas
+						</div>
 					</div>
 				</div>
 				<div class="row align-items-end" style="height:5%;">
@@ -426,7 +432,7 @@
 			autocomplete(document.getElementById("myInput"), countries);
 	</script>
 
-<!-- counter animation from -->
+<!-- counter animation from https://codepen.io/shivasurya/pen/FatiB -->
 <script>
     $('.count1').each(function () {
         $(this).prop('Counter',0).animate({
