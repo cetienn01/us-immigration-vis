@@ -274,31 +274,34 @@
 	<div class="section" data-anchor="section4">
 		<div class="container-fluid">
 		<h2>Who Migrates to the US on Work Visas?</h2>
+			<div class="row no-gutters">
+				<div class="col-12 col-sm-6 col-md-8"></div>
+				<div class="col-6 col-md-4">
+					<div class="form-group">
+						<label for="barChartArea">Select Bar Chart </label>
+						<select class="form-control" id="barChartArea" style="width:150px" onchange='userSelect()'>
+							<option value="None">Choose One</option>
+							<option value="Education">Education</option>
+							<option value="Salary">Salary</option>
+							<option value="Age">Age</option>
+							<option value="Occupation">Occupation</option>
+							<option value="Industry">Industry</option>
+						</select>
+					</div>
+				</div>
+			</div>
 
 			<div class="row row2 align-items-center">
 				<div class="col-md-1"></div>
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<div id="work_map_area"></div>
 				</div>
 
-				<div class="col-md-1">
-				</div>
 
-				<div class="col-md-5">
-                    <div class="form-group">
-                        <label for="barChartArea">Select Bar Chart </label>
-                        <select class="form-control" id="barChartArea" onchange='userSelect()'>
-                            <option value="None">Choose One</option>
-                            <option value="Education">Education</option>
-                            <option value="Salary">Salary</option>
-                            <option value="Age">Age</option>
-                            <option value="Occupation">Occupation</option>
-                            <option value="Industry">Industry</option>
-                        </select>
-                    </div>
+
+				<div class="col-md-8">
 					<div id="work_details_area1"></div>
                 </div>
-				<div class="col-md-1"></div>
 			</div>
 
 			<!-- Container for Industry; names are too long and will need a separate row -->
