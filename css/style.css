@@ -6,7 +6,7 @@
     --text-color: #808080;
     --header-color: #444;
     --story-text-color:white;
-    --text-background-color: rgba(65, 182, 196, 0.8);
+    --text-background-color: rgba(65, 182, 196, 0.7);
 }
 
 /*********************************
@@ -32,7 +32,7 @@ body {
 }
 
 .section_paragraph{
-    font-size: 17px;
+    font-size: 18px;
     padding-right: 20px;
 }
 
@@ -274,7 +274,7 @@ STORY PAGES
     font-size: 25px;
     color: var(--story-text-color);
     background-color: var(--text-background-color);
-    padding: 20px;
+    padding: 18px;
     text-align: justify;
 }
 
