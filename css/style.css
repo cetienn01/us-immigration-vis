@@ -158,6 +158,7 @@ OVERVIEW PAGE
         background:    -moz-linear-gradient(var(--main-color), var(--secondary-color));
         background:         linear-gradient(var(--main-color), var(--secondary-color)); */
     color: white;
+    text-align: center;
 }
 
 #overview_header {
