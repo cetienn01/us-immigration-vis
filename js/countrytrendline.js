@@ -59,10 +59,11 @@ CountryTrendLine.prototype.initVis = function(){
         .attr("class", "y-axis axis");
 
     vis.countryline = d3.line()
+        //interpolate("basis")
         .x(function(d) {
             return vis.x(d.year); })
-        .y(function(d) { return vis.y(d.approvals); });
-        //.curve(d3.curveCatmullRom.alpha(0.9));
+        .y(function(d) { return vis.y(d.approvals); })
+        .curve(d3.curveLinear);
 
     var formatDate = d3.timeFormat("%Y");
 
