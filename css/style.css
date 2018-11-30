@@ -139,12 +139,9 @@ OVERVIEW PAGE
 *********************************/
 
 .overview_bg {
-    /* The image used */
-    background-image: url("../img/visa_image_greyscale.jpg");
-
     /* Full height */
     height: 100%;
-
+   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("../img/visa_image_greyscale.jpg");
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
@@ -166,6 +163,7 @@ OVERVIEW PAGE
     font-size:40px;
     padding:10px;
     padding-top: 50px;
+    font-weight: bold;
 
     vertical-align: middle;
 }
@@ -176,6 +174,7 @@ OVERVIEW PAGE
     text-align: center;
     margin:auto;
 }
+
 
 .overview_bubble{
     width: 300px;
