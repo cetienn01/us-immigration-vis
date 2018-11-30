@@ -104,10 +104,10 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
 }
 
 // update each time user selects a different value
-function userSelect(){
+function userSelect(value){
     //get user selected barchart
-    selValue = d3.select("#barChartArea").property("value");
-
+   // selValue = d3.select("#barChartArea").property("value");
+    selValue= value;
 
     console.log(ageMetric[0]);
 
