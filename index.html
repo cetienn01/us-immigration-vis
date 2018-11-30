@@ -104,7 +104,7 @@
 	</div>
 
 	<!-- Area for the overview and explanation of work visas -->
-	<div class="section" data-anchor="section1">
+	<div class="section overview" data-anchor="section1">
 		<div class="overview_bg" >
 			<div class="container-fluid h-100" id="overview">
 				<div class="row align-items-center" style="height:20%;"></div>
@@ -115,23 +115,29 @@
 					</div>
 					<div class="col-md-1"></div>
 				</div>
-				<div class="row align-items-center" style="height:65%;" id="overview_text">
+				<div class="row align-items-center overview_row" style="height:65%;" id="overview_text">
 					<div class="col-md-4">
 						<div class="overview_bubble">
 						<span class="count1">1622403</span><br>
-						H1B Visas
+						<div class="visatooltip">H1-B Visas
+							<span class="visatooltiptext">H1-B Visas are given to people with specialized skills, usually with graduate-level degrees.</span>
+						</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="overview_bubble">
 						<span class="count2">919518</span><br>
-						H2A Visas
+							<div class="visatooltip">H2-A Visas
+								<span class="visatooltiptext">H2-A Visas are given to people on a temporary basis for agricultural work.</span>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="overview_bubble">
 						<span class="count3">711229</span><br>
-						H2B Visas
+							<div class="visatooltip">H2-B Visas
+								<span class="visatooltiptext">H2-B Visas are given to all other temporary forms of work that are not agricultural.</span>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -153,7 +159,7 @@
 		<div class="container-fluid">
 			<h2>Where Are People From?</h2>
 
-			<div class="row row2">
+			<div class="row align-items-center">
 				<div class="col-md-8">
 					<select class="form-control col-md-2" id="world-map-selection" onchange="updateWorldMap()">
 						<option value="2007">2007</option>
@@ -570,6 +576,8 @@
 <!-- counter animation from https://codepen.io/shivasurya/pen/FatiB -->
 <script>
 
+
+            console.log("hello from counter")
 
             $('.count1').each(function () {
                 $(this).prop('Counter', 0).animate({

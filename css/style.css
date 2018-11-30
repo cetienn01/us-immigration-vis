@@ -170,7 +170,12 @@ OVERVIEW PAGE
     vertical-align: middle;
 }
 
-
+#overview_text{
+    font-size:40px;
+    vertical-align: middle;
+    text-align: center;
+    margin:auto;
+}
 
 .overview_bubble{
     width: 300px;
@@ -181,15 +186,43 @@ OVERVIEW PAGE
     border-radius: 50%;
     margin:auto;
     text-align: center;
-    display: table-cell;
+    display: inline-block;
     vertical-align: middle;
+    padding-top: 20%;
 }
-#overview_text{
-    font-size:40px;
-    vertical-align: middle;
+
+
+/* Tooltip container */
+.visatooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.visatooltip .visatooltiptext {
+    visibility: hidden;
+    width: 300px;
+    top: 100%;
+    left: 50%;
+    margin-left: -150px;
+    background-color: black;
+    color: #fff;
     text-align: center;
-    margin:auto;
+    padding: 5px 0;
+    border-radius: 6px;
+    font-size:20px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
 }
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.visatooltip:hover .visatooltiptext {
+    visibility: visible;
+}
+
+
 
 
 
