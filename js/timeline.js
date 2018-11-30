@@ -92,6 +92,7 @@ timelineChart.prototype.wrangleData = function(data){
 
 timelineChart.prototype.updateVis = function(value, data){
     var vis = this;
+
     //var currentSelection= d3.select("#timeline_selection").property("value");
     var currentSelection=value;
 
@@ -105,19 +106,17 @@ timelineChart.prototype.updateVis = function(value, data){
 
 //update the domains
     vis.y.domain(data.map(function(d) { return d.Date; }));
-//vis.x.domain([0, d3.max(data, function(d) {
-//    return d.value; })]);
-
-
 
 //draw event circles
     vis.timelineChart = vis.svg.selectAll(".event_circle")
-        .data(data);
+        .data(data,function(d){
+            return d.Name;
+        } );
 
 	vis.timelineChart.enter().append("circle")
         .attr("class", "event_circle")
         .on("click", function(d, i) {
-            vis.timelineClick(i);
+            vis.timelineClick(data, i); //bug is here
         })
 
 	.merge(vis.timelineChart)
@@ -139,12 +138,14 @@ vis.timelineChart.exit().remove();
     //TO DO: Handle years with more than one event.
 
     vis.labels= vis.svg.selectAll(".text")
-        .data(data);
+        .data(data,function(d){
+            return d.Name;
+        });
 
     vis.labels.enter().append("text")
         .attr("class","text")
         .on("click", function(d, i) {
-            vis.timelineClick(i);
+            vis.timelineClick(data, i);
         })
 
 
@@ -172,7 +173,7 @@ vis.timelineChart.exit().remove();
 
 }
 
-timelineChart.prototype.timelineClick = function(i) {
+timelineChart.prototype.timelineClick = function(data, i) {
 
     //add the details table
     //eventually this will pull the intro paragaph from wikipedia to display
@@ -180,13 +181,15 @@ timelineChart.prototype.timelineClick = function(i) {
 
     var vis = this;
 
+    console.log(data)
+
     $('#timeline_details_area li').remove();
 
     $("#timeline_details_area")
-        .append ("<li id='timeline_list_header'>" + vis.data[i].Name + "</li>")
-        .append("<li>" + "Year: " + vis.data[i].Date + "</li>")
-        .append("<li>" + vis.data[i].Details + "</li>")
-        .append("<li>" + "Source: " + vis.data[i].Source + "</li>")
+        .append ("<li id='timeline_list_header'>" + data[i].Name + "</li>")
+        .append("<li>" + "Year: " + data[i].Date + "</li>")
+        .append("<li>" + data[i].Details + "</li>")
+        .append("<li>" + "Source: " + data[i].Source + "</li>")
         .attr("x", 10)
         .attr("y", 10);
 

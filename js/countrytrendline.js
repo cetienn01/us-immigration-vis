@@ -68,12 +68,12 @@ CountryTrendLine.prototype.initVis = function(){
     var formatDate = d3.timeFormat("%Y");
 
     //tooltip
-    vis.tip = d3.tip()
+/*    vis.tip = d3.tip()
         .attr('class', 'd3-tip')
         .html(function(d){
             return formatDate(d.year) + 'Acceptances: ' + d.approvals;
         })
-        .offset([0,0]);
+        .offset([0,0]); */
 
 
 
@@ -102,7 +102,7 @@ CountryTrendLine.prototype.wrangleData = function(){
 CountryTrendLine.prototype.updateVis = function(data, data2, data3, country){
     var vis = this;
 
-    console.log(data)
+    //console.log(data)
 
     var formatDate = d3.timeFormat("%Y");
 
@@ -129,8 +129,8 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3, country){
 
         line.enter().append("path")
             .attr("class", "countryline1")
-            .on('mouseover', vis.tip.show)
-            .on('mouseout', vis.tip.hide)
+            //.on('mouseover', vis.tip.show)
+           // .on('mouseout', vis.tip.hide)
 
             .merge(line)
             .transition()
@@ -192,9 +192,10 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3, country){
         .duration(1000)
         .call(vis.xAxis);
 
-    vis.svg.call(vis.tip);
+  //  vis.svg.call(vis.tip);
 
     vis.annotate(country);
+    vis.addLineTip(data);
 
 }
 
@@ -252,6 +253,8 @@ CountryTrendLine.prototype.annotate = function(country) {
         }
     );
 
+    //select the annotation-group class and remove here before drawing
+    //dotted line rather than solid line
 
     const makeAnnotations = d3.annotation()
         .type(type)
@@ -261,5 +264,56 @@ CountryTrendLine.prototype.annotate = function(country) {
     vis.svg.append("g")
         .attr("class", "annotation-group")
         .call(makeAnnotations)
+
+}
+
+CountryTrendLine.prototype.addLineTip = function(data) {
+
+    //console.log(data)
+
+    var vis = this;
+
+    const tooltip = d3.select('#tooltip');
+    const tooltipLine = vis.svg.append('line');
+
+    tipBox = vis.svg.append('rect')
+        .attr('width', vis.width)
+        .attr('height', vis.height)
+        .attr('opacity', 0)
+        .on('mousemove', drawTooltip)
+        .on('mouseout', removeTooltip);
+
+    function removeTooltip() {
+        if (tooltip) tooltip.style('display', 'none');
+        if (tooltipLine) tooltipLine.attr('stroke', 'none');
+    }
+
+    function drawTooltip() {
+
+        tooltipLine.attr('stroke', 'black')
+            .attr('x1', function(d) {
+                return vis.x(d.year);
+            })
+            .attr('x2', function(d) {
+                return vis.x(d.year);
+            })
+            .attr('y1', 0)
+            .attr('y2', vis.height);
+
+        tooltip
+            .html(function(d) {
+                return vis.x(d.year);
+            })
+            .style('display', 'block')
+            .style('left', d3.event.pageX + 20)
+            .style('top', d3.event.pageY - 20)
+            .selectAll()
+            .data(data).enter()
+            .append('div')
+            .html(function(d){
+                return formatDate(d.year) + 'Acceptances: ' + d.approvals;
+            });
+    }
+
 
 }
