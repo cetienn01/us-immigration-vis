@@ -232,8 +232,8 @@ function createVis(error, worldMapData, countryNames, usMapData, immigrationBySt
     immigrationUsMap = new Map('states_map_area', immigrationByState, { map: usMapData, mapType: 'us' });
 }
 
-function updateTimeline() {
-    timeline.updateVis(timelineData)
+function updateTimeline(value) {
+    timeline.updateVis(value, timelineData)
 
 }
 

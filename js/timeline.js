@@ -78,8 +78,10 @@ timelineChart.prototype.wrangleData = function(data){
 
     data.sort(function(a, b) { return b.Date - a.Date; });
 
+    var value="default";
+
     // Update the visualization
-    vis.updateVis(vis.data);
+    vis.updateVis(value, vis.data);
 }
 
 
@@ -88,9 +90,10 @@ timelineChart.prototype.wrangleData = function(data){
  * The drawing function - should use the D3 update sequence (enter, update, exit)
  */
 
-timelineChart.prototype.updateVis = function(data){
+timelineChart.prototype.updateVis = function(value, data){
     var vis = this;
-    var currentSelection= d3.select("#timeline_selection").property("value");
+    //var currentSelection= d3.select("#timeline_selection").property("value");
+    var currentSelection=value;
 
     if (currentSelection!="default") {
         data= data.filter(function (d) {

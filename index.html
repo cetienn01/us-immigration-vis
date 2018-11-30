@@ -216,22 +216,36 @@
 			<div class="row row2 align-items-center">
 				<div class="col-md-1"></div>
 				<div class="col-md-5">
-					<div class="form-group" id="timeline_selection_area">
+				<!--	<div class="form-group" id="timeline_selection_area">
 						<select class="form-control" id="timeline_selection" onchange="updateTimeline()">
 							<option value="default">All Legislation</option>
 							<option value="Congressional Legislation">Congressional Legislation</option>
 							<option value="Supreme Court">Supreme Court</option>
 							<option value="Executive Order">Executive Order </option>
 						</select>
-						<div id="timeline_area"></div>
+					</div> -->
+					<div class="btn-group btn-group-toggle" data-toggle="buttons"  id="timeline_selection_area">
+						<label class="btn btn-secondary active">
+							<input type="radio" name="timeline" id="option1" value="default" autocomplete="off" checked> All Policy
+						</label>
+						<label class="btn btn-secondary">
+							<input type="radio" name="timeline" id="option2" value="Congressional Legislation" autocomplete="off" >Legislation
+						</label>
+						<label class="btn btn-secondary">
+							<input type="radio" name="timeline" id="option3" value="Supreme Court" autocomplete="off" > Supreme Court
+						</label>
+						<label class="btn btn-secondary">
+							<input type="radio" name="timeline" id="option4" value="Executive Order" autocomplete="off" > Executive Order
+						</label>
 					</div>
+						<div id="timeline_area"></div>
 				</div>
 
 				<div class="col-md-5">
 					<div class="row">
 					<p class="section_paragraph">
-						The US has a fraught history of legislation relating to migration. At times, legislation has been explicitly racist or <strong> discriminatory </strong>. At other times, legislation has been used to <strong> encourage </strong> migration.  <br><br>
-						Click on the interactive timeline to the left to learn more about each legislation, or to sort between different types of legislation.<br><br>
+						The US has a fraught history of policy relating to migration. At times, policies have been explicitly racist or <strong> discriminatory </strong>. At other times, policies have been used to <strong> encourage </strong> migration.  <br><br>
+						Click on the interactive timeline to the left to learn more about each policy, or to sort between legislation, executive orders, or supreme court decisions.<br><br>
 					</p>
 					</div>
 					<div class="row">
@@ -573,6 +587,16 @@
                     }
                 });
             });
+
+</script>
+
+<script>
+
+	$('input[type=radio]').change( function() {
+		var radioValue = $("input[name='timeline']:checked").val();
+		console.log(radioValue)
+        updateTimeline(radioValue);
+	});
 
 </script>
 
