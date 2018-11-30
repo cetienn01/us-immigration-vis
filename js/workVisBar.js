@@ -11,9 +11,9 @@ BarChart = function(_parentElement, _data, _config){
 BarChart.prototype.initVis = function(){
     var vis = this;
 
-    vis.margin = { top: 20, right: 200, bottom: 75, left: 180 };
+    vis.margin = { top: 20, right: 200, bottom: 75, left: 200 };
 
-    vis.width = 650 - vis.margin.left - vis.margin.right,
+    vis.width = 600 - vis.margin.left - vis.margin.right,
         vis.height = 350 - vis.margin.top - vis.margin.bottom;
 
     //remove any existing barchart
