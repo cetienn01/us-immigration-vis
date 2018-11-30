@@ -577,7 +577,6 @@
 <script>
 
 
-            console.log("hello from counter")
 
             $('.count1').each(function () {
                 $(this).prop('Counter', 0).animate({
@@ -586,10 +585,11 @@
                     duration: 12000,
                     easing: 'swing',
                     step: function (now) {
-                        $(this).text(Math.ceil(now));
+                        $(this).text(numberWithCommas(Math.ceil(now)));
                     }
                 });
             });
+
             $('.count2').each(function () {
                 $(this).prop('Counter', 0).animate({
                     Counter: $(this).text()
@@ -597,10 +597,11 @@
                     duration: 10000,
                     easing: 'swing',
                     step: function (now) {
-                        $(this).text(Math.ceil(now));
+                        $(this).text(numberWithCommas(Math.ceil(now)));
                     }
                 });
             });
+
             $('.count3').each(function () {
                 $(this).prop('Counter', 0).animate({
                     Counter: $(this).text()
@@ -608,10 +609,14 @@
                     duration: 8000,
                     easing: 'swing',
                     step: function (now) {
-                        $(this).text(Math.ceil(now));
+                        $(this).text(numberWithCommas(Math.ceil(now)));
                     }
                 });
             });
+
+            function numberWithCommas(x) {
+                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
 
 </script>
 
