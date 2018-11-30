@@ -170,11 +170,7 @@ OVERVIEW PAGE
     vertical-align: middle;
 }
 
-#overview_text{
-    text-align: center;
-    font-size:40px;
-    vertical-align: middle;
-}
+
 
 .overview_bubble{
     width: 300px;
@@ -188,10 +184,13 @@ OVERVIEW PAGE
     display: table-cell;
     vertical-align: middle;
 }
-
-.overview_bubble_p {
-
+#overview_text{
+    font-size:40px;
+    vertical-align: middle;
+    text-align: center;
+    margin:auto;
 }
+
 
 
 
