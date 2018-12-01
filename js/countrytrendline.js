@@ -264,8 +264,6 @@ CountryTrendLine.prototype.annotate = function(country) {
         .textWrap(30)
 
     vis.svg.select(".annotation-group")
-        .transition()
-        .duration(1000)
         .call(makeAnnotations);
 
 }
