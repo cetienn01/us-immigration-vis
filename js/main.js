@@ -109,7 +109,7 @@ function userSelect(value){
    // selValue = d3.select("#barChartArea").property("value");
     selValue= value;
 
-    console.log(ageMetric[0]);
+    //console.log(ageMetric[0]);
 
     if(selValue === "Education"){
         selBarChart = eduMetric.map(function(name) {
@@ -135,6 +135,13 @@ function userSelect(value){
         //remove all graphics
         d3.selectAll("#work_details_area1 > *").remove();
     }
+
+    //display default
+    selBarChart.forEach(function(d){
+        d.selectionChanged(
+            areachart.x.domain()
+        )
+    });
 }
 
 // React to 'brushed' event and update all bar charts
@@ -152,10 +159,11 @@ function brushed() {
     barCharts.forEach(function(barChart){
         barChart.forEach(function(barChartDisplay){
             barChartDisplay.selectionChanged(
-                d3.event.selection === null  ? areachart.x.domain() : selectionDomain
+                d3.event.selection === null  ?  areachart.x.domain() : selectionDomain
             );
         });
     });
+
 
     // barcharts1.forEach(function(barchart) {
     //     barchart.selectionChanged(
