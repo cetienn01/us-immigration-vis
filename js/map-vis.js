@@ -219,11 +219,6 @@ Map.prototype.updateVis = function() {
     }
 }
 
-Map.prototype.filterDataByYear = function() {
-    var vis = this;
-    vis.updateVis();
-}
-
 Map.prototype.drawLegend = function() {
     var vis = this;
 

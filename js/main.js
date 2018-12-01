@@ -258,11 +258,11 @@ function updateTimeline(value) {
 }
 
 function updateWorldMap() {
-    immigrationWorldMap.filterDataByYear();
+    immigrationWorldMap.updateVis();
 }
 
 function updateUsMap() {
-    immigrationUsMap.filterDataByYear();
+    immigrationUsMap.updateVis();
 }
 
 queue()
