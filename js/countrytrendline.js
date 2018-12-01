@@ -210,7 +210,8 @@ CountryTrendLine.prototype.annotate = function(country) {
     var trumpdate= vis.x(parseDate("2016"));
     var syrianwardate=vis.x(parseDate("2011"));
     var iraqwarend=vis.x(parseDate("2011"));
-    console.log(trumpdate)
+    var saffronrevolution=vis.x(parseDate("2007"));
+
 
     const annotations = [{
         note: { label: "Election of Donald Trump" },
@@ -243,6 +244,18 @@ CountryTrendLine.prototype.annotate = function(country) {
             },
             y: vis.margin.top,
             x: iraqwarend
+        })
+    }
+
+    if (country=="Myanmar"){
+        annotations.push({
+            note: {label: "Saffron Revolution"},
+            subject: {
+                y1: 0,
+                y2: vis.height
+            },
+            y: vis.margin.top,
+            x: saffronrevolution
         })
     }
 
