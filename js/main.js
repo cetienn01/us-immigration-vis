@@ -101,6 +101,9 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
     //make the Trump trendline Chart
     //console.log(dataTotal)
     //trendline= new TrendLine("trump_trendlines_area", dataTotal);
+
+    //display default barchart
+    userSelect("Education");
 }
 
 // update each time user selects a different value
