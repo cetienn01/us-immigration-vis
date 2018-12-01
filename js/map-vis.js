@@ -10,8 +10,8 @@ Map = function(_parentElement, _data, _mapData){
     this.parentElement = _parentElement;
     this.data = _data;
     this.mapData = _mapData;
-    this.filteredData = this.data;
     this.mapType = _mapData.mapType;
+    this.filteredData = _data[0];
 
     this.initVis();
 }
@@ -64,12 +64,13 @@ Map.prototype.initVis = function() {
 
 Map.prototype.drawMap = function() {
     var vis = this;
-    var map;
+    var map, h1bMap, h2aMap, h2bMap;
+    var datasetCount = vis.data.length;
 
-    if(vis.mapData.mapType === 'world') {
+    if (vis.mapData.mapType === 'world') {
         map = topojson.feature(vis.mapData.map, vis.mapData.map.objects.countries).features;
         vis.countryOrState = 'Country';
-        
+
         // Map country names to geoJSON country data
         for (var i = 0; i < map.length; i++) {
             for (var j = 0; j < vis.mapData.names.length; j++) {
@@ -85,23 +86,52 @@ Map.prototype.drawMap = function() {
     }
 
     // Convert data to numeric values
-    for (var i = 0; i < vis.data.length; i++) {
-        for (var j = 1; j < vis.data.columns.length; j++) {
-            vis.data[i][vis.data.columns[j]] = parseInt(vis.data[i][vis.data.columns[j]].replace(/,/g, ''));
-        }
-    }
-
-    // Map visa data to properties field of geojson data
-    for (var i = 0; i < map.length; i++) {
-        for (var j = 0; j < vis.data.length; j++) {
-            if (map[i][vis.countryOrState] === vis.data[j][vis.countryOrState]) {
-                map[i].properties = vis.data[j];
+    for (var i = 0; i < datasetCount; i++) {
+        for (var j = 0; j < vis.data[i].length; j++) {
+            for (var k = 1; k < vis.data[i].columns.length; k++) {
+                vis.data[i][j][vis.data[i].columns[k]] = parseInt(vis.data[i][j][vis.data[i].columns[k]].replace(/,/g, ''));
             }
         }
     }
 
-    vis.mapData = map;
+    if (datasetCount > 1) {
+        h1bMap = map.map(a => Object.assign({}, a));
+        h2aMap = map.map(b => Object.assign({}, b));
+        h2bMap = map.map(c => Object.assign({}, c));
 
+        vis.h1bMap = vis.combineDataWithGeojson(h1bMap, 0)
+        vis.h2aMap = vis.combineDataWithGeojson(h2aMap, 1)
+        vis.h2bMap = vis.combineDataWithGeojson(h2bMap, 2)
+        vis.filteredData = vis.h1bMap;
+    } else {
+        vis.filteredData = vis.combineDataWithGeojson(map, 0);
+    }
+    vis.updateVis();
+}
+
+Map.prototype.combineDataWithGeojson = function(map, dataIndex) {
+    var vis = this;
+
+    // Map visa data to properties field of geojson data
+    for (var i = 0; i < map.length; i++) {
+        for (var j = 0; j < vis.data[dataIndex].length; j++) {
+            if (map[i][vis.countryOrState] === vis.data[dataIndex][j][vis.countryOrState]) {
+                map[i].properties = vis.data[dataIndex][j];
+            }
+        }
+    }
+    return map;
+}
+
+Map.prototype.filterData = function(visaType) {
+    var vis = this;
+    if (visaType === 'h1b') {
+        this.filteredData = vis.h1bMap;
+    } else if (visaType === 'h2a') {
+        this.filteredData = vis.h2aMap;
+    } else if (visaType === 'h2b') {
+        this.filteredData = vis.h2bMap;
+    }
     vis.updateVis();
 }
 
@@ -119,13 +149,6 @@ Map.prototype.updateVis = function() {
     } else {
         currentSelection = d3.select('#us-map-selection').property('value');
     }
-
-    // Set color domain
-  /*  vis.color
-        .domain([
-            d3.min(vis.mapData, function(d) { return d.properties[currentSelection]; }),
-            d3.max(vis.mapData, function(d) { return d.properties[currentSelection]; })
-        ]); */
 
     var text;
     if (vis.mapType === 'world') {
@@ -151,7 +174,7 @@ Map.prototype.updateVis = function() {
 
     // Update map
     var map = vis.svg.selectAll('path')
-        .data(vis.mapData);
+        .data(vis.filteredData);
 
     map.enter().append('path')
         .merge(map)
@@ -192,11 +215,11 @@ Map.prototype.updateVis = function() {
         vis.drawDetails(vis.selected, currentSelection);
     } else {
         var index = (vis.mapType === 'world' ? 73 : 4);
-        vis.drawDetails(vis.mapData[index], currentSelection);
+        vis.drawDetails(vis.filteredData[index], currentSelection);
     }
 }
 
-Map.prototype.filterData = function() {
+Map.prototype.filterDataByYear = function() {
     var vis = this;
     vis.updateVis();
 }
@@ -235,7 +258,7 @@ Map.prototype.drawLegend = function() {
 
 Map.prototype.drawDetails = function(d, currentSelection) {
     var vis = this;
-    var element = (vis.mapType === 'world' ? '#world_map_details_area' : '#states_details_area');
+    var element = (vis.mapType === 'world' ? '#' + vis.parentElement + '_details' : '#states_details_area');
     vis.selected = d;
 
     $(element).empty();
@@ -256,55 +279,60 @@ Map.prototype.drawDetails = function(d, currentSelection) {
         .attr('y', -10)
         .text('Data is not available for ' + d.Country);
     } else {
-        // Title: Name of country or state
-        vis.detailsSvg.append('text')
-            .attr('class', 'location-label')
-            .attr('x', 20)
-            .attr('y', -10)
-            .text(d[vis.countryOrState]);
-
-        // reformat data
-        var keys = Object.keys(d.properties).slice(0, -1);
-        var values = Object.values(d.properties).slice(0, -1);
-        var detailsData = [];
-
-        for (var i = 0; i < keys.length; i++) {
-            var obj = { 'year': keys[i], 'value': values[i] };
-            detailsData.push(obj);
-        }
-
-        // Scales for bar chart
-        var y = d3.scaleBand()
-            .domain(keys)
-            .range([vis.height, 0])
-            .padding(0.1);
-
-        var x = d3.scaleLinear()
-            .domain([0, d3.max(detailsData, function(d){ return d.value; })])
-            .range([0, vis.detailsWidth]);
-
-        // Add bars
-        vis.detailsSvg.selectAll('rect')
-            .data(detailsData)
-            .enter()
-            .append('rect')
-            .attr("class", "bar")
-            .attr("width", function(d) {return x(d.value); } )
-            .attr("y", function(d) { return y(d.year); })
-            .attr("height", y.bandwidth())
-            .style('fill', function(d) {
-                return d.year === currentSelection ? 'var(--main-color)' : '#ccc';
-            });
-
-        // add the x Axis
-        vis.detailsSvg.append("g")
-            .attr("transform", "translate(0," + vis.height + ")")
-            .call(d3.axisBottom(x)
-                .ticks(5));
-
-
-        // add the y Axis
-        vis.detailsSvg.append("g")
-            .call(d3.axisLeft(y));
+        vis.drawDetailBarCharts(d, currentSelection);
     }
+}
+
+Map.prototype.drawDetailBarCharts = function(d, currentSelection) {
+    var vis = this;
+    // Title: Name of country or state
+    vis.detailsSvg.append('text')
+        .attr('class', 'location-label')
+        .attr('x', 20)
+        .attr('y', -10)
+        .text(d[vis.countryOrState]);
+
+    // reformat data
+    var keys = Object.keys(d.properties).slice(0, -1);
+    var values = Object.values(d.properties).slice(0, -1);
+    var detailsData = [];
+
+    for (var i = 0; i < keys.length; i++) {
+        var obj = { 'year': keys[i], 'value': values[i] };
+        detailsData.push(obj);
+    }
+
+    // Scales for bar chart
+    var y = d3.scaleBand()
+        .domain(keys)
+        .range([vis.height, 0])
+        .padding(0.1);
+
+    var x = d3.scaleLinear()
+        .domain([0, d3.max(detailsData, function(d){ return d.value; })])
+        .range([0, vis.detailsWidth]);
+
+    // Add bars
+    vis.detailsSvg.selectAll('rect')
+        .data(detailsData)
+        .enter()
+        .append('rect')
+        .attr("class", "bar")
+        .attr("width", function(d) {return x(d.value); } )
+        .attr("y", function(d) { return y(d.year); })
+        .attr("height", y.bandwidth())
+        .style('fill', function(d) {
+            return d.year === currentSelection ? 'var(--main-color)' : '#ccc';
+        });
+
+    // add the x Axis
+    vis.detailsSvg.append("g")
+        .attr("transform", "translate(0," + vis.height + ")")
+        .call(d3.axisBottom(x)
+            .ticks(5));
+
+
+    // add the y Axis
+    vis.detailsSvg.append("g")
+        .call(d3.axisLeft(y));
 }

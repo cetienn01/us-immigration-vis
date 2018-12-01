@@ -227,11 +227,13 @@ function loadData() {
         .defer(d3.json, 'data/us-states.json')
         .defer(d3.csv, 'data/h1b-by-state-2016-2017.csv')
         .defer(d3.csv, 'cleaned-data/country-approvals-clean.csv')
+        .defer(d3.csv, 'cleaned-data/h2a-country-approvals-clean.csv')
+        .defer(d3.csv, 'cleaned-data/h2b-country-approvals-clean.csv')
         .await(createVis)
 
 }
 
-function createVis(error, worldMapData, countryNames, usMapData, immigrationByState, immigrationByCountryData) {
+function createVis(error, worldMapData, countryNames, usMapData, immigrationByState, immigrationByCountryData, h2aData, h2bData) {
 
     //give the country names to the automplete var
   //  countryNamesAutomplete=countryNames;
@@ -239,21 +241,28 @@ function createVis(error, worldMapData, countryNames, usMapData, immigrationBySt
     //create timeline chart
     timeline=new timelineChart("timeline_area", timelineData);
 
-    immigrationWorldMap = new Map('world_map_area', immigrationByCountryData, { map: worldMapData, names: countryNames, mapType: 'world' });
-    immigrationUsMap = new Map('states_map_area', immigrationByState, { map: usMapData, mapType: 'us' });
+    immigrationWorldMap = new Map('world_map_area', [immigrationByCountryData, h2aData, h2bData], {
+        map: worldMapData,
+        names: countryNames,
+        mapType: 'world'
+    });
+
+    immigrationUsMap = new Map('states_map_area', [immigrationByState], {
+        map: usMapData,
+        mapType: 'us'
+    });
 }
 
 function updateTimeline(value) {
     timeline.updateVis(value, timelineData)
-
 }
 
 function updateWorldMap() {
-    immigrationWorldMap.filterData();
+    immigrationWorldMap.filterDataByYear();
 }
 
 function updateUsMap() {
-    immigrationUsMap.filterData();
+    immigrationUsMap.filterDataByYear();
 }
 
 queue()
@@ -474,3 +483,8 @@ function VisaTrendlineMouseOut(){
     $( ".countryline3" ).removeClass( "activeLine" );
 }
 
+// Toggle for world maps
+$("#world-map-toggle-btns input:radio").change(function() {
+    var optionValue = $(this).val();
+    immigrationWorldMap.filterData(optionValue);
+});
