@@ -75,6 +75,8 @@ CountryTrendLine.prototype.initVis = function(){
         })
         .offset([0,0]); */
 
+    vis.svg.append("g")
+        .attr("class", "annotation-group");
 
 
     // (Filter, aggregate, modify data)
@@ -261,9 +263,10 @@ CountryTrendLine.prototype.annotate = function(country) {
         .annotations(annotations)
         .textWrap(30)
 
-    vis.svg.append("g")
-        .attr("class", "annotation-group")
-        .call(makeAnnotations)
+    vis.svg.select(".annotation-group")
+        .transition()
+        .duration(1000)
+        .call(makeAnnotations);
 
 }
 
