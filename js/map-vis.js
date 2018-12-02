@@ -156,18 +156,11 @@ Map.prototype.filterData = function(visaType) {
 
 Map.prototype.updateVis = function() {
     var vis = this;
-    var currentSelection;
+    var currentSelection = vis.getCurrentYearSelection();
     var detailsElement = (vis.mapType === 'world' ? '#world_map_details_area' : '#states_details_area');
 
     // Clear details element
     $(detailsElement).empty();
-
-    // Define select box based on map type
-    if (vis.mapType === 'world') {
-        currentSelection = d3.select('#world-map-selection').property('value');
-    } else {
-        currentSelection = d3.select('#us-map-selection').property('value');
-    }
 
     var text;
     if (vis.mapType === 'world') {
@@ -203,11 +196,7 @@ Map.prototype.updateVis = function() {
         .attr('stroke', 'white')
         .attr('stroke-width', 1)
         .style('fill', function(d) {
-            if (d.properties[vis.countryOrState]) {
-                return vis.color(d.properties[currentSelection]);
-            } else {
-                return '#BDBDBD';
-            }
+            return vis.setFillColor(d);
         })
         .style('stroke', "var(--background-color)")
         .on('mouseover', function(d, i) {
@@ -224,7 +213,6 @@ Map.prototype.updateVis = function() {
             vis.tip.hide(d, i);
         })
         .on('click', function(d) {
-            d3.event.stopPropagation();
             var currentColor = (d.properties[currentSelection] ? vis.color(d.properties[currentSelection]) : '#aaa');
             var introParagraph = $('[data-anchor="section2"] .section_paragraph');
             if (introParagraph) {
@@ -233,27 +221,21 @@ Map.prototype.updateVis = function() {
             vis.svg.selectAll('path').style('fill', '#e4e4e4')
             d3.select(this).style('fill', currentColor);
             vis.drawDetails(d, currentSelection);
+            
+            // Register outside click event, restores fill colors of maps
+            vis.svg.select(function() {
+                return this.parentNode;
+            }).on('click', function() {
+                var clickedTarget = d3.event.target;
+                var clickedClass = $(clickedTarget).attr('class');
+                if (clickedClass === 'map-svg') {
+                    vis.svg.selectAll('path.map-path').style('fill', function(d) {
+                        return vis.setFillColor(d);
+                    })
+                }
+            });
         });
 
-    d3.select('svg.map-svg').on('click',function() {
-        var clickedTarget = d3.event.target;
-        var clickedClass = $(clickedTarget).attr('class');
-        if (clickedClass === 'map-svg') {
-            console.log('here');
-            vis.svg.selectAll('path').style('fill', 'black')
-
-            vis.svg.selectAll('path.map-path').style('fill', function(d) {
-                var color;
-                if (d.properties[vis.countryOrState]) {
-                    color = vis.color(d.properties[currentSelection]);
-                } else {
-                    color = '#BDBDBD';
-                }
-                console.log(color);
-                return color;
-            })
-        }
-    });
 
     // Draw legend only if it does not exist
     if (!vis.legendDrawn) {
@@ -268,6 +250,27 @@ Map.prototype.updateVis = function() {
     } else {
         var index = (vis.mapType === 'world' ? 73 : 4);
         vis.drawDetails(vis.filteredData[index], currentSelection);
+    }
+}
+
+// Define select box based on map type
+Map.prototype.getCurrentYearSelection = function() {
+    var vis = this;
+    if (vis.mapType === 'world') {
+        return d3.select('#world-map-selection').property('value');
+    } else {
+        return d3.select('#us-map-selection').property('value');
+    }
+}
+
+
+Map.prototype.setFillColor = function(d) {
+    var vis = this;
+    var currentSelection = vis.getCurrentYearSelection();
+    if (d.properties[vis.countryOrState]) {
+        return vis.color(d.properties[currentSelection]);
+    } else {
+        return '#BDBDBD';
     }
 }
 
