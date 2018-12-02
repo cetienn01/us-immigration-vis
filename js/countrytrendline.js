@@ -221,11 +221,19 @@ CountryTrendLine.prototype.annotate = function(country) {
         },
         y: vis.margin.top,
         x: trumpdate
-    }];
+    },
+        { note: { label: "Election of Barack Obama" },
+    subject: {
+        y1: 0,
+            y2: vis.height
+    },
+    y: vis.margin.top,
+        x: vis.x(parseDate("2008"))
+}];
 
     if (country=="Syria"){
         annotations.push({
-            note: {label: "Start of the War in Syria"},
+            note: {label: "Start of the war in Syria"},
             subject: {
                 y1: 0,
                 y2: vis.height
@@ -254,8 +262,207 @@ CountryTrendLine.prototype.annotate = function(country) {
                 y1: 0,
                 y2: vis.height
             },
-            y: vis.margin.top,
+            y: vis.margin.top*3,
             x: saffronrevolution
+        })
+
+    }
+
+    if (country=="Kosovo" || country=="Serbia"){
+        annotations.push({
+            note: {label: "Kosovo declares independence from Serbia"},
+            subject: {
+                y1: 0,
+                y2: vis.height
+            },
+            y: vis.margin.top*5,
+            x: vis.x(parseDate("2008"))
+        })
+    }
+
+    if (country=="Haiti"){
+        annotations.push({
+            note: {label: "Haiti earthquake"},
+            subject: {
+                y1: 0,
+                y2: vis.height
+            },
+            y: vis.margin.top,
+            x: vis.x(parseDate("2010"))
+        })
+    }
+
+    if (country=="Tunisia" || country=="Libya" || country=="Egypt"){
+        annotations.push({
+            note: {label: "Arab Spring"},
+            subject: {
+                y1: 0,
+                y2: vis.height
+            },
+            y: vis.margin.top,
+            x: vis.x(parseDate("2011"))
+        })
+    }
+
+    if (country=="Greece"){
+        annotations.push({
+            note: {label: "Greek economic crisis"},
+            subject: {
+                y1: 0,
+                y2: vis.height
+            },
+            y: vis.margin.top,
+            x: vis.x(parseDate("2011"))
+        })
+    }
+
+    if (country=="Philippines"){
+        annotations.push({
+            note: {label: "Typhoon Hayan"},
+            subject: {
+                y1: 0,
+                y2: vis.height
+            },
+            y: vis.margin.top,
+            x: vis.x(parseDate("2013"))
+        }),
+            annotations.push({
+                note: {label: "Election of Duterte"},
+                subject: {
+                    y1: 0,
+                    y2: vis.height
+                },
+                y: vis.margin.top*5,
+                x: vis.x(parseDate("2016"))
+            })
+    }
+
+    if (country=="Turkey"){
+        annotations.push({
+            note: {label: "Protests break out in Turkey"},
+            subject: {
+                y1: 0,
+                y2: vis.height
+            },
+            y: vis.margin.top,
+            x: vis.x(parseDate("2013"))
+        }),
+            annotations.push({
+                note: {label: "Failed Turkish coup"},
+                subject: {
+                    y1: 0,
+                    y2: vis.height
+                },
+                y: vis.margin.top*5,
+                x: vis.x(parseDate("2016"))
+            })
+    }
+
+    if (country=="Hong Kong"){
+        annotations.push({
+            note: {label: "Umbrella movement"},
+            subject: {
+                y1: 0,
+                y2: vis.height
+            },
+            y: vis.margin.top,
+            x: vis.x(parseDate("2014"))
+        })
+    }
+
+    if (country=="Bangladesh"){
+        annotations.push({
+            note: {label: "Rana Plaza factory collapse"},
+            subject: {
+                y1: 0,
+                y2: vis.height
+            },
+            y: vis.margin.top,
+            x: vis.x(parseDate("2013"))
+        })
+    }
+
+    if (country=="Liberia" || country=="Guinea" || country=="Sierra Leone"){
+        annotations.push({
+            note: {label: "Ebola outbreak"},
+            subject: {
+                y1: 0,
+                y2: vis.height
+            },
+            y: vis.margin.top,
+            x: vis.x(parseDate("2014"))
+        })
+    }
+
+    if (country=="Sudan" || country=="South Sudan"){
+        annotations.push({
+            note: {label: "South Sudan gains independence"},
+            subject: {
+                y1: 0,
+                y2: vis.height
+            },
+            y: vis.margin.top,
+            x: vis.x(parseDate("2011"))
+        })
+    }
+
+    if (country=="Ukraine" || country=="Russia"){
+        annotations.push({
+            note: {label: "Russian invasion of Ukraine"},
+            subject: {
+                y1: 0,
+                y2: vis.height
+            },
+            y: vis.margin.top,
+            x: vis.x(parseDate("2014"))
+        })
+    }
+
+    if (country=="Cuba"){
+        annotations.push({
+            note: {label: "Restoration of US-Cuba diplomatic ties"},
+            subject: {
+                y1: 0,
+                y2: vis.height
+            },
+            y: vis.margin.top,
+            x: vis.x(parseDate("2014"))
+        })
+    }
+
+    if (country=="Yemen" || country=="Saudi Arabia"){
+        annotations.push({
+            note: {label: "Saudi Arabia intervention in Yemen"},
+            subject: {
+                y1: 0,
+                y2: vis.height
+            },
+            y: vis.margin.top*5,
+            x: vis.x(parseDate("2015"))
+        })
+    }
+
+    if (country=="United Kingdom"){
+        annotations.push({
+            note: {label: "Brexit vote"},
+            subject: {
+                y1: 0,
+                y2: vis.height
+            },
+            y: vis.margin.top*5,
+            x: vis.x(parseDate("2015"))
+        })
+    }
+
+    if (country=="Colombia"){
+        annotations.push({
+            note: {label: "Colombia peace deal"},
+            subject: {
+                y1: 0,
+                y2: vis.height
+            },
+            y: vis.margin.top*5,
+            x: vis.x(parseDate("2015"))
         })
     }
 

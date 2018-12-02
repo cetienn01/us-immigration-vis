@@ -412,6 +412,9 @@ TRENDLINES
     font-size: 15px;
 }
 
+.annotation path.connector {
+    stroke-dasharray: 1, 1;
+}
 
 
 
