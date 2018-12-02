@@ -114,13 +114,18 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3, country){
     }));
 
     //check which visa type has more and set that as the domain
-    if( (d3.max(data, function(d){return d.approvals})) >= (d3.max(data2, function(d){return d.approvals}))) {
+    if(((d3.max(data, function(d){return d.approvals})) >= (d3.max(data2, function(d){return d.approvals}))) && ((d3.max(data, function(d){return d.approvals})) >= (d3.max(data3, function(d){return d.approvals})))) {
         vis.y.domain([0, d3.max(data, function(d) {
             return d.approvals;
         })]);
     }
-    else{
+    else if (((d3.max(data2, function(d){return d.approvals})) >= (d3.max(data, function(d){return d.approvals}))) && ((d3.max(data2, function(d){return d.approvals})) >= (d3.max(data3, function(d){return d.approvals})))) {
         vis.y.domain([0, d3.max(data2, function(d) {
+            return d.approvals;
+        })]);
+    }
+    else{
+        vis.y.domain([0, d3.max(data3, function(d) {
             return d.approvals;
         })]);
     }
