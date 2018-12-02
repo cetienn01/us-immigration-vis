@@ -60,6 +60,10 @@ body.fp-viewing-section-header #main_navbar{
     color: var(--main-color);
 }
 
+#header{
+    width: 100%;
+}
+
 
 /*********************************
 MAIN PAGE

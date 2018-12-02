@@ -119,6 +119,7 @@ timelineChart.prototype.updateVis = function(value, data){
             vis.timelineClick(data, i); //bug is here
         })
 
+
 	.merge(vis.timelineChart)
         .transition()
         .duration(1000)
@@ -146,6 +147,18 @@ vis.timelineChart.exit().remove();
         .attr("class","text")
         .on("click", function(d, i) {
             vis.timelineClick(data, i);
+        })
+        .on('mouseover', function(d, i) {
+            d3.select(this)
+                .transition()
+                .duration(100)
+                .attr("fill", "var(--main-color)")
+        })
+        .on('mouseout', function(d, i) {
+            d3.select(this)
+                .transition()
+                .duration(100)
+                .attr("fill", "var(--text-color")
         })
 
 
