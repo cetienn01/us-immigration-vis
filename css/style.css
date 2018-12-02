@@ -431,6 +431,10 @@ TRENDLINES
 .annotation path.connector {
     stroke-dasharray: 1, 1;
 }
+#trendline_label{
+    font-family: "Lucida Sans";
+    color: var(--text-color);
+}
 
 
 

@@ -23,7 +23,7 @@ CountryTrendLine.prototype.initVis = function(){
     var vis = this;
 
     // * TO-DO *
-    vis.margin = { top: 40, right: 60, bottom: 60, left: 60 };
+    vis.margin = { top: 40, right: 60, bottom: 60, left: 70 };
 
     vis.width = 700 - vis.margin.left - vis.margin.right,
         vis.height = 500 - vis.margin.top - vis.margin.bottom;
@@ -198,6 +198,16 @@ CountryTrendLine.prototype.updateVis = function(data, data2, data3, country){
         .transition()
         .duration(1000)
         .call(vis.xAxis);
+
+    vis.svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - vis.margin.left)
+        .attr("x",0 - (vis.height / 2))
+        .attr("dy", "1em")
+        .attr("class", "trendline_label")
+        .style("color", "var(--text-color)")
+        .style("text-anchor", "middle")
+        .text("Number of visas");
 
   //  vis.svg.call(vis.tip);
 
