@@ -382,6 +382,10 @@ WORLD MAP
     padding-left:40px;
 }
 
+.map_header{
+    color: var(--main-color);
+}
+
 
 /*********************************
 TRENDLINES
