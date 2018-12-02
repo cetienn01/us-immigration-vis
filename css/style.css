@@ -6,7 +6,7 @@
     --text-color: #808080;
     --header-color: #444;
     --story-text-color:white;
-    --text-background-color: rgba(65, 182, 196, 0.7);
+    --text-background-color: rgba(65, 182, 196, 0.6);
 }
 
 /*********************************
@@ -78,7 +78,7 @@ MAIN PAGE
 
 .header_bg {
     /* The image used */
-    background-image: url("https://timedotcom.files.wordpress.com/2018/01/ellis.jpeg");
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("https://timedotcom.files.wordpress.com/2018/01/ellis.jpeg");
 
     /* Full height */
     height: 100%;
@@ -108,7 +108,7 @@ INTRO PAGE
 .intro_bg {
     /* The image used */
 
-    background-image: url("../img/StatueLiberty.PNG");
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/StatueLiberty.PNG");
 
     /* Full height */
     height: 100%;
@@ -141,7 +141,7 @@ OVERVIEW PAGE
 .overview_bg {
     /* Full height */
     height: 100%;
-   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("../img/visa_image_greyscale.jpg");
+   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("../img/visa_image_greyscale.jpg");
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
@@ -285,7 +285,7 @@ STORY PAGES
 
 .story1_bg {
     /* The image used */
-    background-image: url("../img/yemen-revolution_greyscale.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/yemen-revolution_greyscale.jpg");
 
     /* Full height */
     height: 100%;
@@ -299,7 +299,7 @@ STORY PAGES
 
 .story2_bg {
     /* The image used */
-    background-image: url("../img/coffee_eritrea_greyscale.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/coffee_eritrea_greyscale.jpg");
 
     /* Full height */
     height: 100%;
@@ -313,7 +313,7 @@ STORY PAGES
 
 .story3_bg {
     /* The image used */
-    background-image: url("../img/california-ag-labor_greyscale.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/california-ag-labor_greyscale.jpg");
 
     /* Full height */
     height: 100%;
@@ -327,7 +327,7 @@ STORY PAGES
 
 .story4_bg {
     /* The image used */
-    background-image: url("../img/quezon_city_greyscale.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/quezon_city_greyscale.jpg");
 
     /* Full height */
     height: 100%;
@@ -341,7 +341,7 @@ STORY PAGES
 
 .story5_bg {
     /* The image used */
-    background-image: url("../img/india-pakistan-partition.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/india-pakistan-partition.jpg");
 
     /* Full height */
     height: 100%;
