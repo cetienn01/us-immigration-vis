@@ -60,6 +60,10 @@ body.fp-viewing-section-header #main_navbar{
     color: var(--main-color);
 }
 
+#header{
+    width: 100%;
+}
+
 
 /*********************************
 MAIN PAGE
@@ -281,6 +285,14 @@ STORY PAGES
     margin: auto;
     width: 50%;
     padding-top: 40px;
+}
+
+.story_header {
+    text-align: center;
+    font-size:40px;
+    padding:10px;
+    color: white;
+    padding-top: 5%;
 }
 
 .story1_bg {
