@@ -32,14 +32,15 @@ Map.prototype.initVis = function() {
     vis.height = 500 - vis.margin.top - vis.margin.bottom;
 
     // SVG drawing area
-    vis.svg = d3.select("#" + vis.parentElement).append("svg")
-        .attr("width", vis.width + vis.margin.left + vis.margin.right)
-        .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-        .call(d3.zoom().on("zoom", function () {
-            vis.svg.attr("transform", d3.event.transform);
+    vis.svg = d3.select("#" + vis.parentElement).append('svg')
+        .attr('class', 'map-svg')
+        .attr('width', vis.width + vis.margin.left + vis.margin.right)
+        .attr('height', vis.height + vis.margin.top + vis.margin.bottom)
+        .call(d3.zoom().on('zoom', function () {
+            vis.svg.attr('transform', d3.event.transform);
         }))
-        .append("g")
-        .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")")
+        .append('g')
+        .attr('transform', 'translate(' + vis.margin.left + ',' + vis.margin.top + ')')
 
     // Define map projection
     if (vis.mapType === 'world') {
@@ -66,12 +67,6 @@ Map.prototype.initVis = function() {
         .range(colorSelection);
 
     vis.drawMap();
-}
-
-Map.prototype.zoomed = function zoomed() {
-    var vis = this;
-    viz.gZoom.style("stroke-width", 1.5 / d3.event.transform.k + "px");
-    vis.gZoom.attr("transform", d3.event.transform); // updated for d3 v4
 }
 
 Map.prototype.drawMap = function() {
@@ -128,6 +123,7 @@ Map.prototype.drawMap = function() {
     } else {
         vis.filteredData = vis.combineDataWithGeojson(map, 0);
     }
+
     vis.updateVis();
 }
 
@@ -202,6 +198,7 @@ Map.prototype.updateVis = function() {
 
     map.enter().append('path')
         .merge(map)
+        .attr('class', 'map-path')
         .attr('d', vis.path)
         .attr('stroke', 'white')
         .attr('stroke-width', 1)
@@ -226,7 +223,8 @@ Map.prototype.updateVis = function() {
                 .style('opacity', 1)
             vis.tip.hide(d, i);
         })
-        .on('click', function(d, i) {
+        .on('click', function(d) {
+            d3.event.stopPropagation();
             var currentColor = (d.properties[currentSelection] ? vis.color(d.properties[currentSelection]) : '#aaa');
             var introParagraph = $('[data-anchor="section2"] .section_paragraph');
             if (introParagraph) {
@@ -236,7 +234,26 @@ Map.prototype.updateVis = function() {
             d3.select(this).style('fill', currentColor);
             vis.drawDetails(d, currentSelection);
         });
-    ;
+
+    d3.select('svg.map-svg').on('click',function() {
+        var clickedTarget = d3.event.target;
+        var clickedClass = $(clickedTarget).attr('class');
+        if (clickedClass === 'map-svg') {
+            console.log('here');
+            vis.svg.selectAll('path').style('fill', 'black')
+
+            vis.svg.selectAll('path.map-path').style('fill', function(d) {
+                var color;
+                if (d.properties[vis.countryOrState]) {
+                    color = vis.color(d.properties[currentSelection]);
+                } else {
+                    color = '#BDBDBD';
+                }
+                console.log(color);
+                return color;
+            })
+        }
+    });
 
     // Draw legend only if it does not exist
     if (!vis.legendDrawn) {
@@ -312,7 +329,7 @@ Map.prototype.drawDetails = function(d, currentSelection) {
             .attr('y', -10)
             .text('Data is not available for ' + d.Country + ' in ' + currentSelection)
             .call(wrap, 300);
-    } else if (sumOfValues === 0) {
+    } else if (sumOfValues === 0 || sumOfValues.startsWith('0')) {
         vis.detailsSvg.append('text')
             .attr('x', 0)
             .attr('y', -10)
@@ -366,7 +383,7 @@ Map.prototype.drawDetailBarCharts = function(d, currentSelection) {
         .enter()
         .append('rect')
         .attr('class', 'bar')
-        .attr('width', function(d) {return x(d.value); } )
+        .attr('width', function(d) { return x(d.value); } )
         .attr('y', function(d) { return y(d.year); })
         .attr('height', y.bandwidth())
         .style('fill', function(d) {
