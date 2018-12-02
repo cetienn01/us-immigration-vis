@@ -404,14 +404,18 @@ Map.prototype.drawDetailBarCharts = function(d, currentSelection) {
     // Country General Information
     if (vis.mapType === 'world') {
         var countryInfoDiv = document.createElement('div')
-        $(countryInfoDiv).append('<span class="map_header">'+'Population: ' + "</span>" + (d.Population || 'Unknown') + '<br/>');
-        $(countryInfoDiv).append('<span class="map_header">'+'Area: ' + "</span>"+ d.Area + '<br/>');
+        $(countryInfoDiv).append('<span class="map_header">'+'Population: ' + "</span>" + (numberWithCommas(d.Population) || 'Unknown') + '<br/>');
+        $(countryInfoDiv).append('<span class="map_header">'+'Area: ' + "</span>"+ numberWithCommas(d.Area) + '<br/>');
         $(countryInfoDiv).append('<span class="map_header">'+'Population Density: '+ "</span>" + d['Pop. Density'] + '<br/>');
         $(countryInfoDiv).append('<span class="map_header">'+'Net Migration: '+ "</span>" + d['Net migration'] + '<br/>');
-        $(countryInfoDiv).append('<span class="map_header">'+'GDP: '+ "</span>" + d.GDP + '<br/>');
+        $(countryInfoDiv).append('<span class="map_header">'+'GDP: '+ "</span>" + numberWithCommas(d.GDP) + '<br/>');
         $(countryInfoDiv).append('<span class="map_header">'+'Literacy: '+ "</span>" + d.Literacy + '<br/>');
         $('#world_map_area_details').append(countryInfoDiv);
     }
+}
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 // Function for wrapping long labels from Mike Bostock:  https://bl.ocks.org/mbostock/7555321
