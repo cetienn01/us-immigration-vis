@@ -12,6 +12,8 @@ Map = function(_parentElement, _data, _mapData){
     this.mapData = _mapData;
     this.mapType = _mapData.mapType;
     this.filteredData = _data[0];
+    this.legendDrawn = false; // Tracks if the legend has already been drawn
+    this.currentlyDisplayedVisaType = 'H-1B' // Tracks which visa type is currently displayed for world map
 
     this.initVis();
 }
@@ -33,8 +35,11 @@ Map.prototype.initVis = function() {
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
         .attr("width", vis.width + vis.margin.left + vis.margin.right)
         .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
+        .call(d3.zoom().on("zoom", function () {
+            vis.svg.attr("transform", d3.event.transform);
+        }))
         .append("g")
-        .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
+        .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")")
 
     // Define map projection
     if (vis.mapType === 'world') {
@@ -47,6 +52,7 @@ Map.prototype.initVis = function() {
             .scale(700)
             .translate([vis.width/2.5, vis.height/1.5]);
     }
+
 
     // Set path
     vis.path = d3.geoPath()
@@ -62,10 +68,16 @@ Map.prototype.initVis = function() {
     vis.drawMap();
 }
 
+Map.prototype.zoomed = function zoomed() {
+    var vis = this;
+    viz.gZoom.style("stroke-width", 1.5 / d3.event.transform.k + "px");
+    vis.gZoom.attr("transform", d3.event.transform); // updated for d3 v4
+}
+
 Map.prototype.drawMap = function() {
     var vis = this;
     var map, h1bMap, h2aMap, h2bMap;
-    var datasetCount = vis.data.length;
+    var datasetCount = (vis.mapType === 'world' ? vis.data.length - 1 : vis.data.length);
 
     if (vis.mapData.mapType === 'world') {
         map = topojson.feature(vis.mapData.map, vis.mapData.map.objects.countries).features;
@@ -76,6 +88,15 @@ Map.prototype.drawMap = function() {
             for (var j = 0; j < vis.mapData.names.length; j++) {
                 if (map[i].id === +vis.mapData.names[j].id) {
                     map[i].Country = vis.mapData.names[j].name;
+                    var countryInfo = vis.data[3].filter(function(info) { return info.Country.trim() === vis.mapData.names[j].name; });
+                    if (countryInfo.length > 0) {
+                        map[i].Population = countryInfo[0].Population;
+                        map[i].Area = countryInfo[0].Area + ' (sq. mi.)';
+                        map[i]['Pop. Density'] = countryInfo[0]['Pop. Density'] + ' (per sq. mi.)';
+                        map[i]['Net migration'] = countryInfo[0]['Net migration'];
+                        map[i].GDP = '$' + countryInfo[0].GDP + ' (per capita)';
+                        map[i].Literacy = countryInfo[0].Literacy + '%';
+                    }
                 }
             }
         }
@@ -88,7 +109,8 @@ Map.prototype.drawMap = function() {
     // Convert data to numeric values
     for (var i = 0; i < datasetCount; i++) {
         for (var j = 0; j < vis.data[i].length; j++) {
-            for (var k = 1; k < vis.data[i].columns.length; k++) {
+            var columnCount = (vis.data[i].columns.includes('Region') ? (vis.data[i].columns.length - 1) : vis.data[i].columns.length)
+            for (var k = 1; k < columnCount; k++) {
                 vis.data[i][j][vis.data[i].columns[k]] = parseInt(vis.data[i][j][vis.data[i].columns[k]].replace(/,/g, ''));
             }
         }
@@ -99,9 +121,9 @@ Map.prototype.drawMap = function() {
         h2aMap = map.map(b => Object.assign({}, b));
         h2bMap = map.map(c => Object.assign({}, c));
 
-        vis.h1bMap = vis.combineDataWithGeojson(h1bMap, 0)
-        vis.h2aMap = vis.combineDataWithGeojson(h2aMap, 1)
-        vis.h2bMap = vis.combineDataWithGeojson(h2bMap, 2)
+        vis.h1bMap = vis.combineDataWithGeojson(h1bMap, 0);
+        vis.h2aMap = vis.combineDataWithGeojson(h2aMap, 1);
+        vis.h2bMap = vis.combineDataWithGeojson(h2bMap, 2);
         vis.filteredData = vis.h1bMap;
     } else {
         vis.filteredData = vis.combineDataWithGeojson(map, 0);
@@ -111,11 +133,12 @@ Map.prototype.drawMap = function() {
 
 Map.prototype.combineDataWithGeojson = function(map, dataIndex) {
     var vis = this;
-
-    // Map visa data to properties field of geojson data
+    // Map visa data, and general country info to properties field of geojson data
     for (var i = 0; i < map.length; i++) {
         for (var j = 0; j < vis.data[dataIndex].length; j++) {
-            if (map[i][vis.countryOrState] === vis.data[dataIndex][j][vis.countryOrState]) {
+            var countryName1 = map[i][vis.countryOrState];
+            var countryName2 = vis.data[dataIndex][j][vis.countryOrState];
+            if (countryName1 === countryName2) {
                 map[i].properties = vis.data[dataIndex][j];
             }
         }
@@ -125,12 +148,12 @@ Map.prototype.combineDataWithGeojson = function(map, dataIndex) {
 
 Map.prototype.filterData = function(visaType) {
     var vis = this;
-    if (visaType === 'h1b') {
-        this.filteredData = vis.h1bMap;
-    } else if (visaType === 'h2a') {
-        this.filteredData = vis.h2aMap;
-    } else if (visaType === 'h2b') {
-        this.filteredData = vis.h2bMap;
+    if (visaType === 'H-1B') {
+        vis.filteredData = vis.h1bMap;
+    } else if (visaType === 'H-2A') {
+        vis.filteredData = vis.h2aMap;
+    } else if (visaType === 'H-2B') {
+        vis.filteredData = vis.h2bMap;
     }
     vis.updateVis();
 }
@@ -160,6 +183,7 @@ Map.prototype.updateVis = function() {
     // create tooltips
     vis.tip = d3.tip()
         .attr('class', 'd3-tip')
+        .style('pointer-events', 'none !important')
         .html(function(d){
             if (d.properties[vis.countryOrState]) {
                 return d.properties[vis.countryOrState] + '<br>'
@@ -204,15 +228,26 @@ Map.prototype.updateVis = function() {
         })
         .on('click', function(d, i) {
             var currentColor = (d.properties[currentSelection] ? vis.color(d.properties[currentSelection]) : '#aaa');
+            var introParagraph = $('[data-anchor="section2"] .section_paragraph');
+            if (introParagraph) {
+                introParagraph.hide();
+            }
             vis.svg.selectAll('path').style('fill', '#e4e4e4')
             d3.select(this).style('fill', currentColor);
             vis.drawDetails(d, currentSelection);
         });
+    ;
 
-    vis.drawLegend();
+    // Draw legend only if it does not exist
+    if (!vis.legendDrawn) {
+        vis.drawLegend();
+    }
 
+    // Pass selected country into drawDetails function to draw barchart and display country info
+    // On initial page load, set world map to show data for India and US map to show California
     if (vis.selected) {
-        vis.drawDetails(vis.selected, currentSelection);
+        var selected = vis.filteredData.filter(function(item) { return item.Country === vis.selected.Country });
+        vis.drawDetails(selected[0], currentSelection);
     } else {
         var index = (vis.mapType === 'world' ? 73 : 4);
         vis.drawDetails(vis.filteredData[index], currentSelection);
@@ -221,6 +256,7 @@ Map.prototype.updateVis = function() {
 
 Map.prototype.drawLegend = function() {
     var vis = this;
+    vis.legendDrawn = true;
 
     var legend = vis.svg.append('g')
         .attr('class', 'legendQuant')
@@ -260,19 +296,28 @@ Map.prototype.drawDetails = function(d, currentSelection) {
 
     vis.detailsWidth = $(element).width() - vis.margin.left - vis.margin.right;
 
-    // SVG drawing area
+    // SVG country details area
     vis.detailsSvg = d3.select(element).append("svg")
         .attr("width", vis.detailsWidth + vis.margin.left + vis.margin.right)
-        .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
+        .attr("height", 370)
         .append("g")
         .attr("transform", "translate(35, 50)");
 
     // Check if data is available for selected country
     // Display barchart if data is available, otherwise display 'no data' message
+    var sumOfValues = Object.values(d.properties).reduce(function(a, b) { return a + b; }, 0);
     if (Object.keys(d.properties).length === 0) {
         vis.detailsSvg.append('text')
-        .attr('y', -10)
-        .text('Data is not available for ' + d.Country);
+            .attr('x', 0)
+            .attr('y', -10)
+            .text('Data is not available for ' + d.Country + ' in ' + currentSelection)
+            .call(wrap, 300);
+    } else if (sumOfValues === 0) {
+        vis.detailsSvg.append('text')
+            .attr('x', 0)
+            .attr('y', -10)
+            .text('No ' + vis.currentlyDisplayedVisaType + ' visas were issued for ' + d.Country + ' in ' + currentSelection)
+            .call(wrap, 300);;
     } else {
         vis.drawDetailBarCharts(d, currentSelection);
     }
@@ -280,6 +325,8 @@ Map.prototype.drawDetails = function(d, currentSelection) {
 
 Map.prototype.drawDetailBarCharts = function(d, currentSelection) {
     var vis = this;
+    var keys, values;
+
     // Title: Name of country or state
     vis.detailsSvg.append('text')
         .attr('class', 'location-label')
@@ -287,9 +334,15 @@ Map.prototype.drawDetailBarCharts = function(d, currentSelection) {
         .attr('y', -10)
         .text(d[vis.countryOrState]);
 
-    // reformat data
-    var keys = Object.keys(d.properties).slice(0, -1);
-    var values = Object.values(d.properties).slice(0, -1);
+    // reformat data, if Region is included in data then ignore it
+    if (Object.keys(d.properties).includes('Region')) {
+        keys = Object.keys(d.properties).slice(0, -2);
+        values = Object.values(d.properties).slice(0, -2);
+    } else {
+        keys = Object.keys(d.properties).slice(0, -1);
+        values = Object.values(d.properties).slice(0, -1);
+    }
+
     var detailsData = [];
 
     for (var i = 0; i < keys.length; i++) {
@@ -312,22 +365,68 @@ Map.prototype.drawDetailBarCharts = function(d, currentSelection) {
         .data(detailsData)
         .enter()
         .append('rect')
-        .attr("class", "bar")
-        .attr("width", function(d) {return x(d.value); } )
-        .attr("y", function(d) { return y(d.year); })
-        .attr("height", y.bandwidth())
+        .attr('class', 'bar')
+        .attr('width', function(d) {return x(d.value); } )
+        .attr('y', function(d) { return y(d.year); })
+        .attr('height', y.bandwidth())
         .style('fill', function(d) {
             return d.year === currentSelection ? 'var(--main-color)' : '#ccc';
         });
 
     // add the x Axis
-    vis.detailsSvg.append("g")
-        .attr("transform", "translate(0," + vis.height + ")")
+    vis.detailsSvg.append('g')
+        .attr('transform', 'translate(0,' + vis.height + ')')
         .call(d3.axisBottom(x)
             .ticks(5));
 
 
     // add the y Axis
-    vis.detailsSvg.append("g")
+    vis.detailsSvg.append('g')
         .call(d3.axisLeft(y));
+
+    // Country General Information
+    if (vis.mapType === 'world') {
+        var countryInfoDiv = document.createElement('div')
+        $(countryInfoDiv).append('Population: ' + (d.Population || 'Unknown') + '<br/>');
+        $(countryInfoDiv).append('Area: ' + d.Area + '<br/>');
+        $(countryInfoDiv).append('Population Density: ' + d['Pop. Density'] + '<br/>');
+        $(countryInfoDiv).append('Net Migration: ' + d['Net migration'] + '<br/>');
+        $(countryInfoDiv).append('GDP: ' + d.GDP + '<br/>');
+        $(countryInfoDiv).append('Literacy: ' + d.Literacy + '<br/>');
+        $('#world_map_area_details').append(countryInfoDiv);
+    }
+}
+
+// Function for wrapping long labels from Mike Bostock:  https://bl.ocks.org/mbostock/7555321
+function wrap(text, width) {
+    text.each(function () {
+        var text = d3.select(this),
+            words = text.text().split(/\s+/).reverse(),
+            word,
+            line = [],
+            lineNumber = 0,
+            lineHeight = 1.3, // ems
+            x = text.attr('x'),
+            y = text.attr('y'),
+            dy = 0, //parseFloat(text.attr("dy")),
+            tspan = text.text(null)
+                .append('tspan')
+                .attr('x', x)
+                .attr('y', y)
+                .attr('dy', dy + 'em');
+        while (word = words.pop()) {
+            line.push(word);
+            tspan.text(line.join(' '));
+            if (tspan.node().getComputedTextLength() > width) {
+                line.pop();
+                tspan.text(line.join(' '));
+                line = [word];
+                tspan = text.append('tspan')
+                    .attr('x', x)
+                    .attr('y', y)
+                    .attr('dy', ++lineNumber * lineHeight + dy + 'em')
+                    .text(word);
+            }
+        }
+    });
 }

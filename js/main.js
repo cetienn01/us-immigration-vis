@@ -233,11 +233,12 @@ function loadData() {
         .defer(d3.csv, 'cleaned-data/country-approvals-clean.csv')
         .defer(d3.csv, 'cleaned-data/h2a-country-approvals-clean.csv')
         .defer(d3.csv, 'cleaned-data/h2b-country-approvals-clean.csv')
+        .defer(d3.csv, 'cleaned-data/countries-info-data.csv')
         .await(createVis)
 
 }
 
-function createVis(error, worldMapData, countryNames, usMapData, immigrationByState, immigrationByCountryData, h2aData, h2bData) {
+function createVis(error, worldMapData, countryNames, usMapData, immigrationByState, immigrationByCountryData, h2aData, h2bData, countriesInfo) {
 
     //give the country names to the automplete var
   //  countryNamesAutomplete=countryNames;
@@ -245,7 +246,7 @@ function createVis(error, worldMapData, countryNames, usMapData, immigrationBySt
     //create timeline chart
     timeline=new timelineChart("timeline_area", timelineData);
 
-    immigrationWorldMap = new Map('world_map_area', [immigrationByCountryData, h2aData, h2bData], {
+    immigrationWorldMap = new Map('world_map_area', [immigrationByCountryData, h2aData, h2bData, countriesInfo], {
         map: worldMapData,
         names: countryNames,
         mapType: 'world'
@@ -490,5 +491,6 @@ function VisaTrendlineMouseOut(){
 // Toggle for world maps
 $("#world-map-toggle-btns input:radio").change(function() {
     var optionValue = $(this).val();
+    immigrationWorldMap.currentlyDisplayedVisaType = optionValue;
     immigrationWorldMap.filterData(optionValue);
 });
