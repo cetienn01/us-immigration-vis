@@ -42,7 +42,7 @@ function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupation
 
 
     //need to transpose the data
-    var dataTotal=transpose(workTotal,"Category");
+    dataTotal=transpose(workTotal,"Category");
 
     //metrics
     //work visa metrics
@@ -145,6 +145,10 @@ function userSelect(value){
             areachart.x.domain()
         )
     });
+
+    //reset to remove brush
+    d3.selectAll("#work_map_area").select("svg").remove();
+    areachart = new AreaChart("work_map_area", dataTotal);
 }
 
 // React to 'brushed' event and update all bar charts
