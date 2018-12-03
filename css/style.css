@@ -596,3 +596,34 @@ inspired by w3 schools: https://www.w3schools.com/howto/tryit.asp?filename=tryho
 .image_container {
     padding:0px;
 }
+
+#world-map-selection,
+#us-map-selection {
+    -webkit-appearance: none;
+    height: 10px;
+    border-radius: 5px;
+    background: #ddd;
+    padding: 0;
+}
+
+#world-map-selection {
+    width: 100%;
+}
+
+#world-map-selection::-webkit-slider-thumb,
+#us-map-selection::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--main-color);
+    cursor: pointer;
+    transition: background .15s ease-in-out;
+}
+
+#world-map-selection::-webkit-slider-thumb:hover,
+#world-map-selection:active::-webkit-slider-thumb,
+#us-map-selection::-webkit-slider-thumb:hover,
+#us-map-selection:active::-webkit-slider-thumb{
+     background: var(--tertiary-color);
+}

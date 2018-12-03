@@ -494,3 +494,13 @@ $("#world-map-toggle-btns input:radio").change(function() {
     immigrationWorldMap.currentlyDisplayedVisaType = optionValue;
     immigrationWorldMap.filterData(optionValue);
 });
+
+$('#world-map-selection-label').html('Year: ' + $('#world-map-selection').val());
+$('#world-map-selection').on('input', function() {
+    $('#world-map-selection-label').html('Year: ' + $('#world-map-selection').val());
+})
+
+$('#us-map-selection-label').html('Year: ' + $('#us-map-selection').val());
+$('#us-map-selection').on('input', function() {
+    $('#us-map-selection-label').html('Year: ' + $('#us-map-selection').val());
+})

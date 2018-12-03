@@ -104,7 +104,7 @@ Map.prototype.drawMap = function() {
     // Convert data to numeric values
     for (var i = 0; i < datasetCount; i++) {
         for (var j = 0; j < vis.data[i].length; j++) {
-            var columnCount = (vis.data[i].columns.includes('Region') ? (vis.data[i].columns.length - 1) : vis.data[i].columns.length)
+            var columnCount = (vis.data[i].columns.indexOf('Region') >= 0 ? (vis.data[i].columns.length - 1) : vis.data[i].columns.length)
             for (var k = 1; k < columnCount; k++) {
                 vis.data[i][j][vis.data[i].columns[k]] = parseInt(vis.data[i][j][vis.data[i].columns[k]].replace(/,/g, ''));
             }
@@ -221,7 +221,7 @@ Map.prototype.updateVis = function() {
             vis.svg.selectAll('path').style('fill', '#e4e4e4')
             d3.select(this).style('fill', currentColor);
             vis.drawDetails(d, currentSelection);
-            
+
             // Register outside click event, restores fill colors of maps
             vis.svg.select(function() {
                 return this.parentNode;
@@ -355,7 +355,7 @@ Map.prototype.drawDetailBarCharts = function(d, currentSelection) {
         .text(d[vis.countryOrState]);
 
     // reformat data, if Region is included in data then ignore it
-    if (Object.keys(d.properties).includes('Region')) {
+    if (Object.keys(d.properties).indexOf('Region') >= 0) {
         keys = Object.keys(d.properties).slice(0, -2);
         values = Object.values(d.properties).slice(0, -2);
     } else {

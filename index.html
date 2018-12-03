@@ -161,29 +161,28 @@
 
 			<div class="row align-items-center">
 				<div class="col-md-8">
-					<select class="form-control col-md-2" id="world-map-selection" onchange="updateWorldMap()">
-						<option value="2007">2007</option>
-						<option value="2008">2008</option>
-						<option value="2009">2009</option>
-						<option value="2010">2010</option>
-						<option value="2011">2011</option>
-						<option value="2012">2012</option>
-						<option value="2013">2013</option>
-						<option value="2014">2014</option>
-						<option value="2015">2015</option>
-						<option value="2016">2016</option>
-						<option value="2017">2017</option>
-					</select>
-					<div class="btn-group btn-group-toggle" data-toggle="buttons" id="world-map-toggle-btns">
-						<label class="btn btn-secondary active">
-							<input type="radio" name="options" id="h1b-visa-btn" autocomplete="off" value="H-1B" checked> H-1B
-						</label>
-						<label class="btn btn-secondary">
-							<input type="radio" name="options" id="h2a-visa-btn" autocomplete="off" value="H-2A"> H-2A
-						</label>
-						<label class="btn btn-secondary">
-							<input type="radio" name="options" id="h2b-visa-btn" autocomplete="off" value="H-2B"> H-2B
-						</label>
+					<div class="col-md-12 d-flex">
+						<div class="col-md-8">
+							<form>
+								<div class="form-group">
+									<label for="world-map-selection" id="world-map-selection-label"></label>
+									<input type="range" class="custom-range" min="2007" max="2017" value="2007" id="world-map-selection" onchange="updateWorldMap()">
+								</div>
+							</form>
+						</div>
+						<div class="col-md-4 align-self-end">
+							<div class="btn-group btn-group-toggle" data-toggle="buttons" id="world-map-toggle-btns">
+								<label class="btn btn-secondary active">
+									<input type="radio" name="options" id="h1b-visa-btn" autocomplete="off" value="H-1B" checked> H-1B
+								</label>
+								<label class="btn btn-secondary">
+									<input type="radio" name="options" id="h2a-visa-btn" autocomplete="off" value="H-2A"> H-2A
+								</label>
+								<label class="btn btn-secondary">
+									<input type="radio" name="options" id="h2b-visa-btn" autocomplete="off" value="H-2B"> H-2B
+								</label>
+							</div>
+						</div>
 					</div>
 					<div id="world_map_area"></div>
 				</div>
@@ -398,10 +397,15 @@
 		<h2>Where do People Go? </h2>
 		<div class="row row2 align-items-center">
 			<div class="col-md-7" id="us-map-select-box">
-				<select class="form-control col-md-2" id="us-map-selection" onchange="updateUsMap()">
-					<option value="2016">2016</option>
-					<option value="2017">2017</option>
-				</select>
+				<!--<select class="form-control col-md-2" id="us-map-selection" onchange="updateUsMap()">-->
+					<!--<option value="2016">2016</option>-->
+					<!--<option value="2017">2017</option>-->
+				<!--</select>-->
+				<form>
+					<div class="form-group">
+						<label for="us-map-selection" id="us-map-selection-label"></label>
+						<input type="range" class="custom-range" min="2016" max="2017" value="2016" id="us-map-selection" onchange="updateUsMap()">
+					</div>
 				<div id="states_map_area"></div>
 			</div>
 
