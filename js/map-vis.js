@@ -86,7 +86,7 @@ Map.prototype.drawMap = function() {
                     var countryInfo = vis.data[3].filter(function(info) { return info.Country.trim() === vis.mapData.names[j].name; });
                     if (countryInfo.length > 0) {
                         map[i].Population = countryInfo[0].Population;
-                        map[i].Area = countryInfo[0].Area + ' (sq. mi.)';
+                        map[i].Area = countryInfo[0].Area + '<br>'+ ' (sq. mi.)';
                         map[i]['Pop. Density'] = countryInfo[0]['Pop. Density'] + '<br>' + ' (per sq. mi.)';
                         map[i]['Net migration'] = countryInfo[0]['Net migration'];
                         map[i].GDP = '$' + countryInfo[0].GDP + '<br>' + ' (per capita)';
@@ -431,7 +431,7 @@ Map.prototype.drawDetailBarCharts = function(d, currentSelection) {
 
         var countryInfoDiv = document.createElement('div')
         $(countryInfoDiv).append('<div class="map_bubble">'+'Population: ' + '</br>'+ (numberWithCommas(d.Population) || 'Unknown') + '</div>');
-        $(countryInfoDiv).append('<div class="map_bubble">'+'Area: ' + '</br>'+ numberWithCommas(d.Area) + '</div>');
+        $(countryInfoDiv).append('<div class="map_bubble" id="area">'+'Area: ' + '</br>'+ numberWithCommas(d.Area) + '</div>');
         $('#world_map_area_details').append(countryInfoDiv);
 
         var countryInfoDiv2 = document.createElement('div')
