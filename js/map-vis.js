@@ -243,13 +243,27 @@ Map.prototype.updateVis = function() {
     }
 
     // Pass selected country into drawDetails function to draw barchart and display country info
-    // On initial page load, set world map to show data for India and US map to show California
-    if (vis.selected) {
-        var selected = vis.filteredData.filter(function(item) { return item.Country === vis.selected.Country });
-        vis.drawDetails(selected[0], currentSelection);
-    } else {
-        var index = (vis.mapType === 'world' ? 73 : 4);
-        vis.drawDetails(vis.filteredData[index], currentSelection);
+    // On initial page load, set world map to show the story text and US map to show California
+
+    if (vis.mapType != 'world') {
+        if (vis.selected) {
+            var selected = vis.filteredData.filter(function (item) {
+                return item.Country === vis.selected.Country
+            });
+            vis.drawDetails(selected[0], currentSelection);
+        } else {
+            var index = (vis.mapType === 'world' ? 73 : 4);
+            vis.drawDetails(vis.filteredData[index], currentSelection);
+        }
+    }
+
+    if (vis.mapType === 'world') {
+        if (vis.selected) {
+            var selected = vis.filteredData.filter(function (item) {
+                return item.Country === vis.selected.Country
+            });
+            vis.drawDetails(selected[0], currentSelection);
+        }
     }
 }
 
