@@ -29,12 +29,12 @@ var countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla"
 
 // read work visa
 queue()
-    .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_total.csv")
-    .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_edu.csv")
-    .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_age.csv")
-    .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_salary.csv")
-    .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_occupation.csv")
-    .defer(d3.csv,"data/work_visa_trends_2007_2017/work_visa_industry.csv")
+    .defer(d3.csv,"cleaned-data/work_visa_trends_2007_2017/work_visa_total.csv")
+    .defer(d3.csv,"cleaned-data/work_visa_trends_2007_2017/work_visa_edu.csv")
+    .defer(d3.csv,"cleaned-data/work_visa_trends_2007_2017/work_visa_age.csv")
+    .defer(d3.csv,"cleaned-data/work_visa_trends_2007_2017/work_visa_salary.csv")
+    .defer(d3.csv,"cleaned-data/work_visa_trends_2007_2017/work_visa_occupation.csv")
+    .defer(d3.csv,"cleaned-data/work_visa_trends_2007_2017/work_visa_industry.csv")
     .await(createWorkVis);
 
 function createWorkVis(error, workTotal,eduTotal,ageTotal,salaryTotal,occupationTotal,industryTotal){
