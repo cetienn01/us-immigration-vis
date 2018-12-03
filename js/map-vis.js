@@ -87,9 +87,9 @@ Map.prototype.drawMap = function() {
                     if (countryInfo.length > 0) {
                         map[i].Population = countryInfo[0].Population;
                         map[i].Area = countryInfo[0].Area + ' (sq. mi.)';
-                        map[i]['Pop. Density'] = countryInfo[0]['Pop. Density'] + ' (per sq. mi.)';
+                        map[i]['Pop. Density'] = countryInfo[0]['Pop. Density'] + '<br>' + ' (per sq. mi.)';
                         map[i]['Net migration'] = countryInfo[0]['Net migration'];
-                        map[i].GDP = '$' + countryInfo[0].GDP + ' (per capita)';
+                        map[i].GDP = '$' + countryInfo[0].GDP + '<br>' + ' (per capita)';
                         map[i].Literacy = countryInfo[0].Literacy + '%';
                     }
                 }
@@ -316,12 +316,15 @@ Map.prototype.drawDetails = function(d, currentSelection) {
 
     vis.detailsWidth = $(element).width() - vis.margin.left - vis.margin.right;
 
-    // SVG country details area
-    vis.detailsSvg = d3.select(element).append("svg")
-        .attr("width", vis.detailsWidth + vis.margin.left + vis.margin.right)
-        .attr("height", 370)
-        .append("g")
-        .attr("transform", "translate(35, 50)");
+    if (vis.mapType != 'world') {
+
+        // SVG country details area
+        vis.detailsSvg = d3.select(element).append("svg")
+            .attr("width", vis.detailsWidth + vis.margin.left + vis.margin.right)
+            .attr("height", 370)
+            .append("g")
+            .attr("transform", "translate(35, 50)");
+
 
     // Check if data is available for selected country
     // Display barchart if data is available, otherwise display 'no data' message
@@ -341,18 +344,26 @@ Map.prototype.drawDetails = function(d, currentSelection) {
     } else {
         vis.drawDetailBarCharts(d, currentSelection);
     }
+
+    }
+
+    else {
+        vis.drawDetailBarCharts(d, currentSelection);
+    }
 }
 
 Map.prototype.drawDetailBarCharts = function(d, currentSelection) {
     var vis = this;
     var keys, values;
 
-    // Title: Name of country or state
-    vis.detailsSvg.append('text')
-        .attr('class', 'location-label')
-        .attr('x', 20)
-        .attr('y', -10)
-        .text(d[vis.countryOrState]);
+    if (vis.mapType != 'world') {
+        // Title: Name of country or state
+        vis.detailsSvg.append('text')
+            .attr('class', 'location-label')
+            .attr('x', 20)
+            .attr('y', -10)
+            .text(d[vis.countryOrState]);
+    }
 
     // reformat data, if Region is included in data then ignore it
     if (Object.keys(d.properties).indexOf('Region') >= 0) {
@@ -381,39 +392,57 @@ Map.prototype.drawDetailBarCharts = function(d, currentSelection) {
         .range([0, vis.detailsWidth]);
 
     // Add bars
-    vis.detailsSvg.selectAll('rect')
-        .data(detailsData)
-        .enter()
-        .append('rect')
-        .attr('class', 'bar')
-        .attr('width', function(d) { return x(d.value); } )
-        .attr('y', function(d) { return y(d.year); })
-        .attr('height', y.bandwidth())
-        .style('fill', function(d) {
-            return d.year === currentSelection ? 'var(--main-color)' : '#ccc';
-        });
 
-    // add the x Axis
-    vis.detailsSvg.append('g')
-        .attr('transform', 'translate(0,' + vis.height + ')')
-        .call(d3.axisBottom(x)
-            .ticks(5));
+    if (vis.mapType != 'world') {
+        vis.detailsSvg.selectAll('rect')
+            .data(detailsData)
+            .enter()
+            .append('rect')
+            .attr('class', 'bar')
+            .attr('width', function (d) {
+                return x(d.value);
+            })
+            .attr('y', function (d) {
+                return y(d.year);
+            })
+            .attr('height', y.bandwidth())
+            .style('fill', function (d) {
+                return d.year === currentSelection ? 'var(--main-color)' : '#ccc';
+            });
+
+        // add the x Axis
+        vis.detailsSvg.append('g')
+            .attr('transform', 'translate(0,' + vis.height + ')')
+            .call(d3.axisBottom(x)
+                .ticks(5));
 
 
-    // add the y Axis
-    vis.detailsSvg.append('g')
-        .call(d3.axisLeft(y));
+        // add the y Axis
+        vis.detailsSvg.append('g')
+            .call(d3.axisLeft(y));
+    }
 
     // Country General Information
     if (vis.mapType === 'world') {
+        console.log('hello')
+        var countryTitleDiv = document.createElement('div')
+        $(countryTitleDiv).append('<div class="country_header">' + d[vis.countryOrState] + '</div>');
+        $('#world_map_area_details').append(countryTitleDiv);
+
         var countryInfoDiv = document.createElement('div')
-        $(countryInfoDiv).append('<span class="map_header">'+'Population: ' + "</span>" + (numberWithCommas(d.Population) || 'Unknown') + '<br/>');
-        $(countryInfoDiv).append('<span class="map_header">'+'Area: ' + "</span>"+ numberWithCommas(d.Area) + '<br/>');
-        $(countryInfoDiv).append('<span class="map_header">'+'Population Density: '+ "</span>" + d['Pop. Density'] + '<br/>');
-        $(countryInfoDiv).append('<span class="map_header">'+'Net Migration: '+ "</span>" + d['Net migration'] + '<br/>');
-        $(countryInfoDiv).append('<span class="map_header">'+'GDP: '+ "</span>" + numberWithCommas(d.GDP) + '<br/>');
-        $(countryInfoDiv).append('<span class="map_header">'+'Literacy: '+ "</span>" + d.Literacy + '<br/>');
+        $(countryInfoDiv).append('<div class="map_bubble">'+'Population: ' + (numberWithCommas(d.Population) || 'Unknown') + '</div>');
+        $(countryInfoDiv).append('<div class="map_bubble">'+'Area: ' + numberWithCommas(d.Area) + '</div>');
         $('#world_map_area_details').append(countryInfoDiv);
+
+        var countryInfoDiv2 = document.createElement('div')
+        $(countryInfoDiv2).append('<div class="map_bubble" id="pop_dens">'+'Population Density: '+ '<br>' + d['Pop. Density'] + '</div>');
+        $(countryInfoDiv2).append('<div class="map_bubble">'+'Net Migration: ' + '<br>'+ d['Net migration'] + '</div>');
+        $('#world_map_area_details').append(countryInfoDiv2);
+
+        var countryInfoDiv3 = document.createElement('div')
+        $(countryInfoDiv3).append('<div class="map_bubble" id="gdp">'+'GDP: '+ '<br>'+  numberWithCommas(d.GDP) + '</div>');
+        $(countryInfoDiv3).append('<div class="map_bubble">'+'Literacy: '+ '<br>' + d.Literacy + '</div>');
+        $('#world_map_area_details').append(countryInfoDiv3);
     }
 }
 

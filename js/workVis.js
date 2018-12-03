@@ -1,7 +1,7 @@
 /*
  * AreaChart - Object constructor function
  * @param _parentElement 	-- the HTML element in which to draw the area chart
- * @param _data						-- the dataset 'household characteristics'
+ * @param _data						-- the dataset 'data for total number of visas by year.'
  */
 
 AreaChart = function(_parentElement, _data){
