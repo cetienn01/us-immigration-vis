@@ -384,9 +384,6 @@ WORLD MAP
     padding-left:40px;
 }
 
-.map_header{
-    color: var(--main-color);
-}
 
 .map_bubble{
     width: 150px;
@@ -396,14 +393,11 @@ WORLD MAP
     -webkit-border-radius: 50%;
     border-radius: 50%;
     margin:auto;
-
     display: inline-block;
-
     padding-top: 10% ;
     color:white;
     margin-left: 50px;
     margin-bottom: 25px;
-
     text-align: center;
     vertical-align: middle;
 }
@@ -414,6 +408,12 @@ WORLD MAP
 
 #gdp{
     padding-top: 7% ;
+}
+
+.country_header{
+    color: var(--text-color);
+    font-size: 20px;
+    padding-bottom: 10px;
 }
 
 

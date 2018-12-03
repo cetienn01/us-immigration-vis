@@ -425,6 +425,10 @@ Map.prototype.drawDetailBarCharts = function(d, currentSelection) {
     // Country General Information
     if (vis.mapType === 'world') {
         console.log('hello')
+        var countryTitleDiv = document.createElement('div')
+        $(countryTitleDiv).append('<div class="country_header">' + d[vis.countryOrState] + '</div>');
+        $('#world_map_area_details').append(countryTitleDiv);
+
         var countryInfoDiv = document.createElement('div')
         $(countryInfoDiv).append('<div class="map_bubble">'+'Population: ' + (numberWithCommas(d.Population) || 'Unknown') + '</div>');
         $(countryInfoDiv).append('<div class="map_bubble">'+'Area: ' + numberWithCommas(d.Area) + '</div>');
@@ -432,7 +436,7 @@ Map.prototype.drawDetailBarCharts = function(d, currentSelection) {
 
         var countryInfoDiv2 = document.createElement('div')
         $(countryInfoDiv2).append('<div class="map_bubble" id="pop_dens">'+'Population Density: '+ '<br>' + d['Pop. Density'] + '</div>');
-        $(countryInfoDiv2).append('<div class="map_bubble">'+'Net Migration: ' + d['Net migration'] + '</div>');
+        $(countryInfoDiv2).append('<div class="map_bubble">'+'Net Migration: ' + '<br>'+ d['Net migration'] + '</div>');
         $('#world_map_area_details').append(countryInfoDiv2);
 
         var countryInfoDiv3 = document.createElement('div')
