@@ -87,9 +87,9 @@ Map.prototype.drawMap = function() {
                     if (countryInfo.length > 0) {
                         map[i].Population = countryInfo[0].Population;
                         map[i].Area = countryInfo[0].Area + ' (sq. mi.)';
-                        map[i]['Pop. Density'] = countryInfo[0]['Pop. Density'] + ' (per sq. mi.)';
+                        map[i]['Pop. Density'] = countryInfo[0]['Pop. Density'] + '<br>' + ' (per sq. mi.)';
                         map[i]['Net migration'] = countryInfo[0]['Net migration'];
-                        map[i].GDP = '$' + countryInfo[0].GDP + ' (per capita)';
+                        map[i].GDP = '$' + countryInfo[0].GDP + '<br>' + ' (per capita)';
                         map[i].Literacy = countryInfo[0].Literacy + '%';
                     }
                 }
@@ -431,12 +431,12 @@ Map.prototype.drawDetailBarCharts = function(d, currentSelection) {
         $('#world_map_area_details').append(countryInfoDiv);
 
         var countryInfoDiv2 = document.createElement('div')
-        $(countryInfoDiv2).append('<div class="map_bubble">'+'Population Density: '+ '<br>' + d['Pop. Density'] + '</div>');
+        $(countryInfoDiv2).append('<div class="map_bubble" id="pop_dens">'+'Population Density: '+ '<br>' + d['Pop. Density'] + '</div>');
         $(countryInfoDiv2).append('<div class="map_bubble">'+'Net Migration: ' + d['Net migration'] + '</div>');
         $('#world_map_area_details').append(countryInfoDiv2);
 
         var countryInfoDiv3 = document.createElement('div')
-        $(countryInfoDiv3).append('<div class="map_bubble">'+'GDP: '+ '<br>'+  numberWithCommas(d.GDP) + '</div>');
+        $(countryInfoDiv3).append('<div class="map_bubble" id="gdp">'+'GDP: '+ '<br>'+  numberWithCommas(d.GDP) + '</div>');
         $(countryInfoDiv3).append('<div class="map_bubble">'+'Literacy: '+ '<br>' + d.Literacy + '</div>');
         $('#world_map_area_details').append(countryInfoDiv3);
     }

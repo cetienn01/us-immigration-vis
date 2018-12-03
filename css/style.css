@@ -396,13 +396,24 @@ WORLD MAP
     -webkit-border-radius: 50%;
     border-radius: 50%;
     margin:auto;
-    text-align: center;
+
     display: inline-block;
-    vertical-align: middle;
+
     padding-top: 10% ;
     color:white;
     margin-left: 50px;
     margin-bottom: 25px;
+
+    text-align: center;
+    vertical-align: middle;
+}
+
+#pop_dens{
+    padding-top: 5% ;
+}
+
+#gdp{
+    padding-top: 7% ;
 }
 
 
