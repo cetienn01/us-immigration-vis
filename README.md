@@ -11,7 +11,7 @@ Website is best viewed on a laptop screen.
 
 ## Files
 The following files can be found in the repository:
-* cleaned-data: contains data downloaded and cleaned/scrapped from USCIS, DOS, DHS used in this visualization project.  Original data can be downloaded from,
+* cleaned-data: contains data downloaded and cleaned/scrapped from USCIS, DOS, DHS used in this visualization project.  Original data can be downloaded from:<br/>
 https://www.uscis.gov/tools/reports-studies/immigration-forms-data<br/>
 https://travel.state.gov/content/travel/en/legal/visa-law0/visa-statistics/nonimmigrant-visa-statistics.html<br/>
 https://www.dhs.gov/immigration-statistics/yearbook/2017
