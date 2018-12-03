@@ -430,8 +430,8 @@ Map.prototype.drawDetailBarCharts = function(d, currentSelection) {
         $('#world_map_area_details').append(countryTitleDiv);
 
         var countryInfoDiv = document.createElement('div')
-        $(countryInfoDiv).append('<div class="map_bubble">'+'Population: ' + (numberWithCommas(d.Population) || 'Unknown') + '</div>');
-        $(countryInfoDiv).append('<div class="map_bubble">'+'Area: ' + numberWithCommas(d.Area) + '</div>');
+        $(countryInfoDiv).append('<div class="map_bubble">'+'Population: ' + '</br>'+ (numberWithCommas(d.Population) || 'Unknown') + '</div>');
+        $(countryInfoDiv).append('<div class="map_bubble">'+'Area: ' + '</br>'+ numberWithCommas(d.Area) + '</div>');
         $('#world_map_area_details').append(countryInfoDiv);
 
         var countryInfoDiv2 = document.createElement('div')
