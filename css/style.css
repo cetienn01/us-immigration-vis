@@ -410,6 +410,10 @@ WORLD MAP
     padding-top: 7% ;
 }
 
+#area{
+    padding-top: 7% ;
+}
+
 .country_header{
     color: var(--text-color);
     font-size: 20px;

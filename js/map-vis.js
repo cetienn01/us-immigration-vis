@@ -86,7 +86,7 @@ Map.prototype.drawMap = function() {
                     var countryInfo = vis.data[3].filter(function(info) { return info.Country.trim() === vis.mapData.names[j].name; });
                     if (countryInfo.length > 0) {
                         map[i].Population = countryInfo[0].Population;
-                        map[i].Area = countryInfo[0].Area + ' (sq. mi.)';
+                        map[i].Area = countryInfo[0].Area + '<br>'+ ' (sq. mi.)';
                         map[i]['Pop. Density'] = countryInfo[0]['Pop. Density'] + '<br>' + ' (per sq. mi.)';
                         map[i]['Net migration'] = countryInfo[0]['Net migration'];
                         map[i].GDP = '$' + countryInfo[0].GDP + '<br>' + ' (per capita)';
@@ -243,13 +243,27 @@ Map.prototype.updateVis = function() {
     }
 
     // Pass selected country into drawDetails function to draw barchart and display country info
-    // On initial page load, set world map to show data for India and US map to show California
-    if (vis.selected) {
-        var selected = vis.filteredData.filter(function(item) { return item.Country === vis.selected.Country });
-        vis.drawDetails(selected[0], currentSelection);
-    } else {
-        var index = (vis.mapType === 'world' ? 73 : 4);
-        vis.drawDetails(vis.filteredData[index], currentSelection);
+    // On initial page load, set world map to show the story text and US map to show California
+
+    if (vis.mapType != 'world') {
+        if (vis.selected) {
+            var selected = vis.filteredData.filter(function (item) {
+                return item.Country === vis.selected.Country
+            });
+            vis.drawDetails(selected[0], currentSelection);
+        } else {
+            var index = (vis.mapType === 'world' ? 73 : 4);
+            vis.drawDetails(vis.filteredData[index], currentSelection);
+        }
+    }
+
+    if (vis.mapType === 'world') {
+        if (vis.selected) {
+            var selected = vis.filteredData.filter(function (item) {
+                return item.Country === vis.selected.Country
+            });
+            vis.drawDetails(selected[0], currentSelection);
+        }
     }
 }
 
@@ -430,8 +444,8 @@ Map.prototype.drawDetailBarCharts = function(d, currentSelection) {
         $('#world_map_area_details').append(countryTitleDiv);
 
         var countryInfoDiv = document.createElement('div')
-        $(countryInfoDiv).append('<div class="map_bubble">'+'Population: ' + (numberWithCommas(d.Population) || 'Unknown') + '</div>');
-        $(countryInfoDiv).append('<div class="map_bubble">'+'Area: ' + numberWithCommas(d.Area) + '</div>');
+        $(countryInfoDiv).append('<div class="map_bubble">'+'Population: ' + '</br>'+ (numberWithCommas(d.Population) || 'Unknown') + '</div>');
+        $(countryInfoDiv).append('<div class="map_bubble" id="area">'+'Area: ' + '</br>'+ numberWithCommas(d.Area) + '</div>');
         $('#world_map_area_details').append(countryInfoDiv);
 
         var countryInfoDiv2 = document.createElement('div')
