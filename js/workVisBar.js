@@ -1,4 +1,9 @@
-//barchart constructor
+/*
+ * BarChart - Object constructor function
+ * @param _parentElement 	-- the HTML element in which to draw the area chart
+ * @param _data						-- the dataset 'data for work visa by year for specific
+ * characteristic: education, age, salary, occupation, industry.'
+ */
 BarChart = function(_parentElement, _data, _config){
     this.parentElement = _parentElement;
     this.data = _data;
