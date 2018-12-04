@@ -563,7 +563,7 @@ input[type=text] {
 .autocomplete-active {
     /*when navigating through the items using the arrow keys:*/
     background-color: var(--main-color); !important;
-    color: #ffffff;
+    color: var(--main-color);
 }
 
 .location-label {
